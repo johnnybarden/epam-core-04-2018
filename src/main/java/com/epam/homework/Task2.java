@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task2 {
 
     /**
@@ -38,11 +40,53 @@ public class Task2 {
      * (32): Солнце садится за горы лесистые.
      * (33): В царстве вечернем зеленой весны.
      */
-    public static void main(String[] args) {
-        // TODO реализация
 
-        // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
+    private static void swapStringsInArray(String[] arrayOfStrings, int j) {
+        String temp;
+
+        temp = arrayOfStrings[j];
+        arrayOfStrings[j] = arrayOfStrings[j + 1];
+        arrayOfStrings[j + 1] = temp;
+    }
+
+    public static void main(String[] args) {
+        int N;
+
+        Scanner in = new Scanner(System.in);
+        N = in.nextInt();
+        in.nextLine();
+
+        if (N <= 0 || N >= 100) {
+            throw new IllegalArgumentException("N should be more than 0 and less than 100");
+        }
+
+        String[] arrayOfStrings = new String[N];
+
+        for (int i = 0; i < N; i++) {
+            arrayOfStrings[i] = in.nextLine();
+        }
+
+        boolean stringsSwapped;
+
+        do {
+            stringsSwapped = false;
+
+            for (int j = 0; j < N - 1; j++) {
+                if (arrayOfStrings[j].length() > arrayOfStrings[j + 1].length()) {
+
+                    swapStringsInArray(arrayOfStrings, j);
+                    stringsSwapped = true;
+                } else if (arrayOfStrings[j].length() == arrayOfStrings[j + 1].length()){
+                    
+                    if (arrayOfStrings[j].compareTo(arrayOfStrings[j + 1]) > 0) {
+                        swapStringsInArray(arrayOfStrings, j);
+                    }
+                }
+            }
+        } while (stringsSwapped == true);
+
+        for (String current : arrayOfStrings){
+            System.out.println("(" + current.length() + "): " + current);
+        }
     }
 }
