@@ -1,4 +1,4 @@
-package main.java.com.epam.homework;
+package com.epam.homework;
 import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.util.Scanner;
