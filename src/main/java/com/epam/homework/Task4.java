@@ -43,11 +43,11 @@ public class Task4 {
         String[] wordsArr = inputString.split(" ");
         Integer countMinUniqueChar = Integer.MAX_VALUE;
 
-        for (int i = 0; i < wordsArr.length; i++) {
-            StringBuilder word = new StringBuilder(wordsArr[i]);
-            StringBuffer uniqueChar = new StringBuffer();
+        for (String currentWord: wordsArr) {
+            StringBuilder word = new StringBuilder(currentWord);
+            StringBuilder uniqueChar = new StringBuilder();
 
-            for (int j = 0; j < wordsArr[i].length(); j++) {
+            for (int j = 0; j < currentWord.length(); j++) {
                 if (!uniqueChar.toString().contains("" + word.charAt(j))) {
                     uniqueChar.append(word.charAt(j));
                 }
