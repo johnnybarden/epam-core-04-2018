@@ -1,4 +1,7 @@
-package com.epam.homework;
+package main.java.com.epam.homework;
+import com.sun.org.apache.xpath.internal.SourceTree;
+
+import java.util.Scanner;
 
 public class Task1 {
 
@@ -34,9 +37,32 @@ public class Task1 {
      * MAX (35): Приятна мне твоя прощальная краса —
      */
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner in = new Scanner(System.in);
+        Integer N = in.nextInt();
+        in.nextLine();
+        String[] arrString = new String[N];
 
-        // TODO System.out.println("MIN (" + minLength + "): " + minString);
-        // TODO System.out.println("MAX (" + maxLength + "): " + maxString);
+        for (int i = 0; i < N; i++) {
+            arrString[i] = in.nextLine();
+        }
+
+        Integer minLength = Integer.MAX_VALUE;
+        Integer maxLength  = Integer.MIN_VALUE;
+        String minString = "";
+        String maxString = "";
+
+        for (int i = 0; i < N; i++) {
+            if(arrString[i].length() <= minLength){
+                minLength  = arrString[i].length();
+                minString = arrString[i];
+            }
+            if(arrString[i].length() >= maxLength) {
+                maxLength = arrString[i].length();
+                maxString = arrString[i];
+            }
+        }
+
+        System.out.println("MIN (" + minLength + "): " + minString);
+        System.out.println("MAX (" + maxLength + "): " + maxString);
     }
 }
