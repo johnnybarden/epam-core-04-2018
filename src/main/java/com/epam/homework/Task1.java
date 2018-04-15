@@ -49,7 +49,7 @@ public class Task1 {
 
         try {
             int numberSentences = Integer.valueOf(reader.readLine());
-            while (count < numberSentences && numberSentences < 100 && numberSentences > 1) {
+            while (count < numberSentences && numberSentences < 100 && numberSentences > 0) {
                 line = reader.readLine();
                 while (line.length() > maxLength) {
                     maxString = line;
