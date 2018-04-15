@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task1 {
 
     /**
@@ -35,8 +37,29 @@ public class Task1 {
      */
     public static void main(String[] args) {
         // TODO реализация
+        int minLength = 2147483647;
+        String minString = "";
+        int maxLength = 0;
+        String maxString = "";
 
-        // TODO System.out.println("MIN (" + minLength + "): " + minString);
-        // TODO System.out.println("MAX (" + maxLength + "): " + maxString);
+
+        Scanner in = new Scanner(System.in);
+        int strCount =in.nextInt();
+        in.nextLine();
+        for (int i = 0; i < strCount; i++) {
+            String str = in.nextLine();
+            System.out.println(str);
+            if(str.length()>maxLength){
+                maxLength = str.length();
+                maxString = str;
+            }
+            if(str.length()<minLength){
+                minLength = str.length();
+                minString = str;
+            }
+        }
+
+        System.out.println("MIN (" + minLength + "): " + minString);
+        System.out.println("MAX (" + maxLength + "): " + maxString);
     }
 }
