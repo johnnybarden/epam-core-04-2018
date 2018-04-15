@@ -48,7 +48,6 @@ public class Task1 {
         in.nextLine();
         for (int i = 0; i < strCount; i++) {
             String str = in.nextLine();
-            System.out.println(str);
             if(str.length()>maxLength){
                 maxLength = str.length();
                 maxString = str;
