@@ -39,7 +39,7 @@ public class Task1 {
      */
     public static void main(String[] args) {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line;
         int count = 0;
         int minLength = 0;
@@ -48,9 +48,9 @@ public class Task1 {
         String minString = null;
 
         try {
-            int a = Integer.valueOf(br.readLine());
-            while (count < a && a < 100 && a > 1) {
-                line = br.readLine();
+            int numberSentences = Integer.valueOf(reader.readLine());
+            while (count < numberSentences && numberSentences < 100 && numberSentences > 1) {
+                line = reader.readLine();
                 while (line.length() > maxLength) {
                     maxString = line;
                     maxLength = line.length();
