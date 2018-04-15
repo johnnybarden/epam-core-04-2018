@@ -43,11 +43,23 @@ public class Task3 {
 
         Scanner in = new Scanner(System.in);
         int numStrings =in.nextInt();
+
         in.nextLine();
 
-        // TODO реализация
+        String[] array = new String[numStrings];
 
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
+        for (int i = 0; i < numStrings ; i++) {
+            array[i] = in.nextLine();
+            sumLength += array[i].length();
+        }
+
+        int averageLength = sumLength/numStrings;
+        System.out.println("AVERAGE ("+averageLength+")");
+
+        for (String current:array) {
+            if(current.length()<averageLength){
+                System.out.println("(" + current.length() + "): " + current);
+            }
+        }
     }
 }
