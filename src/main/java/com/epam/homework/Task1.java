@@ -48,11 +48,11 @@ public class Task1 {
         in.nextLine();
         for (int i = 0; i < strCount; i++) {
             String str = in.nextLine();
-            if(str.length()>maxLength){
+            if(str.length()>=maxLength){
                 maxLength = str.length();
                 maxString = str;
             }
-            if(str.length()<minLength){
+            if(str.length()<=minLength){
                 minLength = str.length();
                 minString = str;
             }
