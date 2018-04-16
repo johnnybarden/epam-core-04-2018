@@ -39,7 +39,7 @@ public class Task1 {
      */
     public static void main(String[] args) throws IOException {
         int numString;
-        int maxLength = 0;
+        int maxLength = Integer.MIN_VALUE;
         int minLength = Integer.MAX_VALUE;
         String inputString;
         StringBuilder maxString = new StringBuilder( );
