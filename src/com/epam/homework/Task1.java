@@ -54,7 +54,7 @@ public class Task1 {
                 maxString.append( inputString );
                 maxLength = maxString.length();
             }
-            if (Integer.compare( maxLength,inputString.length()) >= 0) {
+            if (Integer.compare( minLength,inputString.length()) >= 0) {
                 minString.delete( 0, minString.length() );
                 minString.append( inputString );
                 minLength = minString.length();
