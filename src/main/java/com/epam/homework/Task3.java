@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task3 {
 
     /**
@@ -37,11 +39,27 @@ public class Task3 {
      * (28): Ведь, если звезды зажигают -
      */
     public static void main(String[] args) {
-        // TODO реализация
 
-        // TODO System.out.println("AVERAGE (" + averageLength + ")");
-        // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
+        try (Scanner in = new Scanner(System.in)) {
+
+            int count = Integer.valueOf(in.nextLine());
+            String[] strings = new String[count];
+            int averageLength = 0;
+
+            for (int i = 0; i < count; i++) {
+                strings[i] = in.nextLine();
+                averageLength += strings[i].length();
+            }
+
+            averageLength /= count;
+
+            System.out.println("AVERAGE (" + averageLength + ")");
+
+            for (String str : strings) {
+                if (str.length() < averageLength) {
+                    System.out.println("(" + str.length() + "): " + str);
+                }
+            }
+        }
     }
 }
