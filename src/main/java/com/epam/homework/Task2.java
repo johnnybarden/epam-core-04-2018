@@ -1,5 +1,13 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Task2 {
 
     /**
@@ -26,11 +34,12 @@ public class Task2 {
      * Пример выполнения задания:
      *
      * Входные данные:
-     * 4
-     * Тихо струится река серебристая
-     * В царстве вечернем зеленой весны.
-     * Солнце садится за горы лесистые.
-     * Рог золотой выплывает луны.
+5
+Тихо струится река серебристая
+В царстве вечернем зеленой весны.
+Солнце садится за горы лесистые.
+Солнце садится за горы лесистыа.
+Рог золотой выплывает луны.
      *
      * Выходные данные:
      * (27): Рог золотой выплывает луны.
@@ -40,9 +49,22 @@ public class Task2 {
      */
     public static void main(String[] args) {
         // TODO реализация
-
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            List<String> lines = new ArrayList<>();
+            int lineNum = Integer.parseInt(br.readLine());
+            for (int i = 0; i < lineNum; i++) {
+                lines.add(br.readLine());
+            }
+            lines.stream()
+                    .sorted(Comparator.comparing(String::length)
+                                    .thenComparing(String::compareTo))
+                    .forEach(current -> System.out.println("(" + current.length() + "): " + current));
+        } catch (NumberFormatException | IOException e){
+            e.printStackTrace();
+        }
         // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
+        // TODO     "(" + current.length() + "): " + current;
         // TODO }
     }
 }
