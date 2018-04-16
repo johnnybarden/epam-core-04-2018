@@ -1,6 +1,8 @@
 package com.epam.homework;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Task4 {
 
@@ -43,21 +45,21 @@ public class Task4 {
         String[] wordsArr = inputString.split(" ", numbsOfWords);
         Integer countMinUniqueChar = Integer.MAX_VALUE;
 
-        for (String currentWord: wordsArr) {
+        for (String currentWord : wordsArr) {
+
+            Set<Character> uniqueChar = new HashSet<>();
             StringBuilder word = new StringBuilder(currentWord);
-            StringBuilder uniqueChar = new StringBuilder();
 
             for (int j = 0; j < currentWord.length(); j++) {
-                if (!uniqueChar.toString().contains(String.valueOf(word.charAt(j)))) {
-                    uniqueChar.append(word.charAt(j));
-                }
+                uniqueChar.add(word.charAt(j));
             }
 
-            if (countMinUniqueChar > uniqueChar.length()) {
-                countMinUniqueChar = uniqueChar.length();
+            if (countMinUniqueChar > uniqueChar.size()) {
+                countMinUniqueChar = uniqueChar.size();
                 wordWithMinimalNumDiffLetters = word.toString();
             }
         }
         return wordWithMinimalNumDiffLetters;
     }
+
 }
