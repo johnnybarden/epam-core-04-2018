@@ -51,7 +51,7 @@ public class Task1 {
             int numberSentences = Integer.valueOf(reader.readLine());
             while (count < numberSentences && numberSentences < 100 && numberSentences > 0) {
                 line = reader.readLine();
-                while (line.length() > maxLength) {
+                if(line.length() >= maxLength) {
                     maxString = line;
                     maxLength = line.length();
                 }
@@ -59,7 +59,7 @@ public class Task1 {
                     minLength = line.length();
                     minString = line;
                 }
-                while (line.length() < minLength) {
+                if (line.length() <= minLength) {
                     minString = line;
                     minLength = line.length();
                 }
