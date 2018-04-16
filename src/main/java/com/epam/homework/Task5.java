@@ -35,16 +35,15 @@ public class Task5 {
         try {
             int lineNum = Integer.parseInt(br.readLine());
             List<String> lines = Arrays.asList(br.readLine().toLowerCase().split(" "));
-            Set<Character> vovels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y'));
+            Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y'));
             Set<Character> consonant = new HashSet<>(Arrays.asList('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
                     'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'));
 
             lines.stream().filter(l -> {
                 Set<Character> lineSet = l.chars().mapToObj(e->(char)e)
                         .collect(Collectors.toSet());
-                int vowelSize = intersection(lineSet, vovels).size();
+                int vowelSize = intersection(lineSet, vowels).size();
                 int consonantSize = intersection(lineSet, consonant).size();
-
                 if (vowelSize == consonantSize && vowelSize != 0) {
                     return true;
                 }
@@ -54,7 +53,6 @@ public class Task5 {
         } catch (NumberFormatException | IOException e){
             e.printStackTrace();
         }
-        // TODO System.out.println(countWordsWithSameNumVowelsAndConsonants);
     }
     public static <T> Set<T> intersection(Set<T> setA, Set<T> setB) {
         Set<T> tmp = new HashSet<>();
