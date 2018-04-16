@@ -42,7 +42,7 @@ public class Task1 {
         int maxLength;
         String minString;
         String maxString;
-        String inString;
+        String enteredString;
 
         Scanner in = new Scanner(System.in);
         N = in.nextInt();
@@ -59,15 +59,15 @@ public class Task1 {
         maxLength = minLength;
 
         for (int i = 1; i < N; i++) {
-            inString = in.nextLine();
+            enteredString = in.nextLine();
 
-            if (inString.length() <= minLength) {
-                minString = inString;
+            if (enteredString.length() <= minLength) {
+                minString = enteredString;
                 minLength = minString.length();
             }
 
-            if (inString.length() >= maxLength) {
-                maxString = inString;
+            if (enteredString.length() >= maxLength) {
+                maxString = enteredString;
                 maxLength = maxString.length();
             }
         }
