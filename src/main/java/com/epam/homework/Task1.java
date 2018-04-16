@@ -38,7 +38,6 @@ public class Task1 {
      * MAX (35): Приятна мне твоя прощальная краса —
      */
     public static void main(String[] args) {
-        // TODO реализация
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             String minString = "";
@@ -60,7 +59,7 @@ public class Task1 {
             System.out.println("MIN (" + minLength + "): " + minString);
             System.out.println("MAX (" + maxLength + "): " + maxString);
         } catch (NumberFormatException | IOException e){
-
+            e.printStackTrace();
         }
     }
 }
