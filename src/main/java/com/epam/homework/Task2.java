@@ -1,6 +1,7 @@
 package com.epam.homework;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Task2 {
@@ -44,57 +45,43 @@ public class Task2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int size = Integer.parseInt(scanner.nextLine());
-        //String[] strings = new String[size];
-        Tree tree = new Tree(scanner.nextLine());
-        for (int i = 0; i < size; i++) {
-            tree.insert(new Tree(scanner.nextLine()));
-        }
 
-        tree.traverse();
-        /*for (String current : tree) {
-            System.out.println("(" + current.length() + "): " + current);
-        }*/
+        ArrayList<Strings> strings = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            strings.add(new Strings());
+        }
+        Collections.sort(strings);
+
+        for (Strings current : strings) {
+            System.out.println("(" + current.getKey().length() + "): " + current);
+        }
     }
 }
 
-    class Tree {
-        public Tree left;            // левое и правое поддеревья и ключ
-        public Tree right;
-        public String key;
-        public Tree(){
 
-        }
+class Strings implements Comparable<Strings> {
+    private String key;
 
-        public Tree(String k) {        // конструктор с инициализацией ключа
-            key = k;
-        }
-
-        /*  insert (добавление нового поддерева (ключа))
-            сравнить ключ добавляемого поддерева (К) с ключом корневого узла (X).
-            Если K>=X, рекурсивно добавить новое дерево в правое поддерево.
-            Если K<X, рекурсивно добавить новое дерево в левое поддерево.
-            Если поддерева нет, то вставить на это место новое дерево
-        */
-   public void insert(Tree aTree) {
-        if (aTree.key.length() < key.length())
-            if (left != null) left.insert(aTree);
-            else left = aTree;
-        else if (right != null) right.insert(aTree);
-        else right = aTree;
+    Strings() {
+        Scanner scanner = new Scanner(System.in);
+        key = scanner.nextLine();
     }
 
-    /*  traverse (обход)
-        Рекурсивно обойти левое поддерево.
-        Применить функцию f (печать) к корневому узлу.
-        Рекурсивно обойти правое поддерево.
-    */
-    public void traverse() {
-        if (left != null)
-            left.traverse();
+    public String getKey() {
+        return key;
+    }
 
-        System.out.println(" " + this.key);
+    @Override
+    public String toString() {
+        return key;
+    }
 
-        if (right != null)
-            right.traverse();
+
+    @Override
+    public int compareTo(Strings o) {
+        if (key.length() != o.getKey().length()) {
+            return Integer.compare(key.length(), o.getKey().length());
+        } else
+            return key.compareTo(o.getKey());
     }
 }
