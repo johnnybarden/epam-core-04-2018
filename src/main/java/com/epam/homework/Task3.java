@@ -1,5 +1,12 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 public class Task3 {
 
     /**
@@ -24,12 +31,12 @@ public class Task3 {
      * Пример выполнения задания:
      *
      * Входные данные:
-     * 5
-     * Послушайте!
-     * Ведь, если звезды зажигают -
-     * Значит - это кому-нибудь нужно?
-     * Значит - кто-то хочет, чтобы они были?
-     * Значит - кто-то называет эти плевочки жемчужиной?
+5
+Послушайте!
+Ведь, если звезды зажигают -
+Значит - это кому-нибудь нужно?
+Значит - кто-то хочет, чтобы они были?
+Значит - кто-то называет эти плевочки жемчужиной?
      *
      * Выходные данные:
      * AVERAGE (31)
@@ -38,7 +45,20 @@ public class Task3 {
      */
     public static void main(String[] args) {
         // TODO реализация
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            List<String> lines = new ArrayList<>();
+            int lineNum = Integer.parseInt(br.readLine());
+            for (int i = 0; i < lineNum; i++) {
+                lines.add(br.readLine());
+            }
+            int averageLength = (int)lines.stream().mapToInt(l -> l.length()).average().orElse(0);
+            System.out.println("AVERAGE (" + averageLength + ")");
+            lines.stream().filter(l -> l.length() < averageLength).forEach(current -> System.out.println("(" + current.length() + "): " + current));
 
+        } catch (NumberFormatException | IOException e){
+            e.printStackTrace();
+        }
         // TODO System.out.println("AVERAGE (" + averageLength + ")");
         // TODO foreach($current : $result) {
         // TODO     System.out.println("(" + current.length() + "): " + current);
