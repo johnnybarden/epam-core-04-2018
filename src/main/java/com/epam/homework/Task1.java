@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Task1 {
 
     /**
@@ -35,8 +39,28 @@ public class Task1 {
      */
     public static void main(String[] args) {
         // TODO реализация
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            String minString = "";
+            String maxString = "";
+            int minLength = Integer.MAX_VALUE;
+            int maxLength = Integer.MIN_VALUE;
+            int lineNum = Integer.parseInt(br.readLine());
+            for (int i = 0; i < lineNum; i++){
+                String line = br.readLine();
+                if (line.length() >= maxLength) {
+                    maxLength = line.length();
+                    maxString = line;
+                }
+                if (line.length() <= minLength) {
+                    minLength = line.length();
+                    minString = line;
+                }
+            }
+            System.out.println("MIN (" + minLength + "): " + minString);
+            System.out.println("MAX (" + maxLength + "): " + maxString);
+        } catch (NumberFormatException | IOException e){
 
-        // TODO System.out.println("MIN (" + minLength + "): " + minString);
-        // TODO System.out.println("MAX (" + maxLength + "): " + maxString);
+        }
     }
 }
