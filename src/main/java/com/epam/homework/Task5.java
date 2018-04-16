@@ -1,5 +1,11 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class Task5 {
 
     /**
@@ -25,8 +31,36 @@ public class Task5 {
      * 2
      */
     public static void main(String[] args) {
-        // TODO реализация
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            int lineNum = Integer.parseInt(br.readLine());
+            List<String> lines = Arrays.asList(br.readLine().toLowerCase().split(" "));
+            Set<Character> vovels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y'));
+            Set<Character> consonant = new HashSet<>(Arrays.asList('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
+                    'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'));
 
+            lines.stream().filter(l -> {
+                Set<Character> lineSet = l.chars().mapToObj(e->(char)e)
+                        .collect(Collectors.toSet());
+                int vowelSize = intersection(lineSet, vovels).size();
+                int consonantSize = intersection(lineSet, consonant).size();
+
+                if (vowelSize == consonantSize && vowelSize != 0) {
+                    return true;
+                }
+                return false;
+            }).forEach(System.out::println);
+
+        } catch (NumberFormatException | IOException e){
+            e.printStackTrace();
+        }
         // TODO System.out.println(countWordsWithSameNumVowelsAndConsonants);
+    }
+    public static <T> Set<T> intersection(Set<T> setA, Set<T> setB) {
+        Set<T> tmp = new HashSet<>();
+        for (T x : setA)
+            if (setB.contains(x))
+                tmp.add(x);
+        return tmp;
     }
 }
