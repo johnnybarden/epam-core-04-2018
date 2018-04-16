@@ -29,18 +29,18 @@ public class Task4 {
      */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        in.nextInt();
+        Integer numbsOfWords = in.nextInt();
         in.nextLine();
 
         String inputString = in.nextLine();
 
-        System.out.println(getWordWithMinUniqueLetters(inputString));
+        System.out.println(getWordWithMinUniqueLetters(inputString, numbsOfWords));
     }
 
-    private static String getWordWithMinUniqueLetters(String inputString) {
+    private static String getWordWithMinUniqueLetters(String inputString, Integer numbsOfWords) {
 
         String wordWithMinimalNumDiffLetters = "";
-        String[] wordsArr = inputString.split(" ");
+        String[] wordsArr = inputString.split(" ", numbsOfWords);
         Integer countMinUniqueChar = Integer.MAX_VALUE;
 
         for (String currentWord: wordsArr) {
@@ -48,7 +48,7 @@ public class Task4 {
             StringBuilder uniqueChar = new StringBuilder();
 
             for (int j = 0; j < currentWord.length(); j++) {
-                if (!uniqueChar.toString().contains("" + word.charAt(j))) {
+                if (!uniqueChar.toString().contains(String.valueOf(word.charAt(j)))) {
                     uniqueChar.append(word.charAt(j));
                 }
             }
