@@ -28,15 +28,15 @@ public class Task5 {
      */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        in.nextInt();
+        Integer numbsOfWords = in.nextInt();
         in.nextLine();
 
         String inputString = in.nextLine();
-        System.out.println(getCountWordsWithSameNumVowelsAndConsonants(inputString));
+        System.out.println(getCountWordsWithSameNumVowelsAndConsonants(inputString, numbsOfWords));
     }
 
-    private static Integer getCountWordsWithSameNumVowelsAndConsonants(String inputString) {
-        String[] wordsArr = inputString.split(" ");
+    private static Integer getCountWordsWithSameNumVowelsAndConsonants(String inputString, Integer numbsOfWords) {
+        String[] wordsArr = inputString.split(" ", numbsOfWords);
         Integer countWordsWithSameNumVowelsAndConsonants = 0;
 
         nextWord:
@@ -50,7 +50,7 @@ public class Task5 {
                         || ((word.charAt(i) >= 97 && word.charAt(i) <= 122)))) {
                     continue nextWord;
                 } else {
-                    if (("" + word.charAt(i)).matches("^[aeiouAEIOU]$")) {
+                    if ((String.valueOf(word.charAt(i))).matches("^[aeiouAEIOU]$")) {
                         countVowel++;
                     } else {
                         countConsonant++;
