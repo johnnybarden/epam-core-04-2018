@@ -1,5 +1,8 @@
 package com.epam.homework;
 
+import java.util.HashSet;
+import java.util.Scanner;
+
 public class Task4 {
 
     /**
@@ -26,8 +29,40 @@ public class Task4 {
      * a
      */
     public static void main(String[] args) {
-        // TODO реализация
 
-        // TODO System.out.println(wordWithMinimalNumDiffLetters);
+        try (Scanner in = new Scanner(System.in)) {
+
+            int count = Integer.valueOf(in.nextLine());
+            String[] words = new String[count];
+
+            for (int i = 0; i < count; i++) {
+                words[i] = in.next();
+            }
+
+            String wordWithMinUniqueLettersCount = words[0];
+
+            for (String word : words) {
+                if (getUniqueLettersCount(word) < getUniqueLettersCount(wordWithMinUniqueLettersCount)) {
+                    wordWithMinUniqueLettersCount = word;
+                }
+            }
+
+            System.out.println(wordWithMinUniqueLettersCount);
+        }
+    }
+
+    /**
+     * Gets count of unique letters in the word
+     */
+    private static int getUniqueLettersCount(String word) {
+
+        char[] letters = word.toCharArray();
+
+        HashSet<Character> uniqueLetters = new HashSet<>();
+        for (char letter : letters) {
+            uniqueLetters.add(letter);
+        }
+
+        return uniqueLetters.size();
     }
 }
