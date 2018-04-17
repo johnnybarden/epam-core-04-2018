@@ -1,6 +1,9 @@
 package com.epam.homework;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Task5 {
 
@@ -44,28 +47,35 @@ public class Task5 {
     private static Integer getCountWordsWithSameNumVowelsAndConsonants(String[] words) {
 
         Integer countWordsWithSameNumVowelsAndConsonants = 0;
-
         nextWord:
         for (String currentWord : words) {
             Integer countVowel = 0;
             Integer countConsonant = 0;
 
             for (int i = 0; i < currentWord.length(); i++) {
-                if (!((currentWord.charAt(i) >= 'A' && currentWord.charAt(i) <= 'Z')
-                        || ((currentWord.charAt(i) >= 'a' && currentWord.charAt(i) <= 'z')))) {
+                if (!isLatin(currentWord.charAt(i))) {
                     continue nextWord;
                 } else {
-                    if ((String.valueOf(currentWord.charAt(i))).matches("^[aeiouyYAEIOU]$")) {
+                    if (isVowel(currentWord.charAt(i))){
                         countVowel++;
                     } else {
                         countConsonant++;
                     }
                 }
             }
-
+            
             if (countConsonant.equals(countVowel))
                 countWordsWithSameNumVowelsAndConsonants++;
         }
         return countWordsWithSameNumVowelsAndConsonants;
+    }
+
+    private static boolean isLatin(char letter) {
+        return (letter >= 'A' && letter <= 'Z') || ((letter >= 'a' && letter <= 'z'));
+    }
+    
+    private static boolean isVowel(char letter){
+        Set<Character> vowel = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'));
+        return  vowel.contains(letter);
     }
 }
