@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+
 public class Task5 {
 
     /**
@@ -24,9 +28,42 @@ public class Task5 {
      * Выходные данные:
      * 2
      */
-    public static void main(String[] args) {
-        // TODO реализация
 
-        // TODO System.out.println(countWordsWithSameNumVowelsAndConsonants);
+    public static boolean isStringContainsEqualNumVowelsAndConsonants (String word) {
+        HashSet<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y'));
+        int numVowels = 0;
+        int numConsonants = 0;
+        char[] wordAsCharArray = word.toLowerCase().toCharArray();
+
+        for (int i = 0; i < wordAsCharArray.length; i++) {
+            if (vowels.contains(wordAsCharArray[i])) {
+                numVowels++;
+            } else {
+                numConsonants++;
+            }
+        }
+
+        return (numVowels == numConsonants);
+    }
+
+    public static void main(String[] args) {
+        int N;
+        Scanner in = new Scanner(System.in);
+
+        N = in.nextInt();
+        in.nextLine();
+
+        int countWordsWithSameNumVowelsAndConsonants = 0;
+        String word;
+
+       for (int i = 0; i < N; i++) {
+           word = in.next();
+
+           if ((word.matches("^[a-zA-Z]+$")) && (isStringContainsEqualNumVowelsAndConsonants(word))) {
+                countWordsWithSameNumVowelsAndConsonants++;
+           }
+       }
+
+        System.out.println(countWordsWithSameNumVowelsAndConsonants);
     }
 }
