@@ -76,7 +76,6 @@ class Strings implements Comparable<Strings> {
         return key;
     }
 
-
     @Override
     public int compareTo(Strings o) {
         if (key.length() != o.getKey().length()) {
