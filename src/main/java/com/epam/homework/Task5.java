@@ -31,26 +31,31 @@ public class Task5 {
         Integer numbsOfWords = in.nextInt();
         in.nextLine();
 
-        String inputString = in.nextLine();
-        System.out.println(getCountWordsWithSameNumVowelsAndConsonants(inputString, numbsOfWords));
+        String[] words = new String[numbsOfWords];
+
+        for (int i = 0; i < numbsOfWords; i++) {
+            words[i] = in.next();
+        }
+
+
+        System.out.println(getCountWordsWithSameNumVowelsAndConsonants(words));
     }
 
-    private static Integer getCountWordsWithSameNumVowelsAndConsonants(String inputString, Integer numbsOfWords) {
-        String[] wordsArr = inputString.split(" ", numbsOfWords);
+    private static Integer getCountWordsWithSameNumVowelsAndConsonants(String[] words) {
+
         Integer countWordsWithSameNumVowelsAndConsonants = 0;
 
         nextWord:
-        for (String currentWord : wordsArr) {
-            StringBuilder word = new StringBuilder(currentWord);
+        for (String currentWord : words) {
             Integer countVowel = 0;
             Integer countConsonant = 0;
 
-            for (int i = 0; i < word.length(); i++) {
-                if (!((word.charAt(i) >= 65 && word.charAt(i) <= 90)
-                        || ((word.charAt(i) >= 97 && word.charAt(i) <= 122)))) {
+            for (int i = 0; i < currentWord.length(); i++) {
+                if (!((currentWord.charAt(i) >= 'A' && currentWord.charAt(i) <= 'Z')
+                        || ((currentWord.charAt(i) >= 'a' && currentWord.charAt(i) <= 'z')))) {
                     continue nextWord;
                 } else {
-                    if ((String.valueOf(word.charAt(i))).matches("^[aeiouAEIOU]$")) {
+                    if ((String.valueOf(currentWord.charAt(i))).matches("^[aeiouyYAEIOU]$")) {
                         countVowel++;
                     } else {
                         countConsonant++;
