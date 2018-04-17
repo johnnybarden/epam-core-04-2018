@@ -1,5 +1,6 @@
 package com.epam.homework;
 
+import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -29,6 +30,7 @@ public class Task5 {
      * Выходные данные:
      * 2
      */
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Integer numbsOfWords = in.nextInt();
@@ -73,9 +75,9 @@ public class Task5 {
     private static boolean isLatin(char letter) {
         return (letter >= 'A' && letter <= 'Z') || ((letter >= 'a' && letter <= 'z'));
     }
-    
+    private final static Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'));
+
     private static boolean isVowel(char letter){
-        Set<Character> vowel = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'));
-        return  vowel.contains(letter);
+        return  vowels.contains(letter);
     }
 }
