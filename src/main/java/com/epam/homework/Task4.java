@@ -45,15 +45,13 @@ public class Task4 {
 
     public static void main(String[] args) {
         int N;
-        String wordWithMinimalNumDiffLetters;
-        int minimalNumDiffLetters;
-
         Scanner in = new Scanner(System.in);
+        
         N = in.nextInt();
         in.nextLine();
 
-        wordWithMinimalNumDiffLetters = in.next();
-        minimalNumDiffLetters = countNumDiffLetters(wordWithMinimalNumDiffLetters);
+        String wordWithMinimalNumDiffLetters = in.next();
+        int minimalNumDiffLetters = countNumDiffLetters(wordWithMinimalNumDiffLetters);
 
         String tempWord;
         int numOfDiffLetters;
