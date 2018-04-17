@@ -36,7 +36,7 @@ public class Task1 {
      * MAX (35): Приятна мне твоя прощальная краса —
      */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalArgumentException {
         int N;
         Scanner in = new Scanner(System.in);
 
