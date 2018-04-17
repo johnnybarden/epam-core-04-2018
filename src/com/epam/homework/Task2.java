@@ -1,9 +1,7 @@
 package com.epam.homework;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Task2 {
 
@@ -43,28 +41,24 @@ public class Task2 {
      * (32): Солнце садится за горы лесистые.
      * (33): В царстве вечернем зеленой весны.
      */
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        ArrayList<String> arrayList = new ArrayList<>();
-        String inputString;
+    public static void main(String[] args) {
+        Scanner in = new Scanner( System.in );
         int numStrings = 0;
 
-        try {
-            numStrings = Integer.parseInt( reader.readLine() );
-        } catch (NumberFormatException ex) {
-            //noinspection ThrowablePrintedToSystemOut
-            System.out.println( ex );
-        }
-        if ( numStrings >= 100 || numStrings <= 0 ) throw new IllegalArgumentException( "Wrong input" );
+        numStrings = in.nextInt();
+        in.nextLine();
+
+        String[] arrayStrings = new String[numStrings];
 
         for (int i = 0; i < numStrings; i++) {
-            inputString = reader.readLine();
-            arrayList.add( inputString );
+            arrayStrings[i] = in.nextLine();
         }
 
-        arrayList.sort( (o1, o2) -> ((o1.length() == o2.length())) ? o1.compareTo( o2 ) : Integer.compare( o1.length(), o2.length() ) );
+        Arrays.sort( arrayStrings, (o1, o2) -> {
+            return ((o1.length() == o2.length())) ? o1.compareTo( o2 ) : Integer.compare( o1.length(), o2.length() );
+        } );
 
-        for (String cur : arrayList) {
+        for (String cur : arrayStrings) {
             System.out.println( "(" + cur.length() + "): " + cur );
         }
     }
