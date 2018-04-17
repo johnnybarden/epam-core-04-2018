@@ -40,11 +40,6 @@ public class Task1 {
         Scanner in = new Scanner(System.in);
         Integer N = in.nextInt();
         in.nextLine();
-        String[] arrString = new String[N];
-
-        for (int i = 0; i < N; i++) {
-            arrString[i] = in.nextLine();
-        }
 
         Integer minLength = Integer.MAX_VALUE;
         Integer maxLength  = Integer.MIN_VALUE;
@@ -52,13 +47,14 @@ public class Task1 {
         String maxString = "";
 
         for (int i = 0; i < N; i++) {
-            if(arrString[i].length() <= minLength){
-                minLength  = arrString[i].length();
-                minString = arrString[i];
+            String inputString = in.nextLine();
+            if(inputString.length() <= minLength){
+                minLength  = inputString.length();
+                minString = inputString;
             }
-            if(arrString[i].length() >= maxLength) {
-                maxLength = arrString[i].length();
-                maxString = arrString[i];
+            if(inputString.length() >= maxLength) {
+                maxLength = inputString.length();
+                maxString = inputString;
             }
         }
 
