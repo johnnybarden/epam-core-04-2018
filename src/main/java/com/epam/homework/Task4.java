@@ -1,6 +1,5 @@
 package com.epam.homework;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -48,9 +47,13 @@ public class Task4 {
 
         String wordWithMinimalNumDiffLetters = wordsArr[0];
         Integer countMinUniqueChar = Integer.MAX_VALUE;
-
         for (String currentWord : wordsArr) {
-            HashSet uniqueChar = new HashSet(Arrays.asList(currentWord.toCharArray()));
+
+            Set<Character> uniqueChar = new HashSet<>();
+
+            for (int j = 0; j < currentWord.length(); j++) {
+                uniqueChar.add(currentWord.charAt(j));
+            }
 
             if (countMinUniqueChar > uniqueChar.size()) {
                 countMinUniqueChar = uniqueChar.size();
