@@ -54,7 +54,7 @@ public class Task3 {
             }
             int averageLength = (int)Math.floor(lines.stream().mapToInt(l -> l.length()).average().orElse(0));
             System.out.println("AVERAGE (" + averageLength + ")");
-            lines.stream().filter(l -> l.length() <= averageLength).forEach(current -> System.out.println("(" + current.length() + "): " + current));
+            lines.stream().filter(l -> l.length() < averageLength).forEach(current -> System.out.println("(" + current.length() + "): " + current));
 
         } catch (NumberFormatException | IOException e){
             e.printStackTrace();
