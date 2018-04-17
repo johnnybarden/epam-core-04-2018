@@ -12,14 +12,17 @@ public class Task4 {
         int counter = Integer.valueOf(scanner.nextLine());
         String s = scanner.nextLine();
         array = new ArrayList<>(Arrays.asList(s.split(" ")));
-        String result = "";
-        Collections.sort(array, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return getDifferences(o1) - getDifferences(o2);
+        int min = getDifferences(array.get(0));
+        int minIndex = 0;
+        for (int i = 1; i < array.size()-1; i++) {
+            if (getDifferences(array.get(i)) < min ) {
+                minIndex = i;
             }
-        });
-        System.out.println(array.get(0));
+            else if (getDifferences(array.get(i)) == min) {
+                minIndex = minIndex > i ? i : minIndex;
+            }
+        }
+        System.out.println(array.get(minIndex));
     }
 
     private static int getDifferences(String input) {
