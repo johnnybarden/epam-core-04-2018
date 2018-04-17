@@ -36,16 +36,12 @@ public class Task1 {
      * MAX (35): Приятна мне твоя прощальная краса —
      */
 
-    public static void main(String[] args) throws IllegalArgumentException {
+    public static void main(String[] args) {
         int N;
         Scanner in = new Scanner(System.in);
 
         N = in.nextInt();
         in.nextLine();
-
-        if (N <= 0 || N >= 100) {
-            throw new IllegalArgumentException("N should be more than 0 and less than 100");
-        }
 
         String minString = in.nextLine();
         int minLength = minString.length();
