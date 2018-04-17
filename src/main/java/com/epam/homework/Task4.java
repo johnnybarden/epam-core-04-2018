@@ -46,7 +46,7 @@ public class Task4 {
     private static String getWordWithMinUniqueLetters(String[] wordsArr) {
 
         String wordWithMinimalNumDiffLetters = wordsArr[0];
-
+        Integer countMinUniqueChar = Integer.MAX_VALUE;
         for (String currentWord : wordsArr) {
 
             Set<Character> uniqueChar = new HashSet<>();
@@ -55,7 +55,8 @@ public class Task4 {
                 uniqueChar.add(currentWord.charAt(j));
             }
 
-            if (wordWithMinimalNumDiffLetters.length() > uniqueChar.size()) {
+            if (countMinUniqueChar > uniqueChar.size()) {
+                countMinUniqueChar = uniqueChar.size();
                 wordWithMinimalNumDiffLetters = currentWord;
             }
         }
