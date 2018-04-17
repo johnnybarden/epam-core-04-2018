@@ -40,21 +40,20 @@ public class Task3 {
      */
     public static void main(String[] args) {
         int N;
-        int sumOfLengths = 0;
-        int averageLength;
-
         Scanner in = new Scanner(System.in);
+
         N = in.nextInt();
         in.nextLine();
 
         String[] arrayOfStrings = new String[N];
+        int sumOfLengths = 0;
 
         for (int i = 0; i < N; i++) {
             arrayOfStrings[i] = in.nextLine();
             sumOfLengths += arrayOfStrings[i].length();
         }
 
-        averageLength = Math.floorDiv(sumOfLengths, N);
+        int averageLength = Math.floorDiv(sumOfLengths, N);
 
         System.out.println("AVERAGE (" + averageLength + ")");
         for (String current : arrayOfStrings) {
@@ -62,5 +61,4 @@ public class Task3 {
                 System.out.println("(" + current.length() + "): " + current);
             }
         }
-    }
 }
