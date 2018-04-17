@@ -1,5 +1,6 @@
 package com.epam.homework;
 
+
 import java.util.*;
 
 public class Task2 {
@@ -19,7 +20,12 @@ public class Task2 {
         Collections.sort(array, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                return o1.length() - o2.length();
+                int i = o1.length() - o2.length();
+                if (i == 0) {
+                    return o1.compareTo(o2);
+                } else {
+                    return i;
+                }
             }
         });
         for (String a : array) {
