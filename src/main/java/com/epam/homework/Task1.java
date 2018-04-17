@@ -51,10 +51,10 @@ public class Task1 {
             if (s[i].length() >= s[indexOfMaxLength].length())
                 indexOfMaxLength = i;
         }
-        int minLength = s[indexOfMinLength].length();
-        int maxLength = s[indexOfMaxLength].length();
         String minString = s[indexOfMinLength];
         String maxString = s[indexOfMaxLength];
+        int minLength = minString.length();
+        int maxLength = maxString.length();
         System.out.println("MIN (" + minLength + "): " + minString);
         System.out.println("MAX (" + maxLength + "): " + maxString);
     }
