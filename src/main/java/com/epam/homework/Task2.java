@@ -44,7 +44,7 @@ public class Task2 {
      */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        Comparator<String> comparator = (o1, o2) -> o1.length() - o2.length();
+        Comparator<String> comparator = new MyStringComparator();
         int strCount =in.nextInt();
         in.nextLine();
         String[] array = new String[strCount];
@@ -57,4 +57,25 @@ public class Task2 {
         System.out.println("(" + current.length() + "): " + current);
         }
     }
+
+    public static class MyStringComparator implements Comparator<String>{
+        @Override
+        public int compare(String o1, String o2) {
+            if(o1.length() > o2.length()) {
+                return 1;
+            }
+
+            if(o1.length() < o2.length()) {
+                    return -1;
+            }
+
+            if(o1.equals(o2)) {
+                return 0;
+            }
+
+            return o1.compareTo(o2);
+
+        }
+    }
+
 }
