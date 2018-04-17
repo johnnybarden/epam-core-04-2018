@@ -60,3 +60,4 @@ public class Task1 {
         System.out.println("MAX (" + maxLength + "): " + maxString);
     }
 }
+
