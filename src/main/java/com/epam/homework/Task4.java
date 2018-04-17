@@ -36,7 +36,7 @@ Cake is a lie
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             int lineNum = Integer.parseInt(br.readLine());
-            List<String> lines = Arrays.asList(br.readLine().split(" "));
+            List<String> lines = Arrays.asList(br.readLine().split(" ")).subList(0, lineNum);
             int min = Integer.MAX_VALUE;
             String wordWithMinimalNumDiffLetters = "";
             for (int i = 0; i < lines.size(); i++) {
