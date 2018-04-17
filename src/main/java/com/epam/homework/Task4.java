@@ -34,32 +34,33 @@ public class Task4 {
         Integer numbsOfWords = in.nextInt();
         in.nextLine();
 
-        String inputString = in.nextLine();
+        String[] words = new String[numbsOfWords];
 
-        System.out.println(getWordWithMinUniqueLetters(inputString, numbsOfWords));
+        for (int i = 0; i < words.length; i++) {
+            words[i] = in.next();
+        }
+
+       System.out.println(getWordWithMinUniqueLetters(words));
     }
 
-    private static String getWordWithMinUniqueLetters(String inputString, Integer numbsOfWords) {
+    private static String getWordWithMinUniqueLetters(String[] wordsArr) {
 
-        String wordWithMinimalNumDiffLetters = "";
-        String[] wordsArr = inputString.split(" ", numbsOfWords);
-        Integer countMinUniqueChar = Integer.MAX_VALUE;
+        String wordWithMinimalNumDiffLetters = wordsArr[0];
 
         for (String currentWord : wordsArr) {
 
             Set<Character> uniqueChar = new HashSet<>();
-            StringBuilder word = new StringBuilder(currentWord);
 
             for (int j = 0; j < currentWord.length(); j++) {
-                uniqueChar.add(word.charAt(j));
+                uniqueChar.add(currentWord.charAt(j));
             }
 
-            if (countMinUniqueChar > uniqueChar.size()) {
-                countMinUniqueChar = uniqueChar.size();
-                wordWithMinimalNumDiffLetters = word.toString();
+            if (wordWithMinimalNumDiffLetters.length() > uniqueChar.size()) {
+                wordWithMinimalNumDiffLetters = currentWord;
             }
         }
         return wordWithMinimalNumDiffLetters;
     }
 
 }
+
