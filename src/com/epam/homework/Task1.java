@@ -49,11 +49,11 @@ public class Task1 {
         numString = Integer.parseInt(reader.readLine());
         for (int i = 0; i < numString; i++) {
             inputString = reader.readLine();
-            if (Integer.compare( maxLength,inputString.length()) <= 0) {
+            if (maxLength <= inputString.length()) {
                 maxString = inputString;
                 maxLength = maxString.length();
             }
-            if (Integer.compare( minLength,inputString.length()) >= 0) {
+            if (minLength >= inputString.length()) {
                 minString = inputString;
                 minLength = minString.length();
             }
