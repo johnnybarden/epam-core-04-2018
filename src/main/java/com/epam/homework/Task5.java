@@ -39,12 +39,12 @@ public class Task5 {
             Set<Character> consonant = new HashSet<>(Arrays.asList('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
                     'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'));
 
-            lines.stream().filter(l -> {
+            int result = (int)lines.stream().filter(l -> {
                 List<Character> lineList = l.chars().mapToObj(e->(char)e)
                         .collect(Collectors.toList());
                 return intersection(lineList, vowels, consonant);
-            }).forEach(System.out::println);
-
+            }).count();
+            System.out.println(result);
         } catch (NumberFormatException | IOException e){
             e.printStackTrace();
         }
