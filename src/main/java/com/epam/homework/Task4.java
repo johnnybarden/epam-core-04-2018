@@ -36,15 +36,15 @@ Cake is a lie
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             int lineNum = Integer.parseInt(br.readLine());
-            List<String> lines = Arrays.asList(br.readLine().split(" ")).subList(0, lineNum);
             int min = Integer.MAX_VALUE;
+            List<String> lines = Arrays.asList(br.readLine().split(" ")).subList(0, lineNum);
             String wordWithMinimalNumDiffLetters = "";
-            for (int i = 0; i < lines.size(); i++) {
-                int lineSize = lines.get(i).chars().mapToObj(e->(char)e)
+            for(String line: lines){
+                int lineSize = line.chars().mapToObj(e->(char)e)
                         .collect(Collectors.toSet())
                         .size();
                 if(min > lineSize) {
-                    wordWithMinimalNumDiffLetters = lines.get(i);
+                    wordWithMinimalNumDiffLetters = line;
                     min = lineSize;
                 }
             }
