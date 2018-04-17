@@ -44,19 +44,14 @@ public class Task1 {
         int indexOfMinLength = 0;
         String[] s = new String[n];
         for (int i = 0; i < s.length; i++) {
-            if (s.length < 100)
                 s[i] = reader.readLine();
             if (s[i].length() <= s[indexOfMinLength].length())
                 indexOfMinLength = i;
             if (s[i].length() >= s[indexOfMaxLength].length())
                 indexOfMaxLength = i;
         }
-        String minString = s[indexOfMinLength];
-        String maxString = s[indexOfMaxLength];
-        int minLength = minString.length();
-        int maxLength = maxString.length();
-        System.out.println("MIN (" + minLength + "): " + minString);
-        System.out.println("MAX (" + maxLength + "): " + maxString);
+        System.out.println("MIN (" + s[indexOfMinLength].length() + "): " + s[indexOfMinLength]);
+        System.out.println("MAX (" + s[indexOfMaxLength].length() + "): " + s[indexOfMaxLength]);
     }
 }
 
