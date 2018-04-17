@@ -40,25 +40,26 @@ public class Task5 {
                     'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'));
 
             lines.stream().filter(l -> {
-                Set<Character> lineSet = l.chars().mapToObj(e->(char)e)
-                        .collect(Collectors.toSet());
-                int vowelSize = intersection(lineSet, vowels).size();
-                int consonantSize = lineSet.size() - vowelSize;
-                if (vowelSize == consonantSize && vowelSize != 0) {
-                    return true;
-                }
-                return false;
+                List<Character> lineList = l.chars().mapToObj(e->(char)e)
+                        .collect(Collectors.toList());
+                return intersection(lineList, vowels, consonant);
             }).forEach(System.out::println);
 
         } catch (NumberFormatException | IOException e){
             e.printStackTrace();
         }
     }
-    public static <T> Set<T> intersection(Set<T> setA, Set<T> setB) {
-        Set<T> tmp = new HashSet<>();
-        for (T x : setA)
-            if (setB.contains(x))
-                tmp.add(x);
-        return tmp;
+    public static <T> boolean intersection(List<T> listChar, Set<T> setA, Set<T> setB) {
+        int vowelCounter = 0;
+        int consonantCounter = 0;
+        for (T x : listChar) {
+            if (setA.contains(x))
+                vowelCounter++;
+            else if (setB.contains(x))
+                consonantCounter++;
+            else
+                return false;
+        }
+        return vowelCounter == consonantCounter;
     }
 }
