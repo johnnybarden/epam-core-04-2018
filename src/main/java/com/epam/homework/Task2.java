@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.io.*;
+
 public class Task2 {
 
     /**
@@ -38,11 +40,27 @@ public class Task2 {
      * (32): Солнце садится за горы лесистые.
      * (33): В царстве вечернем зеленой весны.
      */
-    public static void main(String[] args) {
-        // TODO реализация
+    public static void main(String[] args) throws IOException{
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
+        String[] result = new String[Integer.parseInt(reader.readLine())];
+        result[0] = reader.readLine();
+
+        for (int i = 1; i < result.length; i++) {
+            result[i] = reader.readLine();
+
+            for (int j = i; j >0; j--) {
+                if(result[j].length() < result[j-1].length() || (result[j].length() == result[j-1].length() && result[j].compareTo(result[j-1]) < 0)){
+                    String sSub = result[j-1];
+                    result[j-1] = result[j];
+                    result[j] = sSub;
+                }
+                else break;
+            }
+        }
+
+        for(String current : result) {
+            System.out.println("(" + current.length() + "): " + current);
+             }
     }
 }
