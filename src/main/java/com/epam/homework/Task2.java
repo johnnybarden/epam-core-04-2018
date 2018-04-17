@@ -47,11 +47,7 @@ public class Task2 {
 
         N = in.nextInt();
         in.nextLine();
-
-        if (N <= 0 || N >= 100) {
-            throw new IllegalArgumentException("N should be more than 0 and less than 100");
-        }
-
+        
         String[] arrayOfStrings = new String[N];
 
         for (int i = 0; i < N; i++) {
