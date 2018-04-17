@@ -1,14 +1,9 @@
 package com.epam.homework;
 
-import com.sun.org.apache.xml.internal.utils.StringComparable;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
 
 public class Task2 {
 
@@ -50,11 +45,11 @@ public class Task2 {
      */
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int numString = Integer.parseInt(reader.readLine());
-        ArrayList<String> arrayList = new ArrayList<>();
+        int numStrings = Integer.parseInt( reader.readLine() );
+        ArrayList<String> arrayList = new ArrayList<>( numStrings );
         String inputString;
 
-        for (int i = 0; i < numString; i++) {
+        for (int i = 0; i < numStrings; i++) {
             inputString = reader.readLine();
             arrayList.add( inputString );
         }
