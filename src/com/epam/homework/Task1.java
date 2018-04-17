@@ -42,21 +42,19 @@ public class Task1 {
         int maxLength = Integer.MIN_VALUE;
         int minLength = Integer.MAX_VALUE;
         String inputString;
-        StringBuilder maxString = new StringBuilder( );
-        StringBuilder minString = new StringBuilder( );
+        String maxString = "";
+        String minString = "";
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         numString = Integer.parseInt(reader.readLine());
         for (int i = 0; i < numString; i++) {
             inputString = reader.readLine();
             if (Integer.compare( maxLength,inputString.length()) <= 0) {
-                maxString.delete( 0, maxString.length() );
-                maxString.append( inputString );
+                maxString = inputString;
                 maxLength = maxString.length();
             }
             if (Integer.compare( minLength,inputString.length()) >= 0) {
-                minString.delete( 0, minString.length() );
-                minString.append( inputString );
+                minString = inputString;
                 minLength = minString.length();
             }
         }
