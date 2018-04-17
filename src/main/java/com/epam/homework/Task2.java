@@ -44,9 +44,8 @@ public class Task2 {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         String[] result = new String[Integer.parseInt(reader.readLine())];
-        result[0] = reader.readLine();
 
-        for (int i = 1; i < result.length; i++) {
+        for (int i = 0; i < result.length; i++) {
             result[i] = reader.readLine();
 
             for (int j = i; j >0; j--) {
