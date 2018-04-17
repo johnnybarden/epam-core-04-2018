@@ -30,32 +30,33 @@ public class Task5 {
      * Выходные данные:
      * 2
      */
+
+    static final Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y'));
+    static final Set<Character> consonant = new HashSet<>(Arrays.asList('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
+            'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'));
+
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             int lineNum = Integer.parseInt(br.readLine());
             List<String> lines = Arrays.asList(br.readLine().toLowerCase().split(" ")).subList(0, lineNum);
-            Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y'));
-            Set<Character> consonant = new HashSet<>(Arrays.asList('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
-                    'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'));
-
-            int result = (int)lines.stream().filter(l -> {
+           int result = (int)lines.stream().filter(l -> {
                 List<Character> lineList = l.chars().mapToObj(e->(char)e)
                         .collect(Collectors.toList());
-                return intersection(lineList, vowels, consonant);
+                return intersection(lineList);
             }).count();
             System.out.println(result);
         } catch (NumberFormatException | IOException e){
             e.printStackTrace();
         }
     }
-    public static <T> boolean intersection(List<T> listChar, Set<T> setA, Set<T> setB) {
+    public static boolean intersection(List<Character> listChar) {
         int vowelCounter = 0;
         int consonantCounter = 0;
-        for (T x : listChar) {
-            if (setA.contains(x))
+        for (Character x : listChar) {
+            if (vowels.contains(x))
                 vowelCounter++;
-            else if (setB.contains(x))
+            else if (consonant.contains(x))
                 consonantCounter++;
             else
                 return false;
