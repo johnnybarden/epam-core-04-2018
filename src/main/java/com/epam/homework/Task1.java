@@ -42,26 +42,25 @@ public class Task1 {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line;
         int count = 0;
-        int minLength = 0;
+        int minLength = Integer.MIN_VALUE;
         int maxLength = 0;
         String maxString = null;
         String minString = null;
 
         try {
             int numberSentences = Integer.valueOf(reader.readLine());
-            while (count < numberSentences && numberSentences < 100 && numberSentences > 0) {
+            while (count < numberSentences) {
                 line = reader.readLine();
-                if(line.length() >= maxLength) {
+                if (line.length() >= maxLength) {
                     maxString = line;
                     maxLength = line.length();
                 }
-                if (minLength == 0) {
+                if (line.length() <= minLength && line.length() != 0) {
                     minLength = line.length();
                     minString = line;
-                }
-                if (line.length() <= minLength) {
-                    minString = line;
-                    minLength = line.length();
+                } else {
+                    minLength = 0;
+                    minString = "0";
                 }
                 count++;
             }
