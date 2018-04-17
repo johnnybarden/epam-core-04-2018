@@ -40,9 +40,7 @@ public class Task1 {
     public static void main(String[] args) throws IOException {
         String line;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Введите число строк");
         int N = Integer.parseInt(reader.readLine());
-        System.out.println("Введите строки");
         String minString = reader.readLine();
         String maxString = minString;
         int minLength = minString.length();
