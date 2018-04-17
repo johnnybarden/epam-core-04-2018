@@ -49,12 +49,10 @@ public class Task2 {
      * (33): В царстве вечернем зеленой весны.
      */
     public static void main(String[] args) throws IOException {
-        int numString;
-        String inputString;
-        ArrayList<String> arrayList = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        numString = Integer.parseInt(reader.readLine());
+        int numString = Integer.parseInt(reader.readLine());
+        ArrayList<String> arrayList = new ArrayList<>();
+        String inputString;
 
         for (int i = 0; i < numString; i++) {
             inputString = reader.readLine();
