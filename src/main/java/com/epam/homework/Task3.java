@@ -53,7 +53,7 @@ public class Task3 {
             sumOfLengths += arrayOfStrings[i].length();
         }
 
-        int averageLength = Math.floorDiv(sumOfLengths, N);
+        int averageLength = (N == 0)? 0 : Math.floorDiv(sumOfLengths, N);
 
         System.out.println("AVERAGE (" + averageLength + ")");
         for (String current : arrayOfStrings) {
@@ -61,4 +61,5 @@ public class Task3 {
                 System.out.println("(" + current.length() + "): " + current);
             }
         }
+    }
 }
