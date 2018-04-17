@@ -41,18 +41,10 @@ public class Task2 {
      * (33): В царстве вечернем зеленой весны.
      */
 
-    private static void swapStringsInArray(String[] arrayOfStrings, int j) {
-        String temp;
-
-        temp = arrayOfStrings[j];
-        arrayOfStrings[j] = arrayOfStrings[j + 1];
-        arrayOfStrings[j + 1] = temp;
-    }
-
     public static void main(String[] args) {
         int N;
-
         Scanner in = new Scanner(System.in);
+
         N = in.nextInt();
         in.nextLine();
 
@@ -66,24 +58,16 @@ public class Task2 {
             arrayOfStrings[i] = in.nextLine();
         }
 
-        boolean stringsSwapped;
-
-        do {
-            stringsSwapped = false;
-
-            for (int j = 0; j < N - 1; j++) {
-                if (arrayOfStrings[j].length() > arrayOfStrings[j + 1].length()) {
-
-                    swapStringsInArray(arrayOfStrings, j);
-                    stringsSwapped = true;
-                } else if (arrayOfStrings[j].length() == arrayOfStrings[j + 1].length()){
-                    
-                    if (arrayOfStrings[j].compareTo(arrayOfStrings[j + 1]) > 0) {
-                        swapStringsInArray(arrayOfStrings, j);
-                    }
+        Arrays.sort(arrayOfStrings, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                if (o1.length() == o2.length()) {
+                    return o1.compareTo(o2);
                 }
+
+                return Integer.compare(o1.length(), o2.length());
             }
-        } while (stringsSwapped == true);
+        });
 
         for (String current : arrayOfStrings){
             System.out.println("(" + current.length() + "): " + current);
