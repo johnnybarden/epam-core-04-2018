@@ -54,8 +54,6 @@ public class Task2 {
             result[i] = in.nextLine();
         }
 
-        Arrays.sort(result);
-
         Arrays.sort(result, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
