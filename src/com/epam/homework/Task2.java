@@ -45,9 +45,17 @@ public class Task2 {
      */
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int numStrings = Integer.parseInt( reader.readLine() );
-        ArrayList<String> arrayList = new ArrayList<>( numStrings );
+        ArrayList<String> arrayList = new ArrayList<>();
         String inputString;
+        int numStrings = 0;
+
+        try {
+            numStrings = Integer.parseInt( reader.readLine() );
+        } catch (NumberFormatException ex) {
+            //noinspection ThrowablePrintedToSystemOut
+            System.out.println( ex );
+        }
+        if ( numStrings >= 100 || numStrings <= 0 ) throw new IllegalArgumentException( "Wrong input" );
 
         for (int i = 0; i < numStrings; i++) {
             inputString = reader.readLine();
