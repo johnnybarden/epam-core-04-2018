@@ -43,6 +43,10 @@ public class Task3 {
         try (Scanner in = new Scanner(System.in)) {
 
             int count = Integer.valueOf(in.nextLine());
+            if (count < 1) {
+                return;
+            }
+
             String[] strings = new String[count];
             int averageLength = 0;
 
