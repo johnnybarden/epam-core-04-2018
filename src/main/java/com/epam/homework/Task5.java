@@ -43,7 +43,7 @@ public class Task5 {
                 Set<Character> lineSet = l.chars().mapToObj(e->(char)e)
                         .collect(Collectors.toSet());
                 int vowelSize = intersection(lineSet, vowels).size();
-                int consonantSize = intersection(lineSet, consonant).size();
+                int consonantSize = lineSet.size() - vowelSize;
                 if (vowelSize == consonantSize && vowelSize != 0) {
                     return true;
                 }
