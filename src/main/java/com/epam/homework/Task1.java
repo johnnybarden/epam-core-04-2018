@@ -38,13 +38,8 @@ public class Task1 {
 
     public static void main(String[] args) {
         int N;
-        int minLength;
-        int maxLength;
-        String minString;
-        String maxString;
-        String enteredString;
-
         Scanner in = new Scanner(System.in);
+
         N = in.nextInt();
         in.nextLine();
 
@@ -52,11 +47,13 @@ public class Task1 {
             throw new IllegalArgumentException("N should be more than 0 and less than 100");
         }
 
-        minString = in.nextLine();
-        minLength = minString.length();
+        String minString = in.nextLine();
+        int minLength = minString.length();
 
-        maxString = minString;
-        maxLength = minLength;
+        String maxString = minString;
+        int maxLength = minLength;
+
+        String enteredString;
 
         for (int i = 1; i < N; i++) {
             enteredString = in.nextLine();
