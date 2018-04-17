@@ -48,11 +48,11 @@ public class Task1 {
 
                 String currentString = scanner.nextLine();
 
-                if (i == 0 || currentString.length() <= minString.length()) {
+                if (currentString.length() <= minString.length() || i == 0) {
                     minString = currentString;
                 }
 
-                if (i == 0 || currentString.length() >= maxString.length()) {
+                if (currentString.length() >= maxString.length() || i == 0) {
                     maxString = currentString;
                 }
             }
