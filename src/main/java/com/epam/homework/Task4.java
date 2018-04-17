@@ -26,7 +26,10 @@ public class Task4 {
         int result = 0;
         for (int i = 0; i < input.length()-1; i++) {
             for (int y = i+1; y < input.length(); y++) {
-                if (input.charAt(i) != input.charAt(y)) {
+                if (input.charAt(i) != input.charAt(y) ||
+                        (input.charAt(i) == input.charAt(y) &&
+                                (Character.isLowerCase(input.charAt(i)) && Character.isUpperCase(input.charAt(y)) ||
+                                        Character.isLowerCase(input.charAt(y)) && Character.isUpperCase(input.charAt(i))))) {
                     result++;
                 }
             }
