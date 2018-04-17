@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task1 {
 
     /**
@@ -34,9 +36,27 @@ public class Task1 {
      * MAX (35): Приятна мне твоя прощальная краса —
      */
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner sc = new Scanner(System.in);
 
-        // TODO System.out.println("MIN (" + minLength + "): " + minString);
-        // TODO System.out.println("MAX (" + maxLength + "): " + maxString);
+        int lineCount = Integer.parseInt(sc.nextLine());
+        
+        String minString = sc.nextLine();
+        String maxString = minString;
+        
+        String nextLine;
+
+        while(--lineCount > 0) {
+            nextLine = sc.nextLine();
+
+            if (nextLine.length() <= minString.length()) {
+                minString = nextLine;
+            }
+            if (nextLine.length() >= maxString.length()) {
+                maxString = nextLine;
+            }
+        }
+
+        System.out.println("MIN (" + minString.length() + "): " + minString);
+        System.out.println("MAX (" + maxString.length() + "): " + maxString);
     }
 }
