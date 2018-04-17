@@ -67,6 +67,7 @@ public class Task2 {
 
         for (String current : result) {
             System.out.println("(" + current.length() + "): " + current);
+
         }
     }
 }
