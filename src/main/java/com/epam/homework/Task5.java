@@ -34,7 +34,7 @@ public class Task5 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             int lineNum = Integer.parseInt(br.readLine());
-            List<String> lines = Arrays.asList(br.readLine().toLowerCase().split(" "));
+            List<String> lines = Arrays.asList(br.readLine().toLowerCase().split(" ")).subList(0, lineNum);
             Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y'));
             Set<Character> consonant = new HashSet<>(Arrays.asList('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
                     'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'));
