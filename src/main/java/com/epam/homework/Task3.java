@@ -52,9 +52,9 @@ public class Task3 {
             for (int i = 0; i < lineNum; i++) {
                 lines.add(br.readLine());
             }
-            int averageLength = (int)lines.stream().mapToInt(l -> l.length()).average().orElse(0);
+            int averageLength = (int)Math.floor(lines.stream().mapToInt(l -> l.length()).average().orElse(0));
             System.out.println("AVERAGE (" + averageLength + ")");
-            lines.stream().filter(l -> l.length() < averageLength).forEach(current -> System.out.println("(" + current.length() + "): " + current));
+            lines.stream().filter(l -> l.length() <= averageLength).forEach(current -> System.out.println("(" + current.length() + "): " + current));
 
         } catch (NumberFormatException | IOException e){
             e.printStackTrace();
