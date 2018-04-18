@@ -16,34 +16,38 @@ public class Task5 {
         boolean flag = false;
         String input = scanner.nextLine();
         listOfWords = new ArrayList<>(Arrays.asList(input.split(" ")));
-        for (String a : listOfWords) {
-            for (int i = 0; i < a.length(); i++) {
-                char c = a.charAt(i);
-                if (((c >= 'a')&&(c <= 'z')) || ((c >= 'A')&&(c <= 'Z'))) {
-                    flag = true;
-                    c = Character.toLowerCase(c);
-                    switch (c) {
-                        case 'a':
-                        case 'e':
-                        case 'i':
-                        case 'o':
-                        case 'u':
-                        case 'y': glassCounter++;
-                            break;
-                        default: soglassCounter++;
+        if (counter == listOfWords.size()) {
+            for (String a : listOfWords) {
+                for (int i = 0; i < a.length(); i++) {
+                    char c = a.charAt(i);
+                    if (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z'))) {
+                        flag = true;
+                        c = Character.toLowerCase(c);
+                        switch (c) {
+                            case 'a':
+                            case 'e':
+                            case 'i':
+                            case 'o':
+                            case 'u':
+                            case 'y':
+                                glassCounter++;
+                                break;
+                            default:
+                                soglassCounter++;
+                        }
+                    } else {
+                        flag = false;
+                        glassCounter = 0;
+                        soglassCounter = 0;
+                        break;
                     }
-                } else {
-                    flag = false;
-                    glassCounter = 0;
-                    soglassCounter = 0;
-                    break;
                 }
+                if (flag && glassCounter == soglassCounter) {
+                    count++;
+                }
+                glassCounter = 0;
+                soglassCounter = 0;
             }
-            if (flag && glassCounter == soglassCounter) {
-                count++;
-            }
-            glassCounter = 0;
-            soglassCounter = 0;
         }
         System.out.println(count);
     }
