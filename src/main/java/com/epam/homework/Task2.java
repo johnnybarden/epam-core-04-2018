@@ -1,5 +1,11 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Task2 {
 
     /**
@@ -38,11 +44,25 @@ public class Task2 {
      * (32): Солнце садится за горы лесистые.
      * (33): В царстве вечернем зеленой весны.
      */
-    public static void main(String[] args) {
-        // TODO реализация
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(reader.readLine());
+        String[] result = new String[N];
+        for (int i=0; i<N; i++) {
+            result[i] = reader.readLine();
+        }
+        Arrays.sort(result, new CompareLength());
+        for(String current : result) {
+        System.out.println("(" + current.length() + "): " + current);
+        }
+    }
 
-        // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
+    public static class CompareLength implements Comparator<String> {
+
+        @Override
+        public int compare(String o1, String o2) {
+            if (o1.length() == o2.length()) return o1.compareToIgnoreCase(o2);
+            else return o1.length() - o2.length();
+        }
     }
 }
