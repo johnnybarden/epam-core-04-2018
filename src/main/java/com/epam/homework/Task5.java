@@ -18,11 +18,11 @@ public class Task5 {
         listOfWords = new ArrayList<>(Arrays.asList(input.split(" ")));
         if (counter == listOfWords.size()) {
             for (String a : listOfWords) {
+                a = a.toLowerCase();
                 for (int i = 0; i < a.length(); i++) {
                     char c = a.charAt(i);
-                    if (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z'))) {
+                    if (((c >= 'a') && (c <= 'z'))) {
                         flag = true;
-                        c = Character.toLowerCase(c);
                         switch (c) {
                             case 'a':
                             case 'e':
@@ -42,7 +42,7 @@ public class Task5 {
                         break;
                     }
                 }
-                if (flag && glassCounter == soglassCounter) {
+                if (flag && (glassCounter == soglassCounter)) {
                     count++;
                 }
                 glassCounter = 0;
