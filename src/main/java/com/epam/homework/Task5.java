@@ -34,6 +34,7 @@ public class Task5 {
                     }
                 } else {
                     flag = false;
+                    break;
                 }
             }
             if (flag && glassCounter == soglassCounter) {
