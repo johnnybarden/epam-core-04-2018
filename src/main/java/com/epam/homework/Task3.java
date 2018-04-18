@@ -1,5 +1,11 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Task3 {
 
     /**
@@ -36,12 +42,25 @@ public class Task3 {
      * (11): Послушайте!
      * (28): Ведь, если звезды зажигают -
      */
-    public static void main(String[] args) {
-        // TODO реализация
-
-        // TODO System.out.println("AVERAGE (" + averageLength + ")");
-        // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(reader.readLine());
+        List<String> result = new ArrayList<>();
+        int averageLength = 0;
+        for (int i=0; i<n; i++) {
+            result.add(reader.readLine());
+            averageLength = averageLength + result.get(i).length();
+        }
+        averageLength = averageLength / n;
+        for (int i=0; i<result.size(); i++) {
+            if (result.get(i).length()>=averageLength) {
+                result.remove(i);
+                i--;
+            }
+        }
+        System.out.println("AVERAGE (" + averageLength + ")");
+        for(String current : result) {
+        System.out.println("(" + current.length() + "): " + current);
+        }
     }
 }
