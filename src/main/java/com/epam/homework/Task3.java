@@ -50,11 +50,7 @@ public class Task3 {
             averageLength += arrayList.get(i).length();
         }
 
-        try {
-            averageLength /= size;
-        } catch (ArithmeticException e) {
-            System.out.println("AVERAGE (0)");
-        }
+        averageLength = size != 0 ? averageLength / size : 0;
 
         System.out.println("AVERAGE (" + averageLength + ")");
         for (String current : arrayList) {
