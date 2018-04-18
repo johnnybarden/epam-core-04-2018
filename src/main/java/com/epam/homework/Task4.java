@@ -1,5 +1,6 @@
 package com.epam.homework;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Task4 {
@@ -36,8 +37,9 @@ public class Task4 {
         for (int i = 0; i < n; i++) {
             strings[i] = scanner.next();
         }
-
-        String wordWithMinimalNumDiffLetters ="";
+        //////////////////////////////////////////////////
+        //First release. Without Sets
+        /*String wordWithMinimalNumDiffLetters ="";
         int minNum = Integer.MAX_VALUE;
 
         for (String str : strings) {
@@ -54,7 +56,25 @@ public class Task4 {
                 minNum = min;
                 wordWithMinimalNumDiffLetters = str;
             }
+        }*////////////////////////////////////////////////
+
+        System.out.println(WordWithMinimalNumDiffLetters(strings));
+    }
+
+    public static String WordWithMinimalNumDiffLetters(String[] strings){
+
+        String wordWithMinimalNumDiffLetters = strings[0];
+        int minimalNumDiffLetters = Integer.MAX_VALUE;
+        for (String string : strings) {
+            HashSet<Character> hashSet = new HashSet<>();
+            for (int i = 0; i < string.length(); i++) {
+                hashSet.add(string.charAt(i));
+            }
+            if (hashSet.size() < minimalNumDiffLetters){
+                wordWithMinimalNumDiffLetters = string;
+                minimalNumDiffLetters = hashSet.size();
+            }
         }
-        System.out.println(wordWithMinimalNumDiffLetters);
+        return wordWithMinimalNumDiffLetters;
     }
 }
