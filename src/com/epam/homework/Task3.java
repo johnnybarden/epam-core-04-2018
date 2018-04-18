@@ -1,13 +1,9 @@
 package com.epam.homework;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class Task3 {
-
     /**
      * Ввести N строк с консоли.
      * Вывести те строки, длина которых меньше средней.
@@ -43,27 +39,23 @@ public class Task3 {
      * (28): Ведь, если звезды зажигают -
      */
     public static void main(String[] args) {
-        BufferedReader reader = new BufferedReader( new InputStreamReader( System.in ) );
-        try {
-            List<String> arrayStrings = new ArrayList<>();
-            int numString = Integer.parseInt( reader.readLine() );
-            int sum = 0;
+        int averageLength = 0;
+        Scanner s = new Scanner( System.in );
+        int size = Integer.parseInt( s.nextLine() );
+        ArrayList<String> arrayList = new ArrayList<>( size );
 
-            for (int i = 0; i < numString; i++) {
-                arrayStrings.add( reader.readLine() );
-                sum += arrayStrings.get( i ).length();
-            }
-
-            int averageLength = (numString != 0) ? Math.floorDiv( sum, numString ) : 0;
-
-            System.out.println( "AVERAGE (" + averageLength + ")" );
-            for (String current : arrayStrings) {
-                if ( current.length() < averageLength )
-                    System.out.println( "(" + current.length() + "): " + current );
-            }
-        } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
+        for (int i = 0; i < size; i++) {
+            arrayList.add( s.nextLine() );
+            averageLength += arrayList.get( i ).length();
         }
 
+        averageLength = size != 0 ? averageLength / size : 0;
+
+        System.out.println( "AVERAGE (" + averageLength + ")" );
+        for (String current : arrayList) {
+            if ( current.length() < averageLength ) {
+                System.out.println( "(" + current.length() + "): " + current );
+            }
+        }
     }
 }
