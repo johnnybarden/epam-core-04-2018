@@ -1,6 +1,7 @@
 package com.epam.homework;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Task2 {
@@ -9,14 +10,14 @@ public class Task2 {
      * Ввести N строк с консоли.
      * Упорядочить и вывести строки в порядке возрастания значений их длины.
      * В случае, если длины строк совпадают - упорядочить их в лексикографическом порядке.
-     * <p>
+     *
      * Формат входных данных:
      * N (целое число, 0 < N < 100) - количество доступных для чтения строк
      * Строка_1
      * Строка_2
      * ...
      * Строка_N
-     * <p>
+     *
      * Формат выходных данных:
      * В результате выполнения в выходной поток должны быть выведены N строк следующего вида:
      * (длина строки): строка наименьшей длины
@@ -24,17 +25,17 @@ public class Task2 {
      * (длина строки): строка большей длины
      * ...
      * (длина строки): строка наибольшей длины
-     * <p>
+     *
      * ----------------------------------------------------------------------------------------------
      * Пример выполнения задания:
-     * <p>
+     *
      * Входные данные:
      * 4
      * Тихо струится река серебристая
      * В царстве вечернем зеленой весны.
      * Солнце садится за горы лесистые.
      * Рог золотой выплывает луны.
-     * <p>
+     *
      * Выходные данные:
      * (27): Рог золотой выплывает луны.
      * (30): Тихо струится река серебристая
@@ -42,24 +43,24 @@ public class Task2 {
      * (33): В царстве вечернем зеленой весны.
      */
     public static void main(String[] args) {
-        Scanner in = new Scanner( System.in );
-        int numStrings = 0;
-
-        numStrings = in.nextInt();
-        in.nextLine();
-
-        String[] arrayStrings = new String[numStrings];
-
-        for (int i = 0; i < numStrings; i++) {
-            arrayStrings[i] = in.nextLine();
+        Scanner scan = new Scanner( System.in );
+        if ( scan.hasNextInt() ) {
+            int num = Integer.parseInt( scan.nextLine() );
+            List<String> myList = new ArrayList<>();
+            for (int i = 0; i < num; i++) {
+                myList.add( scan.nextLine() );
+            }
+            myList.sort( Task2::compare );
+            for (String cur : myList) {
+                System.out.println( "(" + cur.length() + "): " + cur );
+            }
         }
+    }
 
-        Arrays.sort( arrayStrings, (o1, o2) -> {
-            return ((o1.length() == o2.length())) ? o1.compareTo( o2 ) : Integer.compare( o1.length(), o2.length() );
-        } );
-
-        for (String cur : arrayStrings) {
-            System.out.println( "(" + cur.length() + "): " + cur );
-        }
+    private static int compare(String s1, String s2) {
+        if ( s1.length() != s2.length() )
+            return s1.length() - s2.length();
+        else
+            return s1.compareTo( s2 );
     }
 }
