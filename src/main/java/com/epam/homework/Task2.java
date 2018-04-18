@@ -48,7 +48,7 @@ public class Task2 {
 
         ArrayList<Strings> strings = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
-            strings.add(new Strings());
+            strings.add(new Strings(scanner.nextLine()));
         }
         Collections.sort(strings);
 
@@ -62,9 +62,8 @@ public class Task2 {
 class Strings implements Comparable<Strings> {
     private String key;
 
-    Strings() {
-        Scanner scanner = new Scanner(System.in);
-        key = scanner.nextLine();
+    Strings(String key) {
+        this.key = key;
     }
 
     public String getKey() {
