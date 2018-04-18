@@ -54,21 +54,16 @@ public class Task2 {
             }
         }
 
-        Arrays.sort(lines, new MyStringComparator());
+        Arrays.sort(lines, (String str1, String str2) -> {
+            if (str1.length() == str2.length()) {
+                return str1.compareTo(str2);
+            }
+
+            return Integer.compare(str1.length(), str2.length());
+        });
 
         for (String line: lines) {
             System.out.println("(" + line.length() + "): " + line);
         }
-    }
-}
-
-class MyStringComparator implements Comparator<String> {
-    @Override
-    public int compare(String str1, String str2) {
-        int compareByLength = Integer.compare(str1.length(), str2.length());
-
-        return compareByLength != 0 ?
-                compareByLength :
-                str1.compareTo(str2);
     }
 }
