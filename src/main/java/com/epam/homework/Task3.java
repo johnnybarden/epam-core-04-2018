@@ -1,5 +1,11 @@
 package com.epam.homework;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class Task3 {
 
     /**
@@ -37,11 +43,23 @@ public class Task3 {
      * (28): Ведь, если звезды зажигают -
      */
     public static void main(String[] args) {
-        // TODO реализация
+        String[] lines;
 
-        // TODO System.out.println("AVERAGE (" + averageLength + ")");
-        // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
+        try (Scanner sc = new Scanner(System.in)){
+            int count = Integer.valueOf(sc.nextLine());
+            lines = new String[count];
+
+            for (int i = 0; i < count; i++) {
+                lines[i] = sc.nextLine();
+            }
+        }
+
+        int averageLength = (int) Arrays.stream(lines).mapToInt(String::length).average().orElse(0);
+        lines = Arrays.stream(lines).filter((line) -> line.length() < averageLength).toArray(String[]::new);
+
+        System.out.println("AVERAGE (" + averageLength + ")");
+        for (String line : lines) {
+            System.out.println("(" + line.length() + "): " + line);
+        }
     }
 }
