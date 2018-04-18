@@ -33,18 +33,16 @@ public class Task5 {
         try (Scanner in = new Scanner(System.in)) {
 
             int wordsCount = Integer.valueOf(in.nextLine());
-            String[] words = new String[wordsCount];
 
             nextWord:
             for (int i = 0; i < wordsCount; i++) {
 
-                words[i] = in.next();
-                words[i] = words[i].toLowerCase();
+                String word = in.next().toLowerCase();
 
                 int countVowels = 0;
                 int countConsonants = 0;
 
-                for (char ch : words[i].toCharArray()) {
+                for (char ch : word.toCharArray()) {
 
                     if (ch < 'a' || ch > 'z') continue nextWord;
 
