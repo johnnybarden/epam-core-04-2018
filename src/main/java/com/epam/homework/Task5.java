@@ -34,12 +34,16 @@ public class Task5 {
                     }
                 } else {
                     flag = false;
+                    glassCounter = 0;
+                    soglassCounter = 0;
                     break;
                 }
             }
             if (flag && glassCounter == soglassCounter) {
                 count++;
             }
+            glassCounter = 0;
+            soglassCounter = 0;
         }
         System.out.println(count);
     }
