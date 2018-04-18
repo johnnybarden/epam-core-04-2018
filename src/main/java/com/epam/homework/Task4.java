@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Task4 {
 
     /**
@@ -25,9 +29,17 @@ public class Task4 {
      * Выходные данные:
      * a
      */
-    public static void main(String[] args) {
-        // TODO реализация
-
-        // TODO System.out.println(wordWithMinimalNumDiffLetters);
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(reader.readLine());
+        String line = reader.readLine();
+        String wordWithMinimalNumDiffLetters = line;
+        String[] array = line.split("\\s");
+        for (String anArray : array) {
+            if (anArray.length() < wordWithMinimalNumDiffLetters.length()) {
+                wordWithMinimalNumDiffLetters = anArray;
+            }
+        }
+        System.out.println(wordWithMinimalNumDiffLetters);
     }
 }
