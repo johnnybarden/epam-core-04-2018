@@ -62,7 +62,7 @@ public class Task6 {
             }
 
             for (int i = 0; i < currentWord.length() - 1; i++) {
-                if (currentWord.charAt(i) > currentWord.charAt(i + 1)) {
+                if (currentWord.charAt(i) >= currentWord.charAt(i + 1)) {
                     break;
                 } else {
                     if (i == currentWord.length() - 2) {
