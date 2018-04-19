@@ -51,8 +51,10 @@ public class Task7 {
             Set<String> wordsSet = new HashSet<>();
             List<String> result = new ArrayList<>();
             for (String word: words){
-                if (!wordsSet.contains(word))
+                if (!wordsSet.contains(word.toLowerCase())) {
+                    wordsSet.add(word.toLowerCase());
                     result.add(word);
+                }
             }
             System.out.println(result.stream().collect(Collectors.joining(" ")));
         } catch (NumberFormatException | IOException e){
