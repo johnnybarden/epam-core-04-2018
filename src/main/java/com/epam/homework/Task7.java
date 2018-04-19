@@ -43,8 +43,8 @@ public class Task7 {
             Set<String> words = new LinkedHashSet<>(Arrays.asList(br.readLine().split(" ")).subList(0, lineNum));
             String result = words.stream()
                     .filter(w -> {
-                        int[] letters = w.chars().distinct().toArray();
-                        if (letters.length != w.length())
+                        int[] chars = w.chars().distinct().toArray();
+                        if (chars.length != w.length())
                             return false;
                         if (!w.matches("\\w+"))
                             return false;
