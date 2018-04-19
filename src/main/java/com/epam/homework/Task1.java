@@ -1,4 +1,7 @@
 package com.epam.homework;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Task1 {
 
@@ -34,9 +37,42 @@ public class Task1 {
      * MAX (35): Приятна мне твоя прощальная краса —
      */
     public static void main(String[] args) {
-        // TODO реализация
 
-        // TODO System.out.println("MIN (" + minLength + "): " + minString);
-        // TODO System.out.println("MAX (" + maxLength + "): " + maxString);
+        ArrayList<String> userLines = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Type in a text here.");
+
+        while (true) {
+            String curr = sc.nextLine();
+            if (curr.equals("")) {
+                break;
+            }
+            userLines.add(curr);
+        }
+
+        if ((userLines.size() < 1) || (userLines.size() > 99)) {
+            try {
+                throw new IOException();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        String shortest = userLines.get(0);
+        String longest = userLines.get(0);
+
+        for (int i = 0; i < userLines.size(); i++) {
+            if (userLines.get(i).length() <= userLines.get(0).length()) {
+                shortest = userLines.get(i);
+            }
+
+            if (userLines.get(i).length() >= userLines.get(0).length()) {
+                longest = userLines.get(i);
+            }
+        }
+
+        System.out.println("\nMIN (" + shortest.length() + "): " + shortest);
+        System.out.println("MAX (" + longest.length() + "): " + longest);
     }
 }
