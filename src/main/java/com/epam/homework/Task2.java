@@ -42,27 +42,22 @@ public class Task2 {
      * (33): В царстве вечернем зеленой весны.
      */
     public static void main(String[] args) {
-        String[] lines;
+        String[] strings;
 
         try (Scanner sc = new Scanner( System.in )) {
-            int count = Integer.valueOf( sc.nextLine() );
-            lines = new String[count];
+            int number = Integer.valueOf( sc.nextLine() );
+            strings = new String[number];
 
-            for (int i = 0; i < count; i++) {
-                lines[i] = sc.nextLine();
+            for (int i = 0; i < number; i++) {
+                strings[i] = sc.nextLine();
             }
         }
 
-        Arrays.sort( lines, (String str1, String str2) -> {
-            if ( str1.length() == str2.length() ) {
-                return str1.compareTo( str2 );
-            }
+        Arrays.sort( strings, (str1, str2) -> (str1.length() == str2.length()) ? str1.compareTo( str2 )
+                : Integer.compare( str1.length(), str2.length() ) );
 
-            return Integer.compare( str1.length(), str2.length() );
-        } );
-
-        for (String line : lines) {
-            System.out.println( "(" + line.length() + "): " + line );
+        for (String string : strings) {
+            System.out.println( "(" + string.length() + "): " + string );
         }
     }
 }
