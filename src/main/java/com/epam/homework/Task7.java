@@ -3,9 +3,7 @@ package com.epam.homework;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Task7 {
@@ -40,8 +38,8 @@ public class Task7 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             int lineNum = Integer.parseInt(br.readLine());
-            Set<String> words = new LinkedHashSet<>(Arrays.asList(br.readLine().split(" ")).subList(0, lineNum));
-            String result = words.stream()
+            List<String> words = Arrays.asList(br.readLine().split(" ")).subList(0, lineNum);
+            words = words.stream()
                     .filter(w -> {
                         int[] chars = w.chars().distinct().toArray();
                         if (chars.length != w.length())
@@ -49,8 +47,14 @@ public class Task7 {
                         if (!w.matches("\\w+"))
                             return false;
                         return true;
-                    }).collect(Collectors.joining(" "));
-            System.out.println(result);
+                    }).collect(Collectors.toList());
+            Set<String> wordsSet = new HashSet<>();
+            List<String> result = new ArrayList<>();
+            for (String word: words){
+                if (!wordsSet.contains(word))
+                    result.add(word);
+            }
+            System.out.println(result.stream().collect(Collectors.joining(" ")));
         } catch (NumberFormatException | IOException e){
             e.printStackTrace();
         }
