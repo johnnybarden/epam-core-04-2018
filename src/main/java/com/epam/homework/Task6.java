@@ -52,7 +52,7 @@ public class Task6 {
                     int[] letters = word.chars().toArray();
                     int counter = 0;
                     while (counter < letters.length - 1) {
-                        if (letters[counter] >= letters[counter + 1])
+                        if (letters[counter] > letters[counter + 1])
                             continue outer;
                         counter++;
                     }
