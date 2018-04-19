@@ -51,9 +51,8 @@ public class Task6 {
                 if (word.length() > 1) {
                     int counter = 0;
                     while (counter < word.length() - 1) {
-                        if (word.charAt(counter) >= word.charAt(counter + 1))
+                        if (word.charAt(counter++) >= word.charAt(counter)) // hard to read
                             continue outer;
-                        counter++;
                     }
                     result = word;
                     break;
