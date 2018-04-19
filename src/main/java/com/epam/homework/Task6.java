@@ -44,19 +44,19 @@ public class Task6 {
         Scanner in = new Scanner(System.in);
         Integer numbOfWords = in.nextInt();
 
-        List<String> inputString = new ArrayList<>();
+        List<String> inputWords= new ArrayList<>();
 
         for (int i = 0; i < numbOfWords; i++) {
-            inputString.add(in.next());
+            inputWords.add(in.next());
         }
 
-        System.out.println(wordWithStrictCodeOrder(inputString));
+        System.out.println(wordWithStrictCodeOrder(inputWords));
 
     }
 
-    private static String wordWithStrictCodeOrder(List<String> strings) {
+    private static String wordWithStrictCodeOrder(List<String> words) {
 
-        for (String currentWord : strings) {
+        for (String currentWord : words) {
             if (currentWord.length() == 1) {
                 continue;
             }
