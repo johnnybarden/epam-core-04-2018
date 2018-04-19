@@ -1,5 +1,11 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.List;
+
 public class Task6 {
 
     /**
@@ -36,6 +42,27 @@ public class Task6 {
      * NOT FOUND
      */
     public static void main(String[] args) {
-        // TODO реализация
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            int lineNum = Integer.parseInt(br.readLine());
+            List<String> words = Arrays.asList(br.readLine().split(" ")).subList(0, lineNum);
+            outer: for(String word: words){
+                if (word.length() > 1) {
+                    int[] letters = word.chars().toArray();
+                    int counter = 0;
+                    while (counter < letters.length - 1) {
+                        if (letters[counter] >= letters[counter + 1])
+                            continue outer;
+                        counter++;
+                    }
+                    System.out.println(word);
+                    System.exit(0);
+                }
+            }
+            System.out.println("NOT FOUND");
+
+        } catch (NumberFormatException | IOException e){
+            e.printStackTrace();
+        }
     }
 }
