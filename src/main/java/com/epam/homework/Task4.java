@@ -28,34 +28,32 @@ public class Task4 {
      * a
      */
     public static void main(String[] args) {
-        String[] words;
-
         try (Scanner sc = new Scanner(System.in)) {
             int wordsCount = Integer.valueOf(sc.nextLine());
-            words = new String[wordsCount];
 
-            for (int i = 0; i < wordsCount; i++) {
-                words[i] = sc.next();
+            String wordWithMinimalNumDiffLetters = sc.next();
+            int minimalNumDiffLetters = Task4.getUniqueLettersCount(wordWithMinimalNumDiffLetters);
+
+            for (int i = 0; i < wordsCount - 1; i++) {
+                String word = sc.next();
+                int uniqueLettersCount = Task4.getUniqueLettersCount(word);
+
+                if (uniqueLettersCount< minimalNumDiffLetters) {
+                    minimalNumDiffLetters = uniqueLettersCount;
+                    wordWithMinimalNumDiffLetters = word;
+                }
             }
+            System.out.println(wordWithMinimalNumDiffLetters);
         }
-
-        String wordWithMinimalNumDiffLetters = words[0];
-        int numDiffLetters = wordWithMinimalNumDiffLetters.length();
-
-        for (int i = 0; i < words.length - 1; i++) {
-            String word = words[i];
-
-            Set<Character> uniqueLetters = new HashSet<>();
-            for (char letter: word.toCharArray()) {
-                uniqueLetters.add(letter);
-            }
-
-            if (uniqueLetters.size() < numDiffLetters) {
-                numDiffLetters = uniqueLetters.size();
-                wordWithMinimalNumDiffLetters = word;
-            }
-        }
-
-        System.out.println(wordWithMinimalNumDiffLetters);
     }
+    private static int getUniqueLettersCount(String word) {
+        Set<Character> uniqueLetters = new HashSet<>();
+
+        for (char letter: word.toCharArray()) {
+            uniqueLetters.add(letter);
+        }
+
+        return uniqueLetters.size();
+    }
+
 }
