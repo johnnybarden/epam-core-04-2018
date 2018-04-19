@@ -41,7 +41,7 @@ public class Task7 {
             List<String> words = Arrays.asList(br.readLine().split(" ")).subList(0, lineNum);
             words = words.stream()
                     .filter(w -> {
-                        int[] chars = w.chars().distinct().toArray();
+                        int[] chars = w.toLowerCase().chars().distinct().toArray();
                         if (chars.length != w.length())
                             return false;
                         if (!w.matches("\\w+"))
@@ -52,8 +52,9 @@ public class Task7 {
                 Set<String> wordsSet = new HashSet<>();
                 List<String> result = new ArrayList<>();
                 for (String word : words) {
-                    if (!wordsSet.contains(word.toLowerCase())) {
-                        wordsSet.add(word.toLowerCase());
+                    String wordLowerCase = word.toLowerCase();
+                    if (!wordsSet.contains(wordLowerCase)) {
+                        wordsSet.add(wordLowerCase);
                         result.add(word);
                     }
                 }
