@@ -28,26 +28,29 @@ public class Task4 {
      * a
      */
     public static void main(String[] args) {
+        String[] words;
+
         try (Scanner sc = new Scanner(System.in)) {
-            int wordsCount = Integer.valueOf(sc.nextLine());
-
-            String wordWithMinimalNumDiffLetters = sc.next();
-            int numDiffLetters = wordWithMinimalNumDiffLetters.length();
-
-            for (int i = 0; i < wordsCount - 1; i++) {
-                String word = sc.next();
-
-                Set<Character> uniqueLetters = new HashSet<>();
-                for (char letter: word.toCharArray()) {
-                    uniqueLetters.add(letter);
-                }
-
-                if (uniqueLetters.size() < numDiffLetters) {
-                    numDiffLetters = uniqueLetters.size();
-                    wordWithMinimalNumDiffLetters = word;
-                }
-            }
-            System.out.println(wordWithMinimalNumDiffLetters);
+            sc.nextLine();
+            words = sc.nextLine().trim().split("\\s+");
         }
+
+        int numDiffLetters = 0;
+        String wordWithMinimalNumDiffLetters = "";
+
+        for (String word: words) {
+            Set<Character> uniqueLetters = new HashSet<>();
+
+            for (char letter: word.toCharArray()) {
+                uniqueLetters.add(letter);
+            }
+
+            if (uniqueLetters.size() < numDiffLetters || numDiffLetters == 0) {
+                numDiffLetters = uniqueLetters.size();
+                wordWithMinimalNumDiffLetters = word;
+            }
+        }
+
+        System.out.println(wordWithMinimalNumDiffLetters);
     }
 }
