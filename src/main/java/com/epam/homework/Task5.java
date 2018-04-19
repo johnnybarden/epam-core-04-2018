@@ -38,7 +38,7 @@ public class Task5 {
             String temp = scanner.next();
             numVowels = 0;
             numConsonants = 0;
-            if ( temp.matches( "^[a-zA-Z0-9]+$" ) && (temp.length() % 2 == 0) ) {
+            if ( temp.length() % 2 == 0 ) {
                 for (int j = 0; j < temp.length(); j++) {
                     if ( Character.toString( temp.charAt( j ) ).matches( "(?i:[aeiouy]).*" ) ) {
                         numConsonants++;
