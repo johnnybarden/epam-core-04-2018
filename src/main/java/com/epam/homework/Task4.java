@@ -32,11 +32,11 @@ public class Task4 {
             int wordsCount = Integer.valueOf(sc.nextLine());
 
             String wordWithMinimalNumDiffLetters = sc.next();
-            int minimalNumDiffLetters = Task4.getUniqueLettersCount(wordWithMinimalNumDiffLetters);
+            int minimalNumDiffLetters = getUniqueLettersCount(wordWithMinimalNumDiffLetters);
 
             for (int i = 0; i < wordsCount - 1; i++) {
                 String word = sc.next();
-                int uniqueLettersCount = Task4.getUniqueLettersCount(word);
+                int uniqueLettersCount = getUniqueLettersCount(word);
 
                 if (uniqueLettersCount < minimalNumDiffLetters) {
                     minimalNumDiffLetters = uniqueLettersCount;
