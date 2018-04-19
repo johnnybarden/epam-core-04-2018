@@ -49,10 +49,9 @@ public class Task6 {
             String result = "NOT FOUND";
             outer: for(String word: words){
                 if (word.length() > 1) {
-                    int[] letters = word.chars().toArray();
                     int counter = 0;
-                    while (counter < letters.length - 1) {
-                        if (letters[counter] > letters[counter + 1])
+                    while (counter < word.length() - 1) {
+                        if (word.charAt(counter) >= word.charAt(counter + 1))
                             continue outer;
                         counter++;
                     }
