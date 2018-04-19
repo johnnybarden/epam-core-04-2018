@@ -1,13 +1,7 @@
 package com.epam.homework;
 
-import com.sun.org.apache.xml.internal.utils.StringComparable;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 public class Task2 {
@@ -48,21 +42,23 @@ public class Task2 {
      * (32): Солнце садится за горы лесистые.
      * (33): В царстве вечернем зеленой весны.
      */
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int numString = Integer.parseInt(reader.readLine());
-        ArrayList<String> arrayList = new ArrayList<>();
-        String inputString;
-
-        for (int i = 0; i < numString; i++) {
-            inputString = reader.readLine();
-            arrayList.add( inputString );
+    public static void main(String[] args) {
+        try (Scanner scan = new Scanner( System.in )) {
+            int number = Integer.valueOf( scan.nextLine() );
+            List<String> myList = new ArrayList<>( number );
+            for (int i = 0; i < number; i++) {
+                myList.add( scan.nextLine() );
+            }
+            myList.sort( Task2::compare );
+            for (String cur : myList) {
+                System.out.println( "(" + cur.length() + "): " + cur );
+            }
         }
+    }
 
-        arrayList.sort( (o1, o2) -> ((o1.length() == o2.length())) ? o1.compareTo( o2 ) : Integer.compare( o1.length(), o2.length() ) );
-
-        for (String cur : arrayList) {
-            System.out.println( "(" + cur.length() + "): " + cur );
-        }
+    private static int compare(String s1, String s2) {
+        if ( s1.length() == s2.length() )
+            return s1.compareTo( s2 );
+        return Integer.compare( s1.length(), s2.length() );
     }
 }
