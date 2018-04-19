@@ -48,12 +48,13 @@ public class Task7 {
                             return false;
                         return true;
                     }).collect(Collectors.toList());
-            if (words.size() != 0) {
+            if (!words.isEmpty()) {
                 Set<String> wordsSet = new HashSet<>();
                 List<String> result = new ArrayList<>();
                 for (String word : words) {
-                    if (!wordsSet.contains(word.toLowerCase())) {
-                        wordsSet.add(word.toLowerCase());
+                    String wordLowerCase = word.toLowerCase();
+                    if (!wordsSet.contains(wordLowerCase)) {
+                        wordsSet.add(wordLowerCase);
                         result.add(word);
                     }
                 }
