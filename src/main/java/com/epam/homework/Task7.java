@@ -64,6 +64,9 @@ public class Task7 {
             result.add(currentWord);
         }
 
+        if(result.isEmpty())
+            result.add("NOT FOUND");
+        
         return result;
     }
 }
