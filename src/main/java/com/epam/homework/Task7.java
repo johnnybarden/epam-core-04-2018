@@ -39,8 +39,8 @@ public class Task7 {
             String string = scanner.nextLine();
 
             for (String word : string.split( " ", number )) {
-                if ( checkWord( word ) ) {
-                    res.add( word );
+                if ( checkWord( word.toLowerCase() ) ) {
+                    res.add( word.toLowerCase() );
                 }
             }
 
@@ -49,7 +49,7 @@ public class Task7 {
                     System.out.print( word + " " );
                 }
             } else {
-                System.out.println( "NOT FOUND" );
+                System.out.print( "NOT FOUND" );
             }
         }
     }
