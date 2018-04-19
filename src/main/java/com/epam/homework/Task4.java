@@ -3,6 +3,7 @@ package com.epam.homework;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashSet;
 
 public class Task4 {
 
@@ -32,13 +33,20 @@ public class Task4 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(reader.readLine());
-        String line = reader.readLine();
+        String line = reader.readLine().trim();
         String wordWithMinimalNumDiffLetters = line;
+        int minSize = line.length();
         String[] array = line.split("\\s");
+        HashSet <Character> count = new HashSet<>();
         for (String anArray : array) {
-            if (anArray.length() < wordWithMinimalNumDiffLetters.length()) {
+            for (int j = 0; j < anArray.length(); j++) {
+                count.add(anArray.charAt(j));
+            }
+            if (count.size() < minSize) {
+                minSize = count.size();
                 wordWithMinimalNumDiffLetters = anArray;
             }
+            count.clear();
         }
         System.out.println(wordWithMinimalNumDiffLetters);
     }
