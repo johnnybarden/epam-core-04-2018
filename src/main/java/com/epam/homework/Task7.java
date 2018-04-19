@@ -44,8 +44,8 @@ public class Task7 {
                         int[] chars = w.toLowerCase().chars().distinct().toArray();
                         if (chars.length != w.length())
                             return false;
-                        if (!w.matches("\\w+"))
-                            return false;
+//                        if (!w.matches("\\w+"))
+//                            return false;
                         return true;
                     }).collect(Collectors.toList());
             if (words.size() != 0) {
