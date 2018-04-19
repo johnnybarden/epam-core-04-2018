@@ -46,6 +46,7 @@ public class Task4 {
             System.out.println(wordWithMinimalNumDiffLetters);
         }
     }
+
     private static int getUniqueLettersCount(String word) {
         Set<Character> uniqueLetters = new HashSet<>();
 
@@ -55,5 +56,4 @@ public class Task4 {
 
         return uniqueLetters.size();
     }
-
 }
