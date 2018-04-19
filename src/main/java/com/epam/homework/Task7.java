@@ -48,15 +48,19 @@ public class Task7 {
                             return false;
                         return true;
                     }).collect(Collectors.toList());
-            Set<String> wordsSet = new HashSet<>();
-            List<String> result = new ArrayList<>();
-            for (String word: words){
-                if (!wordsSet.contains(word.toLowerCase())) {
-                    wordsSet.add(word.toLowerCase());
-                    result.add(word);
+            if (words.size() != 0) {
+                Set<String> wordsSet = new HashSet<>();
+                List<String> result = new ArrayList<>();
+                for (String word : words) {
+                    if (!wordsSet.contains(word.toLowerCase())) {
+                        wordsSet.add(word.toLowerCase());
+                        result.add(word);
+                    }
                 }
+                System.out.println(result.stream().collect(Collectors.joining(" ")));
             }
-            System.out.println(result.stream().collect(Collectors.joining(" ")));
+            System.out.println("NOT FOUND");
+
         } catch (NumberFormatException | IOException e){
             e.printStackTrace();
         }
