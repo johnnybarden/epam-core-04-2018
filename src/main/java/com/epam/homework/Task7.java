@@ -58,8 +58,8 @@ public class Task7 {
                     }
                 }
                 System.out.println(result.stream().collect(Collectors.joining(" ")));
-            }
-            System.out.println("NOT FOUND");
+            } else
+                System.out.println("NOT FOUND");
 
         } catch (NumberFormatException | IOException e){
             e.printStackTrace();
