@@ -41,7 +41,7 @@ public class Task7 {
             List<String> words = Arrays.asList(br.readLine().split(" ")).subList(0, lineNum);
             words = words.stream()
                     .filter(w -> {
-                        int[] chars = w.chars().distinct().toArray();
+                        int[] chars = w.toLowerCase().chars().distinct().toArray();
                         if (chars.length != w.length())
                             return false;
                         if (!w.matches("\\w+"))
