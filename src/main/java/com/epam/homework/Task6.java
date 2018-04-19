@@ -46,6 +46,7 @@ public class Task6 {
         try {
             int lineNum = Integer.parseInt(br.readLine());
             List<String> words = Arrays.asList(br.readLine().split(" ")).subList(0, lineNum);
+            String result = "NOT FOUND";
             outer: for(String word: words){
                 if (word.length() > 1) {
                     int[] letters = word.chars().toArray();
@@ -55,11 +56,11 @@ public class Task6 {
                             continue outer;
                         counter++;
                     }
-                    System.out.println(word);
-                    System.exit(0);
+                    result = word;
+                    break;
                 }
             }
-            System.out.println("NOT FOUND");
+            System.out.println(result);
 
         } catch (NumberFormatException | IOException e){
             e.printStackTrace();
