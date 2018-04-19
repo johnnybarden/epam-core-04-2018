@@ -38,7 +38,7 @@ public class Task4 {
                 String word = sc.next();
                 int uniqueLettersCount = Task4.getUniqueLettersCount(word);
 
-                if (uniqueLettersCount< minimalNumDiffLetters) {
+                if (uniqueLettersCount < minimalNumDiffLetters) {
                     minimalNumDiffLetters = uniqueLettersCount;
                     wordWithMinimalNumDiffLetters = word;
                 }
