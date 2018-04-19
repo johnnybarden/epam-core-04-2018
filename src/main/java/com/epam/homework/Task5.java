@@ -32,47 +32,36 @@ public class Task5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.next());
-
-        String[] strings = new String[n];
+        int countWordsWithSameNumVowelsAndConsonants = 0;
         for (int i = 0; i < n; i++) {
-            strings[i] = scanner.next().toLowerCase();
+            if (isWordsWithSameNumVowelsAndConsonants(scanner.next().toLowerCase())) {
+                countWordsWithSameNumVowelsAndConsonants += 1;
+            }
         }
-
-        System.out.println(CountWordsWithSameNumVowelsAndConsonants(strings));
+        System.out.println(countWordsWithSameNumVowelsAndConsonants);
     }
 
-
-    static int CountWordsWithSameNumVowelsAndConsonants(String[] strings) {
+    static boolean isWordsWithSameNumVowelsAndConsonants(String word) {
+        if (word.length() % 2 != 0)
+            return false;
 
         HashSet<Character> consonants = new HashSet<>();
         Collections.addAll(consonants, 'a', 'e', 'i', 'o', 'u', 'y');
         HashSet<Character> vowels = new HashSet<>();
         Collections.addAll(vowels, 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z');
 
-        int countWordsWithSameNumVowelsAndConsonants = 0;
+        int numberVowels = 0;
+        int numberConsonants = 0;
 
-        OUTER:
-        for (String str : strings) {
-            int numberVowels = 0;
-            int numberConsonants = 0;
-
-            if (str.length() % 2 == 0) {
-                for (int i = 0; i < str.length(); i++) {
-                    if (consonants.contains(str.charAt(i))) {
-                        numberConsonants += 1;
-                    } else if (vowels.contains(str.charAt(i))) {
-                        numberVowels += 1;
-                    } else {
-                        continue OUTER;
-                    }
-                }
-                if (numberConsonants == numberVowels) {
-                    countWordsWithSameNumVowelsAndConsonants += 1;
-                }
+        for (int i = 0; i < word.length(); i++) {
+            if (consonants.contains(word.charAt(i))) {
+                numberConsonants += 1;
+            } else if (vowels.contains(word.charAt(i))) {
+                numberVowels += 1;
+            } else {
+                return false;
             }
         }
-        return countWordsWithSameNumVowelsAndConsonants;
+        return (numberConsonants == numberVowels);
     }
 }
-
-
