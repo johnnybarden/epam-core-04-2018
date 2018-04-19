@@ -49,24 +49,18 @@ public class Task7 {
     private static Set<String> getWordsWithUniqueLetters(List<String> words) {
         Set<String> result = new HashSet<>();
 
-        nextWord:
         for (String currentWord : words) {
-            Set<Character> uniqueLetters = new HashSet<>();
             currentWord = currentWord.toLowerCase();
 
-            for (int i = 0; i < currentWord.length(); i++) {
-                if (!uniqueLetters.contains(currentWord.charAt(i))) {
-                    uniqueLetters.add(currentWord.charAt(i));
-                } else {
-                    continue nextWord;
-                }
+            Integer counterOfUniqueLetters = new HashSet(Arrays.asList(currentWord.split(""))).size();
+            if (counterOfUniqueLetters == currentWord.length()) {
+                result.add(currentWord);
             }
-            result.add(currentWord);
         }
 
-        if(result.isEmpty())
+        if (result.isEmpty())
             result.add("NOT FOUND");
-        
+
         return result;
     }
 }
