@@ -1,5 +1,13 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 public class Task7 {
 
     /**
@@ -27,7 +35,27 @@ public class Task7 {
      * Выходные данные:
      * The is a
      */
+
     public static void main(String[] args) {
-        // TODO реализация
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            int lineNum = Integer.parseInt(br.readLine());
+            Set<String> words = new LinkedHashSet<>(Arrays.asList(br.readLine().split(" ")).subList(0, lineNum));
+            String result = words.stream()
+                    .map(w -> w.toLowerCase())
+                    .filter(w -> {
+                        int[] letters = w.chars().distinct().toArray();
+                        if (letters.length != w.length())
+                            return false;
+                        for (int i = 0; i < letters.length; i++) {
+                            if (letters[i] < 'a' || letters[i] > 'z')
+                                return false;
+                        }
+                        return true;
+                    }).collect(Collectors.joining(" "));
+            System.out.println(result);
+        } catch (NumberFormatException | IOException e){
+            e.printStackTrace();
+        }
     }
 }
