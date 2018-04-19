@@ -1,5 +1,8 @@
 package com.epam.homework;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Task2 {
 
     /**
@@ -39,10 +42,28 @@ public class Task2 {
      * (33): В царстве вечернем зеленой весны.
      */
     public static void main(String[] args) {
-        // TODO реализация
+        String[] lines;
 
-        // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
+        try (Scanner sc = new Scanner( System.in )) {
+            int count = Integer.valueOf( sc.nextLine() );
+            lines = new String[count];
+
+            for (int i = 0; i < count; i++) {
+                lines[i] = sc.nextLine();
+            }
+        }
+
+        Arrays.sort( lines, (String str1, String str2) -> {
+            if ( str1.length() == str2.length() ) {
+                return str1.compareTo( str2 );
+            }
+
+            return Integer.compare( str1.length(), str2.length() );
+        } );
+
+        for (String line : lines) {
+            System.out.println( "(" + line.length() + "): " + line );
+        }
     }
 }
+
