@@ -42,15 +42,12 @@ public class Task7 {
             int lineNum = Integer.parseInt(br.readLine());
             Set<String> words = new LinkedHashSet<>(Arrays.asList(br.readLine().split(" ")).subList(0, lineNum));
             String result = words.stream()
-                    .map(w -> w.toLowerCase())
                     .filter(w -> {
                         int[] letters = w.chars().distinct().toArray();
                         if (letters.length != w.length())
                             return false;
-                        for (int i = 0; i < letters.length; i++) {
-                            if (letters[i] < 'a' || letters[i] > 'z')
-                                return false;
-                        }
+                        if (!w.matches("\\w+"))
+                            return false;
                         return true;
                     }).collect(Collectors.joining(" "));
             System.out.println(result);
