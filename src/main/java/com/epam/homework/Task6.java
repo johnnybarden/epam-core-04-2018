@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task6 {
 
     /**
@@ -36,6 +38,24 @@ public class Task6 {
      * NOT FOUND
      */
     public static void main(String[] args) {
-        // TODO реализация
+        try (Scanner scanner = new Scanner( System.in )) {
+            int number = Integer.valueOf( scanner.nextLine() );
+            String res = "NOT FOUND";
+            for (int i = 0; i < number; i++) {
+                String temp = scanner.next();
+                if ( checkOrder( temp ) && temp.length() > 1 ) {
+                    res = temp;
+                    break;
+                }
+            }
+            System.out.println( res );
+        }
+    }
+
+    private static boolean checkOrder(String temp) {
+        for (int j = 0; j < temp.length() - 1; j++) {
+            if ( temp.charAt( j ) >= temp.charAt( j + 1 ) ) return false;
+        }
+        return true;
     }
 }
