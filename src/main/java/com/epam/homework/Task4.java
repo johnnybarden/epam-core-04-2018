@@ -39,14 +39,16 @@ public class Task4 {
         String[] array = line.split("\\s");
         HashSet <Character> count = new HashSet<>();
         for (String anArray : array) {
-            for (int j = 0; j < anArray.length(); j++) {
-                count.add(anArray.charAt(j));
+            if (!anArray.isEmpty()) {
+                for (int j = 0; j < anArray.length(); j++) {
+                    count.add(anArray.charAt(j));
+                }
+                if (count.size() < minSize) {
+                    minSize = count.size();
+                    wordWithMinimalNumDiffLetters = anArray;
+                }
+                count.clear();
             }
-            if (count.size() < minSize) {
-                minSize = count.size();
-                wordWithMinimalNumDiffLetters = anArray;
-            }
-            count.clear();
         }
         System.out.println(wordWithMinimalNumDiffLetters);
     }
