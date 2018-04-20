@@ -51,7 +51,7 @@ public class Task6 {
                     continue;
                 }
 
-                if (isSortedByCharCodes(word.toCharArray())) {
+                if (isSortedByCharCodes(word)) {
                     System.out.println(word);
                     return;
                 }
@@ -61,9 +61,9 @@ public class Task6 {
         System.out.println("NOT FOUND");
     }
 
-    private static boolean isSortedByCharCodes(char[] word) {
-        for (int i = 0; i < word.length - 1; i++) {
-            if (word[i] > word[i + 1]) {
+    private static boolean isSortedByCharCodes(String word) {
+        for (int i = 0; i < word.length() - 1; i++) {
+            if (word.charAt(i) > word.charAt(i + 1)) {
                 return false;
             }
         }
