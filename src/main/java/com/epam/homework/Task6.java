@@ -37,12 +37,10 @@ public class Task6 {
      * Выходные данные:
      * NOT FOUND
      */
-
+    
     public static boolean isWordContainsAscendingCodesOfLetters(String word) {
-        char[] wordAsCharArray = word.toCharArray();
-
-        for (int i = 0; i < wordAsCharArray.length - 1; i++) {
-            if (wordAsCharArray[i] >= wordAsCharArray[i + 1]) {
+        for (int i = 0; i < word.length() - 1; i++) {
+            if (word.charAt(i) > word.charAt(i + 1)) {
                 return false;
             }
         }
