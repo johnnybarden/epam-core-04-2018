@@ -34,14 +34,13 @@ public class Task7 {
      */
 
     public static boolean isWordContainsOnlyDiffEnglishLetters(String word) {
-        char[] wordAsCharArray = word.toCharArray();
         Set<Character> lettersInWord = new HashSet<>();
 
-        for (char c : wordAsCharArray) {
-            lettersInWord.add(c);
+        for (int i = 0; i < word.length(); i++) {
+            lettersInWord.add(word.charAt(i));
         }
 
-        return (lettersInWord.size() == wordAsCharArray.length);
+        return (lettersInWord.size() == word.length());
     }
 
     public static void main(String[] args) {
