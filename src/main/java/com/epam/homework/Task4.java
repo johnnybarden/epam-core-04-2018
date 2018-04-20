@@ -33,17 +33,15 @@ public class Task4 {
         Scanner scanner = new Scanner(System.in);
         int numberWords = scanner.nextInt();
         String currentWord;
-        char[] chars;
         Set<Character> characters;
         int counter = Integer.MAX_VALUE;
         String wordWithMinimalNumDiffLetters = null;
 
         while (numberWords-- > 0) {
             currentWord = scanner.next();
-            chars = currentWord.toCharArray();
             characters = new HashSet<>();
             for (int i = 0; i < currentWord.length(); i++) {
-                characters.add(chars[i]);
+                characters.add(currentWord.charAt(i));
             }
             if (characters.size() < counter) {
                 counter = characters.size();
