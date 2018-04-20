@@ -50,11 +50,11 @@ public class Task6 {
             inputWords.add(in.next());
         }
 
-        System.out.println(wordWithStrictCodeOrder(inputWords));
+        System.out.println(printWordWithStrictCodeOrder(inputWords));
 
     }
 
-    private static String wordWithStrictCodeOrder(List<String> words) {
+    private static String printWordWithStrictCodeOrder(List<String> words) {
 
         for (String currentWord : words) {
             if (currentWord.length() == 1) {
