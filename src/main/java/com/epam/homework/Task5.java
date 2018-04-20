@@ -64,4 +64,3 @@ public class Task5 {
         }
         return (numberConsonants == numberVowels);
     }
-}
