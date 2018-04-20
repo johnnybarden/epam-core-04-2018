@@ -1,5 +1,6 @@
 package com.epam.homework;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task6 {
@@ -51,7 +52,10 @@ public class Task6 {
                     continue;
                 }
 
-                if (isSortedByCharCodes(word)) {
+                char[] sorted = word.toCharArray();
+                Arrays.sort(sorted);
+
+                if (String.valueOf(sorted).equals(word)) {
                     System.out.println(word);
                     return;
                 }
@@ -59,14 +63,5 @@ public class Task6 {
         }
 
         System.out.println("NOT FOUND");
-    }
-
-    private static boolean isSortedByCharCodes(String word) {
-        for (int i = 0; i < word.length() - 1; i++) {
-            if (word.charAt(i) > word.charAt(i + 1)) {
-                return false;
-            }
-        }
-        return true;
     }
 }
