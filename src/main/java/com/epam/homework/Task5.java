@@ -62,5 +62,6 @@ public class Task5 {
                 return false;
             }
         }
-        return (numberConsonants != numberVowels);
+        return (numberConsonants == numberVowels);
     }
+}
