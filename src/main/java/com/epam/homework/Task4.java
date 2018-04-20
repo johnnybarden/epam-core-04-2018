@@ -28,26 +28,21 @@ public class Task4 {
      * a
      */
 
-    private static int countNumDiffLetters (String word) {
-        String uniqueLettersInWord = " ";
+   private static int countNumDiffLetters (String word) {
+        char[] wordAsCharArray = word.toCharArray();
+        Set<Character> uniqueLettersInWord = new HashSet<>();
 
-        int numOfDiffLetters = 0;
-
-        for (int i = 0; i < word.length(); i++) {
-            if (!uniqueLettersInWord.contains(String.valueOf(word.charAt(i)))) {
-                uniqueLettersInWord += word.charAt(i);
-                numOfDiffLetters++;
-            }
+        for (char c : wordAsCharArray) {
+            uniqueLettersInWord.add(c);
         }
 
-        return numOfDiffLetters;
+        return uniqueLettersInWord.size();
     }
 
     public static void main(String[] args) {
-        int N;
         Scanner in = new Scanner(System.in);
         
-        N = in.nextInt();
+        int N = in.nextInt();
         in.nextLine();
 
         String wordWithMinimalNumDiffLetters = in.next();
