@@ -41,7 +41,7 @@ public class Task7 {
 
             for (int i = 0; i < wordCount; i++) {
 
-                String word = in.next();
+                String word = in.next().toLowerCase();
                 if (containsOnlyEnglishLetters(word) && containsOnlyUniqueChars(word)) {
                     result.add(word);
                 }
@@ -67,7 +67,7 @@ public class Task7 {
     private static final Pattern ENGLISH_LETTERS = Pattern.compile("^[A-Za-z]+$");
 
     private static boolean containsOnlyUniqueChars(String word) {
-        return word.toLowerCase().chars().distinct().count() == word.length();
+        return word.chars().distinct().count() == word.length();
     }
 
     private static boolean containsOnlyEnglishLetters(String word) {
