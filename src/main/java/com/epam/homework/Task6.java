@@ -58,13 +58,11 @@ public class Task6 {
     }
 
     static boolean isWordWithCharactersInOrder(String string) {
-        boolean charsInOrder = true;
         for (int i = 1; i < string.length(); i++) {
             if (string.charAt(i - 1) >= string.charAt(i)) {
-                charsInOrder = false;
-                break;
+                return false;
             }
         }
-        return charsInOrder;
+        return true;
     }
 }
