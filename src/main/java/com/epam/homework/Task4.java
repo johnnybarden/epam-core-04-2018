@@ -1,5 +1,11 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Task4 {
 
     /**
@@ -25,9 +31,31 @@ public class Task4 {
      * Выходные данные:
      * a
      */
-    public static void main(String[] args) {
-        // TODO реализация
+    public static void main(String[] args) throws IOException {
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
+            Set<String> wordsSet = new HashSet<>();
+            int num = Integer.parseInt(reader.readLine());
+            int countMin = 0;
+            int number = 0;
 
-        // TODO System.out.println(wordWithMinimalNumDiffLetters);
+            String[] words = reader.readLine().split(" ");
+            String[] letters;
+
+            for (int i = 0; i < words.length; i++) {
+                if(!words[i].contains(" ")){
+                    letters = words[i].split("");
+
+                    for (String let : letters) {
+                        wordsSet.add(let);
+                    }
+                }
+                if(wordsSet.size() < countMin || countMin == 0){
+                    countMin = wordsSet.size();
+                    number = i;
+                }
+                wordsSet.clear();
+            }
+            System.out.println(words[number]);
+        }
     }
 }
