@@ -30,10 +30,12 @@ public class Task5 {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.next());
         int countWordsWithSameNumVowelsAndConsonants = 0;
-        int countVowel =0, countConsonant = 0;
+        int countVowel, countConsonant;
         for (int i=0; i<n; i++) {
             String line = scanner.next();
             if (line.matches("[a-zA-Z]+")) {
+                countVowel =0;
+                countConsonant = 0;
                 for (int j=0; j<line.length(); j++) {
                     if ("aeoiuAEOIU".indexOf(line.charAt(j)) != -1) countVowel++;
                     else countConsonant++;
