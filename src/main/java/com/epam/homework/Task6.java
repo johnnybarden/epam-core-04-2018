@@ -51,7 +51,6 @@ public class Task6 {
         }
 
         System.out.println(printWordWithStrictCodeOrder(inputWords));
-
     }
 
     private static String printWordWithStrictCodeOrder(List<String> words) {
