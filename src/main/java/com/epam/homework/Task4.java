@@ -29,11 +29,10 @@ public class Task4 {
      */
 
    private static int countNumDiffLetters (String word) {
-        char[] wordAsCharArray = word.toCharArray();
         Set<Character> uniqueLettersInWord = new HashSet<>();
 
-        for (char c : wordAsCharArray) {
-            uniqueLettersInWord.add(c);
+        for (int i = 0; i < word.length(); i++) {
+            uniqueLettersInWord.add(word.charAt(i));
         }
 
         return uniqueLettersInWord.size();
