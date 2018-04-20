@@ -33,7 +33,7 @@ public class Task5 {
         int countVowel =0, countConsonant = 0;
         for (int i=0; i<n; i++) {
             String line = scanner.next();
-            if (line.matches("[a-zA-Z]*")) {
+            if (line.matches("[a-zA-Z]+")) {
                 for (int j=0; j<line.length(); j++) {
                     if ("aeoiuAEOIU".indexOf(line.charAt(j)) != -1) countVowel++;
                     else countConsonant++;
