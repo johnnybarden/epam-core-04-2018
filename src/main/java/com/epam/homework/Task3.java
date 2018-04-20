@@ -44,12 +44,13 @@ public class Task3 {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(reader.readLine());
         int averageLength = 0;
+        int lengthString = 0;
         String[] result = new String[n];
         for (int i = 0; i < n; i++) {
             result[i] = reader.readLine();
-            averageLength += result[i].length();
+            lengthString = lengthString + result[i].length();
         }
-        averageLength /= n;
+        averageLength = lengthString / n;
         System.out.println("AVERAGE (" + averageLength + ")");
         for (String current : result) {
             if (current.length() < averageLength) {
