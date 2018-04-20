@@ -35,19 +35,19 @@ public class Task4 {
     public static void main(String[] args) throws IOException {
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
             Set<String> wordsSet = new HashSet<>();
-            int num = Integer.parseInt(reader.readLine());
+            reader.readLine();
             int countMin = 0;
             int number = 0;
 
-            String[] words = reader.readLine().split(" ");
+            String[] words = reader.readLine().trim().split(" ");
             String[] letters;
 
             for (int i = 0; i < words.length; i++) {
                 if (!words[i].isEmpty()){
-                    letters = words[i].split("");
+                    letters = words[i].trim().split("");
 
                     for (String let : letters)
-                        wordsSet.add(let);
+                        wordsSet.add(let.trim());
 
                     if (wordsSet.size() < countMin || countMin == 0) {
                         countMin = wordsSet.size();
