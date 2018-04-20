@@ -55,9 +55,9 @@ public class Task5 {
 
         for (int i = 0; i < word.length(); i++) {
             if (consonants.contains(word.charAt(i))) {
-                numberConsonants += 1;
+                numberConsonants++;
             } else if (vowels.contains(word.charAt(i))) {
-                numberVowels += 1;
+                numberVowels++;
             } else {
                 return false;
             }
