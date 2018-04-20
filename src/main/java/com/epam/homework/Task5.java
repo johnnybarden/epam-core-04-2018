@@ -40,7 +40,7 @@ public class Task5 {
                 subString = currentWord.replaceAll("(?i:[aeiouy])", "");
                 difference = currentWord.length() - subString.length();
                 if (difference == subString.length()) {
-                    countWordsWithSameNumVowelsAndConsonants = countWordsWithSameNumVowelsAndConsonants + 1;
+                    countWordsWithSameNumVowelsAndConsonants = ++countWordsWithSameNumVowelsAndConsonants;
                 }
             }
         }
