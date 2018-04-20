@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task6 {
 
     /**
@@ -35,7 +37,37 @@ public class Task6 {
      * Выходные данные:
      * NOT FOUND
      */
+
+    public static boolean isWordContainsAscendingCodesOfLetters(String word) {
+        char[] wordAsCharArray = word.toCharArray();
+
+        for (int i = 0; i < wordAsCharArray.length - 1; i++) {
+            if (wordAsCharArray[i] > wordAsCharArray[i + 1]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner in = new Scanner(System.in);
+
+        int N = in.nextInt();
+        in.nextLine();
+
+        String word;
+        String result = "NOT FOUND";
+
+        for (int i = 0; i < N; i++) {
+            word = in.next();
+
+            if ((word.length() > 1) && (isWordContainsAscendingCodesOfLetters(word))) {
+                result = word;
+                break;
+            }
+        }
+
+        System.out.println(result);
     }
 }
