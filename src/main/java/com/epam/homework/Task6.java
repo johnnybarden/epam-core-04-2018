@@ -40,7 +40,7 @@ public class Task6 {
     
     public static boolean isWordContainsAscendingCodesOfLetters(String word) {
         for (int i = 0; i < word.length() - 1; i++) {
-            if (word.charAt(i) > word.charAt(i + 1)) {
+            if (word.charAt(i) >= word.charAt(i + 1)) {
                 return false;
             }
         }
