@@ -38,7 +38,7 @@ public class Task7 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             int lineNum = Integer.parseInt(br.readLine());
-            List<String> words = Arrays.asList(br.readLine().split(" ")).subList(0, lineNum);
+            List<String> words = Arrays.asList(br.readLine().split(" ", lineNum));
             words = words.stream()
                     .filter(w -> {
                         int[] chars = w.toLowerCase().chars().distinct().toArray();
