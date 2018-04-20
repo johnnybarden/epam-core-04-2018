@@ -63,7 +63,7 @@ public class Task6 {
 
     private static boolean isSortedByCharCodes(String word) {
         for (int i = 0; i < word.length() - 1; i++) {
-            if (word.charAt(i) > word.charAt(i + 1)) {
+            if (word.charAt(i) >= word.charAt(i + 1)) {
                 return false;
             }
         }
