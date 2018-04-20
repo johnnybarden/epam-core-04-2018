@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
+import java.util.Scanner;
 
 public class Task4 {
 
@@ -30,26 +31,23 @@ public class Task4 {
      * Выходные данные:
      * a
      */
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(reader.readLine());
-        String line = reader.readLine().trim();
-        String wordWithMinimalNumDiffLetters = line;
-        int minSize = line.length();
-        String[] array = line.split("\\s");
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = Integer.parseInt(scanner.next());
+        String wordWithMinimalNumDiffLetters = "";
+        int minSize = Integer.MAX_VALUE;
         HashSet <Character> count = new HashSet<>();
-        for (String anArray : array) {
-            if (!anArray.isEmpty()) {
-                for (int j = 0; j < anArray.length(); j++) {
-                    count.add(anArray.charAt(j));
+        for (int i=0; i<n; i++) {
+            String line = scanner.next();
+                for (int j = 0; j < line.length(); j++) {
+                    count.add(line.charAt(j));
                 }
                 if (count.size() < minSize) {
                     minSize = count.size();
-                    wordWithMinimalNumDiffLetters = anArray;
+                    wordWithMinimalNumDiffLetters = line;
                 }
                 count.clear();
             }
-        }
         System.out.println(wordWithMinimalNumDiffLetters);
     }
 }
