@@ -31,12 +31,12 @@ public class Task5 {
 
     public static boolean isStringContainsEqualNumVowelsAndConsonants (String word) {
         HashSet<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y'));
-        char[] wordAsCharArray = word.toLowerCase().toCharArray();
+        word = word.toLowerCase();
         int numVowels = 0;
         int numConsonants = 0;
 
-        for (char c : wordAsCharArray) {
-            if (vowels.contains(c)) {
+        for (int i = 0; i < word.length(); i++) {
+            if (vowels.contains(word.charAt(i))) {
                 numVowels++;
             } else {
                 numConsonants++;
