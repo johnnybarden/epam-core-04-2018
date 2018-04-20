@@ -33,22 +33,24 @@ public class Task5 {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.next());
         int countWordsWithSameNumVowelsAndConsonants = 0;
-        for (int i = 0; i < n; i++) {
-            if (isWordsWithSameNumVowelsAndConsonants(scanner.next().toLowerCase())) {
-                countWordsWithSameNumVowelsAndConsonants += 1;
-            }
-        }
-        System.out.println(countWordsWithSameNumVowelsAndConsonants);
-    }
-
-    static boolean isWordsWithSameNumVowelsAndConsonants(String word) {
-        if (word.length() % 2 != 0)
-            return false;
 
         HashSet<Character> consonants = new HashSet<>();
         Collections.addAll(consonants, 'a', 'e', 'i', 'o', 'u', 'y');
         HashSet<Character> vowels = new HashSet<>();
         Collections.addAll(vowels, 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z');
+
+        for (int i = 0; i < n; i++) {
+            if (isWordsWithSameNumVowelsAndConsonants(scanner.next().toLowerCase(),consonants,vowels)) {
+                countWordsWithSameNumVowelsAndConsonants++;
+            }
+        }
+        System.out.println(countWordsWithSameNumVowelsAndConsonants);
+    }
+
+    static boolean isWordsWithSameNumVowelsAndConsonants(String word, HashSet consonants, HashSet vowels) {
+
+        if (word.length() % 2 != 0)
+            return false;
 
         int numberVowels = 0;
         int numberConsonants = 0;
