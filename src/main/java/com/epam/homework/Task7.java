@@ -1,5 +1,10 @@
 package com.epam.homework;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+import java.util.Set;
+
 public class Task7 {
 
     /**
@@ -27,7 +32,41 @@ public class Task7 {
      * Выходные данные:
      * The is a
      */
+
+    public static boolean isWordContainsOnlyDiffEnglishLetters(String word) {
+        char[] wordAsCharArray = word.toCharArray();
+        Set<Character> lettersInWord = new HashSet<>();
+
+        for (char c : wordAsCharArray) {
+            lettersInWord.add(c);
+        }
+
+        return (lettersInWord.size() == wordAsCharArray.length);
+    }
+
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner in = new Scanner(System.in);
+
+        int N = in.nextInt();
+        in.nextLine();
+
+        Set<String> resultWordList = new LinkedHashSet<>();
+        String word;
+
+        for (int i = 0; i < N; i++) {
+            word = in.next().toLowerCase();
+
+            if (isWordContainsOnlyDiffEnglishLetters(word)) {
+                resultWordList.add(word);
+            }
+        }
+
+        if (!resultWordList.isEmpty()) {
+            for (String s : resultWordList) {
+                System.out.println(s);
+            }
+        } else {
+            System.out.println("NOT FOUND");
+        }
     }
 }
