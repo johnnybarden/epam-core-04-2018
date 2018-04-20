@@ -3,6 +3,7 @@ package com.epam.homework;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -42,18 +43,18 @@ public class Task4 {
             String[] letters;
 
             for (int i = 0; i < words.length; i++) {
-                if(!words[i].contains(" ")){
+                if (!words[i].isEmpty()){
                     letters = words[i].split("");
 
-                    for (String let : letters) {
+                    for (String let : letters)
                         wordsSet.add(let);
+
+                    if (wordsSet.size() < countMin || countMin == 0) {
+                        countMin = wordsSet.size();
+                        number = i;
                     }
-                }
-                if(wordsSet.size() < countMin || countMin == 0){
-                    countMin = wordsSet.size();
-                    number = i;
-                }
                 wordsSet.clear();
+                }
             }
             System.out.println(words[number]);
         }
