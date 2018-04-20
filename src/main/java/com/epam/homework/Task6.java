@@ -42,7 +42,7 @@ public class Task6 {
         char[] wordAsCharArray = word.toCharArray();
 
         for (int i = 0; i < wordAsCharArray.length - 1; i++) {
-            if (wordAsCharArray[i] > wordAsCharArray[i + 1]) {
+            if (wordAsCharArray[i] >= wordAsCharArray[i + 1]) {
                 return false;
             }
         }
