@@ -31,12 +31,12 @@ public class Task5 {
 
     public static boolean isStringContainsEqualNumVowelsAndConsonants (String word) {
         HashSet<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u', 'y'));
+        char[] wordAsCharArray = word.toLowerCase().toCharArray();
         int numVowels = 0;
         int numConsonants = 0;
-        char[] wordAsCharArray = word.toLowerCase().toCharArray();
 
-        for (int i = 0; i < wordAsCharArray.length; i++) {
-            if (vowels.contains(wordAsCharArray[i])) {
+        for (char c : wordAsCharArray) {
+            if (vowels.contains(c)) {
                 numVowels++;
             } else {
                 numConsonants++;
@@ -47,10 +47,9 @@ public class Task5 {
     }
 
     public static void main(String[] args) {
-        int N;
         Scanner in = new Scanner(System.in);
 
-        N = in.nextInt();
+        int N = in.nextInt();
         in.nextLine();
 
         int countWordsWithSameNumVowelsAndConsonants = 0;
