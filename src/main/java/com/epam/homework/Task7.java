@@ -3,6 +3,8 @@ package com.epam.homework;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Task7 {
 
@@ -40,7 +42,7 @@ public class Task7 {
             for (int i = 0; i < wordCount; i++) {
 
                 String word = in.next();
-                if (containsOnlyUniqueChars(word)) {
+                if (containsOnlyEnglishLetters(word) && containsOnlyUniqueChars(word)) {
                     result.add(word);
                 }
             }
@@ -62,7 +64,14 @@ public class Task7 {
         }
     }
 
+    private static final Pattern ENGLISH_LETTERS = Pattern.compile("^[A-Za-z]+$");
+
     private static boolean containsOnlyUniqueChars(String word) {
         return word.toLowerCase().chars().distinct().count() == word.length();
+    }
+
+    private static boolean containsOnlyEnglishLetters(String word) {
+        Matcher matcher = ENGLISH_LETTERS.matcher(word);
+        return matcher.matches();
     }
 }
