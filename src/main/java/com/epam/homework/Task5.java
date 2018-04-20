@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task5 {
 
     /**
@@ -25,8 +27,20 @@ public class Task5 {
      * 2
      */
     public static void main(String[] args) {
-        // TODO реализация
-
-        // TODO System.out.println(countWordsWithSameNumVowelsAndConsonants);
+        Scanner scanner = new Scanner(System.in);
+        int n = Integer.parseInt(scanner.next());
+        int countWordsWithSameNumVowelsAndConsonants = 0;
+        int countVowel =0, countConsonant = 0;
+        for (int i=0; i<n; i++) {
+            String line = scanner.next();
+            if (line.matches("[a-zA-Z]*")) {
+                for (int j=0; j<line.length(); j++) {
+                    if ("aeoiuAEOIU".indexOf(line.charAt(j)) != -1) countVowel++;
+                    else countConsonant++;
+                }
+                if (countVowel == countConsonant) countWordsWithSameNumVowelsAndConsonants++;
+            }
+        }
+       System.out.println(countWordsWithSameNumVowelsAndConsonants);
     }
 }
