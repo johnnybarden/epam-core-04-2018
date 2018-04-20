@@ -46,13 +46,12 @@ public class Task6 {
             for (int i = 0; i < countWords; i++) {
 
                 String word = in.next();
-                char[] wordAsArray = word.toCharArray();
 
-                if (wordAsArray.length == 1) {
+                if (word.length() == 1) {
                     continue;
                 }
 
-                if (areCharsSortedByCodes(wordAsArray)) {
+                if (isSortedByCharCodes(word.toCharArray())) {
                     System.out.println(word);
                     return;
                 }
@@ -62,7 +61,7 @@ public class Task6 {
         System.out.println("NOT FOUND");
     }
 
-    private static boolean areCharsSortedByCodes(char[] word) {
+    private static boolean isSortedByCharCodes(char[] word) {
         for (int i = 0; i < word.length - 1; i++) {
             if (word[i] > word[i + 1]) {
                 return false;
