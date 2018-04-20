@@ -37,7 +37,7 @@ public class Task5 {
                 countVowel =0;
                 countConsonant = 0;
                 for (int j=0; j<line.length(); j++) {
-                    if ("aeoiuAEOIU".indexOf(line.charAt(j)) != -1) countVowel++;
+                    if ("aeoiuyAEOIUY".indexOf(line.charAt(j)) != -1) countVowel++;
                     else countConsonant++;
                 }
                 if (countVowel == countConsonant) countWordsWithSameNumVowelsAndConsonants++;
