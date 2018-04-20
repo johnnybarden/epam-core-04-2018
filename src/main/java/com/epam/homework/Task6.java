@@ -1,16 +1,18 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task6 {
 
     /**
      * Ввести N слов с консоли.
      * Найти слово, буквы в котором идут в строгом порядке возрастания их кодов: word.charAt(i) < word.charAt(i + 1).
      * Если таких слов несколько, найти первое из них.
-     * Слова состоящие из одного символа не учитывать.
+     * Слова, состоящие из одного символа не учитывать.
      *
      * Формат входных данных:
      * N (целое число, 0 < N < 100) - количество слов в строке
-     * Строка, содержащая нимимум N слов, разделенных пробелами
+     * Строка, содержащая минимум N слов, разделенных пробелами
      *
      * Формат выходных данных:
      * В результате выполнения в выходной поток должно быть выведено слово, удовлетворяющее условию.
@@ -36,6 +38,36 @@ public class Task6 {
      * NOT FOUND
      */
     public static void main(String[] args) {
-        // TODO реализация
+
+        try (Scanner in = new Scanner(System.in)) {
+
+            int countWords = Integer.valueOf(in.nextLine());
+
+            for (int i = 0; i < countWords; i++) {
+
+                String word = in.next();
+                char[] wordAsArray = word.toCharArray();
+
+                if (wordAsArray.length == 1) {
+                    continue;
+                }
+
+                if (areCharsSortedByCodes(wordAsArray)) {
+                    System.out.println(word);
+                    return;
+                }
+            }
+        }
+
+        System.out.println("NOT FOUND");
+    }
+
+    private static boolean areCharsSortedByCodes(char[] word) {
+        for (int i = 0; i < word.length - 1; i++) {
+            if (word[i] > word[i + 1]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
