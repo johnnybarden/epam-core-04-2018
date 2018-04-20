@@ -45,7 +45,7 @@ public class Task6 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             int lineNum = Integer.parseInt(br.readLine());
-            List<String> words = Arrays.asList(br.readLine().split(" ")).subList(0, lineNum);
+            List<String> words = Arrays.asList(br.readLine().split(" ", lineNum));
             String result = "NOT FOUND";
             outer: for(String word: words){
                 if (word.length() > 1) {
