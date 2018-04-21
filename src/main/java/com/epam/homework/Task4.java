@@ -31,23 +31,24 @@ public class Task4 {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int numberWords = scanner.nextInt();
+        int wordsCount = scanner.nextInt();
         String currentWord;
-        Set<Character> characters;
-        int counter = Integer.MAX_VALUE;
+        Set<Character> uniqueCharacters;
+        int minimalNumDiffLetters = Integer.MAX_VALUE;
         String wordWithMinimalNumDiffLetters = null;
 
-        while (numberWords-- > 0) {
+        while (wordsCount-- > 0) {
             currentWord = scanner.next();
-            characters = new HashSet<>();
-            for (int i = 0; i < currentWord.length(); i++) {
-                characters.add(currentWord.charAt(i));
+            uniqueCharacters = new HashSet<>();
+            for (char letter : currentWord.toCharArray()) {
+                uniqueCharacters.add(letter);
             }
-            if (characters.size() < counter) {
-                counter = characters.size();
+            if (uniqueCharacters.size() < minimalNumDiffLetters) {
+                minimalNumDiffLetters = uniqueCharacters.size();
                 wordWithMinimalNumDiffLetters = currentWord;
             }
         }
         System.out.println(wordWithMinimalNumDiffLetters);
     }
 }
+
