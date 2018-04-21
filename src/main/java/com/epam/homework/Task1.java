@@ -52,6 +52,7 @@ public class Task1 {
                 break;
             }
         }
+        userLines.remove(0);
 
         String shortest = userLines.get(0);
         String longest = userLines.get(0);
