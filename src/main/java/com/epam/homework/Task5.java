@@ -52,12 +52,9 @@ public class Task5 {
     private static boolean isItHasTheSameNumVowelsAndConsonants(String str) {
         int balance = 0;
 
-        for (char letter : str.toCharArray()) {
-            if (isVowel(letter)) {
-                balance++;
-            } else {
-                balance--;
-            }
+        for (char letter: str.toCharArray()){
+            if (isVowel(letter)) balance++;
+            if (isConsonant(letter)) balance--;
         }
 
         return balance == 0;
@@ -65,5 +62,9 @@ public class Task5 {
 
     private static boolean isVowel(char letter) {
         return "aeiouyAEIOUY".indexOf(letter) >= 0;
+    }
+
+    private static boolean isConsonant(char letter) {
+        return "bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ".indexOf(letter) >= 0;
     }
 }
