@@ -63,16 +63,18 @@ public class Task1 {
         String longest = userLines.get(0);
 
         for (int i = 0; i < userLines.size(); i++) {
-            if (userLines.get(i).length() <= userLines.get(0).length()) {
+            if (userLines.get(i).length() <= shortest.length()) {
                 shortest = userLines.get(i);
             }
 
-            if (userLines.get(i).length() >= userLines.get(0).length()) {
+            if (userLines.get(i).length() >= longest.length()) {
                 longest = userLines.get(i);
             }
         }
 
         System.out.println("\nMIN (" + shortest.length() + "): " + shortest);
         System.out.println("MAX (" + longest.length() + "): " + longest);
+
     }
+
 }
