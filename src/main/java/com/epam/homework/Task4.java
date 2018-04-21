@@ -43,17 +43,19 @@ public class Task4 {
             String[] letters;
 
             for (int i = 0; i < words.length; i++) {
-                if (!words[i].isEmpty()){
+                if (!(words[i].isEmpty() || words[i].equals(" "))){
                     letters = words[i].trim().split("");
 
-                    for (String let : letters)
-                        wordsSet.add(let.trim());
+                    for (String let : letters){
+                        if(!(let.isEmpty() || let.equals(" ")))
+                            wordsSet.add(let.trim());
+                    }
 
                     if (wordsSet.size() < countMin || countMin == 0) {
                         countMin = wordsSet.size();
                         number = i;
                     }
-                wordsSet.clear();
+                    wordsSet.clear();
                 }
             }
             System.out.println(words[number]);
