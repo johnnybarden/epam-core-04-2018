@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task5 {
 
     /**
@@ -25,8 +27,43 @@ public class Task5 {
      * 2
      */
     public static void main(String[] args) {
-        // TODO реализация
+        try (Scanner reader = new Scanner(System.in)) {
+            int wordsCount = Integer.valueOf(reader.nextLine());
+            int countWordsWithSameNumVowelsAndConsonants = 0;
 
-        // TODO System.out.println(countWordsWithSameNumVowelsAndConsonants);
+            for (int i = 0; i < wordsCount; i++) {
+                String nextWord = reader.next();
+
+                if (isItConsistedFromLatinLetters(nextWord) &&
+                        isItHasTheSameNumVowelsAndConsonants(nextWord)) {
+
+                    countWordsWithSameNumVowelsAndConsonants++;
+                }
+            }
+
+            System.out.println(countWordsWithSameNumVowelsAndConsonants);
+        }
+    }
+
+    private static boolean isItConsistedFromLatinLetters(String str) {
+        return str.matches("^[a-zA-Z]+$");
+    }
+
+    private static boolean isItHasTheSameNumVowelsAndConsonants(String str) {
+        int balance = 0;
+
+        for (char letter : str.toCharArray()) {
+            if (isVowel(letter)) {
+                balance++;
+            } else {
+                balance--;
+            }
+        }
+
+        return balance == 0;
+    }
+
+    private static boolean isVowel(char letter) {
+        return "aeiouyAEIOUY".indexOf(letter) >= 0;
     }
 }
