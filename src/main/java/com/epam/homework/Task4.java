@@ -35,15 +35,16 @@ public class Task4 {
     public static void main(String[] args) throws IOException {
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
             Set<String> wordsSet = new HashSet<>();
-            reader.readLine();
+            int quantity = Integer.parseInt(reader.readLine());
             int countMin = 0;
+            int count = 0;
             int number = 0;
 
             String[] words = reader.readLine().trim().split(" ");
             String[] letters;
 
             for (int i = 0; i < words.length; i++) {
-                if (!(words[i].isEmpty() || words[i].equals(" "))){
+                if (!words[i].isEmpty() && !words[i].equals(" ") && count < quantity){
                     letters = words[i].trim().split("");
 
                     for (String let : letters){
@@ -56,6 +57,7 @@ public class Task4 {
                         number = i;
                     }
                     wordsSet.clear();
+                    count++;
                 }
             }
             System.out.println(words[number]);
