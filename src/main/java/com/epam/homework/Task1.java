@@ -1,5 +1,4 @@
 package com.epam.homework;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,24 +37,19 @@ public class Task1 {
      */
     public static void main(String[] args) {
 
-        ArrayList<String> userLines = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Type in a text here.");
+        System.out.println("Enter strings quantity.");
 
+        int count = sc.nextInt();
+        ArrayList<String> userLines = new ArrayList<>(count);
+
+        System.out.println("Type in a text here.");
         while (true) {
             String curr = sc.nextLine();
-            if (curr.equals("")) {
-                break;
-            }
             userLines.add(curr);
-        }
-
-        if ((userLines.size() < 1) || (userLines.size() > 99)) {
-            try {
-                throw new IOException();
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (userLines.size() == count) {
+                break;
             }
         }
 
