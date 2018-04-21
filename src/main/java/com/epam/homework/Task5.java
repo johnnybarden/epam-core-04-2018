@@ -46,7 +46,7 @@ public class Task5 {
     }
 
     private static boolean isItConsistedFromLatinLetters(String str) {
-        return str.matches("^[a-zA-Z]+$");
+        return str.matches("[a-zA-Z]+");
     }
 
     private static boolean isItHasTheSameNumVowelsAndConsonants(String str) {
