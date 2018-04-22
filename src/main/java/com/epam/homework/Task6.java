@@ -48,7 +48,7 @@ public class Task6 {
             count = 0;
             if (word[i].length()>1) {
                 for (int j = 0; j < word[i].length() - 1; j++) {
-                    if (word[i].charAt(j) > word[i].charAt(j + 1)) break;
+                    if (word[i].charAt(j) >= word[i].charAt(j + 1)) break;
                     else {
                         count++;
                         if (count == word[i].length() - 1)  {
