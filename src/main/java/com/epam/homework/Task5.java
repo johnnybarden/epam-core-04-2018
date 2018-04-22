@@ -29,17 +29,14 @@ public class Task5 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int numberWords = scanner.nextInt();
-        String currentWord;
-        String subString;
-        int difference;
         int countWordsWithSameNumVowelsAndConsonants = 0;
 
         while (numberWords-- > 0) {
-            currentWord = scanner.next();
+            String currentWord = scanner.next();
             if (currentWord.matches("[a-zA-Z]+")) {
-                subString = currentWord.replaceAll("(?i:[aeiouy])", "");
-                difference = currentWord.length() - subString.length();
-                if (difference == subString.length()) {
+                String consonants = currentWord.replaceAll("(?i:[aeiouy])", "");
+                int vowelsNumber = currentWord.length() - consonants.length();
+                if (vowelsNumber == consonants.length()) {
                     countWordsWithSameNumVowelsAndConsonants = ++countWordsWithSameNumVowelsAndConsonants;
                 }
             }
