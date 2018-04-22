@@ -31,7 +31,7 @@ public class Task7 {
      */
     public static void main(String[] args) {
         int minLen = Integer.MAX_VALUE;
-        LinkedList<String> targetWords =  new LinkedList<>();
+        LinkedList<String> targetWords = new LinkedList<>();
 
         Scanner in = new Scanner(System.in);
         int num = Integer.parseInt(in.nextLine());
@@ -39,9 +39,9 @@ public class Task7 {
 
         List<String> A = Arrays.asList(in.nextLine().split("\\s+"));
 
-        int i=0;
+        int i = 0;
         for (String s : A) {
-            if(i<num) words.add(s);
+            if (i < num) words.add(s);
             i++;
         }
 
@@ -49,23 +49,20 @@ public class Task7 {
             HashSet<Character> existsChars = new HashSet<>();
             boolean exit = false;
             String lowerCase = word.toLowerCase();
-            for (char c:lowerCase.toCharArray()) {
-                if(!(existsChars.contains(c))){
+            for (char c : lowerCase.toCharArray()) {
+                if (!(existsChars.contains(c))) {
                     existsChars.add(c);
-                }
-                else exit=true;
+                } else exit = true;
             }
 
-            if(!exit) targetWords.add(word);
+            if (!exit) targetWords.add(word);
         }
 
-        if(targetWords.size()==0){
+        if (targetWords.size() == 0) {
             System.out.println("NOT FOUND");
-        }
-        else {
-            for (String s:targetWords) {
-                System.out.println(s);
-            }
+        } else {
+            System.out.println(String.join(" ", targetWords));
         }
     }
 }
+
