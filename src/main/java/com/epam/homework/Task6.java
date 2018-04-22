@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.*;
+
 public class Task6 {
 
     /**
@@ -36,6 +38,36 @@ public class Task6 {
      * NOT FOUND
      */
     public static void main(String[] args) {
-        // TODO реализация
+        int minLen = Integer.MAX_VALUE;
+        String targetWord = "NOT FOUND";
+
+        Scanner in = new Scanner(System.in);
+        int num = Integer.parseInt(in.nextLine());
+        LinkedHashSet<String> words = new LinkedHashSet<>();
+
+        List<String> A = Arrays.asList(in.nextLine().split("\\s+"));
+
+        int i=0;
+        for (String s : A) {
+            if(i<num) words.add(s);
+            i++;
+        }
+
+        for (String word : words) {
+            boolean increase = true;
+            if (word.length()>1) {
+                for (int j = 0; j < word.length()-1; j++) {
+                    if (!(word.charAt(j) < word.charAt(j + 1))){
+                        increase = false;
+                    }
+                }
+                if(increase){
+                    targetWord = word;
+                    break;
+                }
+            }
+        }
+
+        System.out.println(targetWord);
     }
 }
