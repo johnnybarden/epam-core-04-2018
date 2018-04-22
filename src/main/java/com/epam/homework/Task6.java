@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task6 {
 
     /**
@@ -36,6 +38,26 @@ public class Task6 {
      * NOT FOUND
      */
     public static void main(String[] args) {
-        // TODO реализация
+        try (Scanner reader = new Scanner(System.in)) {
+            int wordsCount = Integer.valueOf(reader.nextLine());
+
+            for (int i = 0; i < wordsCount; i++) {
+                String nextWord = reader.next();
+
+                if (nextWord.length() > 1 && isConsistedOfCharactersArrangedInAscendingOrder(nextWord)) {
+                    System.out.println(nextWord);
+                    return;
+                }
+            }
+
+            System.out.println("NOT FOUND");
+        }
+    }
+
+    private static boolean isConsistedOfCharactersArrangedInAscendingOrder(String word) {
+        for (int i = 0, j = 1; j < word.length(); i++, j++)
+            if (word.charAt(i) > word.charAt(j)) return false;
+
+        return true;
     }
 }
