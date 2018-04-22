@@ -41,9 +41,11 @@ public class Task7 {
             String lineStart = scanner.next();
             String line = lineStart.toLowerCase();
             int count = 0;
-            for (int j=0; j<line.length(); j++) {
-                if (line.indexOf(line.charAt(j)) == line.lastIndexOf(line.charAt(j))) count++;
-                else break;
+            if (line.matches("[a-zA-Z]+")) {
+                for (int j=0; j<line.length(); j++) {
+                    if (line.indexOf(line.charAt(j)) == line.lastIndexOf(line.charAt(j))) count++;
+                    else break;
+                }
             }
             if (count == line.length()) result.add(lineStart);
         }
