@@ -31,22 +31,27 @@ public class Task4 {
      * a
      */
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
         int minLen = Integer.MAX_VALUE;
         String targetWord = "";
+
+        Scanner in = new Scanner(System.in);
         int num = Integer.parseInt(in.nextLine());
+
         LinkedHashSet<String> words = new LinkedHashSet<>(Arrays.asList(in.nextLine().split("\\s+")));
+
         for (String word : words) {
             HashSet<Character> chars = new HashSet<>();
+
             for (char c:word.toCharArray()) {
                 chars.add(c);
             }
+
             if(chars.size()<minLen){
                 minLen = chars.size();
                 targetWord = word;
             }
         }
 
-        System.out.println(targetWord);
+        System.out.print(targetWord);
     }
 }
