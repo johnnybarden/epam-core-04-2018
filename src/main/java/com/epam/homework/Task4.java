@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.stream.Stream;
+
 public class Task4 {
 
     /**
@@ -26,8 +30,26 @@ public class Task4 {
      * a
      */
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner in = new Scanner(System.in);
+        int minLen = Integer.MAX_VALUE;
+        String targetWord = "";
+        int num = Integer.parseInt(in.nextLine());
+        HashSet<String> words = new HashSet<>();
+        String[] A = in.nextLine().split("\\s+");
+        for (String a:A) {
+            words.add(a);
+        }
+        for (String word : A) {
+            HashSet<Character> chars = new HashSet<>();
+            for (char c:word.toCharArray()) {
+                chars.add(c);
+            }
+            if(chars.size()<minLen){
+                minLen = chars.size();
+                targetWord = word;
+            }
+        }
 
-        // TODO System.out.println(wordWithMinimalNumDiffLetters);
+        System.out.println(targetWord);
     }
 }
