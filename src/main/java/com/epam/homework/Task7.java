@@ -30,7 +30,6 @@ public class Task7 {
      * The is a
      */
     public static void main(String[] args) {
-        int minLen = Integer.MAX_VALUE;
         LinkedList<String> targetWords = new LinkedList<>();
 
         Scanner in = new Scanner(System.in);
@@ -45,6 +44,8 @@ public class Task7 {
             i++;
         }
 
+        HashSet<String> existsWords = new HashSet<>();
+
         for (String word : words) {
             HashSet<Character> existsChars = new HashSet<>();
             boolean exit = false;
@@ -55,7 +56,10 @@ public class Task7 {
                 } else exit = true;
             }
 
-            if (!exit) targetWords.add(word);
+            if (!exit && !existsWords.contains(word.toLowerCase())) {
+                targetWords.add(word);
+                existsWords.add(word.toLowerCase());
+            }
         }
 
         if (targetWords.size() == 0) {
