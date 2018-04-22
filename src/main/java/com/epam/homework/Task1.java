@@ -37,39 +37,29 @@ public class Task1 {
      */
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Enter strings quantity.");
-
+        Scanner sc = new Scanner(System.in);
         int count = sc.nextInt();
-        ArrayList<String> userLines = new ArrayList<>(count);
 
         System.out.println("Type in a text here.");
-        while (true) {
-            String curr = sc.nextLine();
-            userLines.add(curr);
-            if (userLines.size() == count) {
-                break;
-            }
-        }
-        userLines.remove(0);
+        sc.nextLine();
+        String curr = sc.nextLine();
+        String shortest = curr;
+        String longest = curr;
 
-        String shortest = userLines.get(0);
-        String longest = userLines.get(0);
+        for (int i = 1; i < count; i++) {
+            curr = sc.nextLine();
 
-        for (int i = 0; i < userLines.size(); i++) {
-            if (userLines.get(i).length() <= shortest.length()) {
-                shortest = userLines.get(i);
+            if (curr.length() <= shortest.length()) {
+                shortest = curr;
             }
 
-            if (userLines.get(i).length() >= longest.length()) {
-                longest = userLines.get(i);
+            if (curr.length() >= longest.length()) {
+                longest = curr;
             }
         }
 
         System.out.println("\nMIN (" + shortest.length() + "): " + shortest);
         System.out.println("MAX (" + longest.length() + "): " + longest);
-
     }
-
 }
