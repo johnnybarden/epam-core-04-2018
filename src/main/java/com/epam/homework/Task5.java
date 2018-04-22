@@ -34,7 +34,7 @@ public class Task5 {
             for (int i = 0; i < wordsCount; i++) {
                 String nextWord = reader.next();
 
-                if (isItConsistedFromLatinLetters(nextWord) &&
+                if (isItConsistedOfLatinLetters(nextWord) &&
                         isItHasTheSameNumVowelsAndConsonants(nextWord)) {
 
                     countWordsWithSameNumVowelsAndConsonants++;
@@ -45,7 +45,7 @@ public class Task5 {
         }
     }
 
-    private static boolean isItConsistedFromLatinLetters(String str) {
+    private static boolean isItConsistedOfLatinLetters(String str) {
         return str.matches("[a-zA-Z]+");
     }
 
