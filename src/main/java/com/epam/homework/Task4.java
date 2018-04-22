@@ -1,9 +1,5 @@
 package com.epam.homework;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class Task4 {
 
@@ -36,8 +32,8 @@ public class Task4 {
 
         Scanner in = new Scanner(System.in);
         int num = Integer.parseInt(in.nextLine());
-
-        LinkedHashSet<String> words = new LinkedHashSet<>(Arrays.asList(in.nextLine().split("\\s+")));
+        List<String> words = Arrays.asList(in.nextLine().split("\\s+"));
+        //LinkedHashSet<String> words = new LinkedHashSet<>(Arrays.asList(in.nextLine().split("\\s+")));
 
         for (String word : words) {
             HashSet<Character> chars = new HashSet<>();
