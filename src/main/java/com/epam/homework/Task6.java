@@ -48,7 +48,7 @@ public class Task6 {
             String currentWord = scanner.next();
             if (currentWord.length() > 1) {
                 for (int i = 1; i < currentWord.length(); i++) {
-                    if (currentWord.charAt(i - 1) > currentWord.charAt(i)) {
+                    if (currentWord.charAt(i - 1) >= currentWord.charAt(i)) {
                         flag = false;
                         break;
                     } else {
