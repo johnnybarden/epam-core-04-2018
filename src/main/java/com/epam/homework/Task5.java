@@ -40,7 +40,16 @@ public class Task5 {
 
         Scanner in = new Scanner(System.in);
         int num = Integer.parseInt(in.nextLine());
-        HashSet<String> words = new HashSet<>(Arrays.asList(in.nextLine().split("\\s+")));
+
+        LinkedHashSet<String> words = new LinkedHashSet<>();
+
+        List<String> A = Arrays.asList(in.nextLine().split("\\s+"));
+
+        int i=0;
+        for (String s : A) {
+            if(i<num) words.add(s);
+            i++;
+        }
 
         for (String word:words) {
             int vowels = 0;
