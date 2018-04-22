@@ -45,14 +45,14 @@ public class Task6 {
         while (wordsCount-- > 0) {
             String currentWord = scanner.next();
             if (currentWord.length() > 1) {
-                boolean flag = true;
+                boolean isCharsCodeInAscendingOrder = true;
                 for (int i = 1; i < currentWord.length(); i++) {
                     if (currentWord.charAt(i - 1) >= currentWord.charAt(i)) {
-                        flag = false;
+                        isCharsCodeInAscendingOrder = false;
                         break;
                     }
                 }
-                if (flag) {
+                if (isCharsCodeInAscendingOrder) {
                     result = currentWord;
                     break;
                 }
