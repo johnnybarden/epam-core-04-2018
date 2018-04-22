@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.*;
+
 public class Task7 {
 
     /**
@@ -28,6 +30,39 @@ public class Task7 {
      * The is a
      */
     public static void main(String[] args) {
-        // TODO реализация
+        try (Scanner reader = new Scanner(System.in)) {
+            int wordsCount = Integer.valueOf(reader.nextLine());
+            Set<String> uniqueWordsConsistedOfDiffLetters = new LinkedHashSet<>();
+
+            for (int i = 0; i < wordsCount; i++) {
+                String nextWord = reader.next();
+
+                if (isConsistedOfDiffLetters(nextWord) &&
+                        !uniqueWordsConsistedOfDiffLetters.contains(nextWord.toLowerCase())) {
+
+                    uniqueWordsConsistedOfDiffLetters.add(nextWord);
+                }
+            }
+
+            if (!uniqueWordsConsistedOfDiffLetters.isEmpty()) {
+                System.out.println(String.join(" ", uniqueWordsConsistedOfDiffLetters));
+            } else {
+                System.out.println("NOT FOUND");
+            }
+        }
+    }
+
+    private static boolean isConsistedOfDiffLetters(String word) {
+        return word.length() == getUniqueLetters(word).size();
+    }
+
+    private static Set<Character> getUniqueLetters(String word) {
+        Set<Character> uniqueLetters = new HashSet<>();
+
+        for (char letter: word.toLowerCase().toCharArray()) {
+            uniqueLetters.add(letter);
+        }
+
+        return uniqueLetters;
     }
 }
