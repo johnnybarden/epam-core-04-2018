@@ -41,24 +41,21 @@ public class Task6 {
         Scanner scanner = new Scanner(System.in);
         int wordsCount = scanner.nextInt();
         String result = "NOT FOUND";
-        boolean flag = true;
-        int wordCounter = 0;
 
         while (wordsCount-- > 0) {
             String currentWord = scanner.next();
             if (currentWord.length() > 1) {
+                boolean flag = true;
                 for (int i = 1; i < currentWord.length(); i++) {
                     if (currentWord.charAt(i - 1) >= currentWord.charAt(i)) {
                         flag = false;
                         break;
-                    } else {
-                        flag = true;
                     }
                 }
-            }
-            if (flag && wordCounter < 1) {
-                result = currentWord;
-                wordCounter++;
+                if (flag) {
+                    result = currentWord;
+                    break;
+                }
             }
         }
         System.out.println(result);
