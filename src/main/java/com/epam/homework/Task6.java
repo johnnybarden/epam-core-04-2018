@@ -56,7 +56,7 @@ public class Task6 {
 
     private static boolean isConsistedOfCharactersArrangedInAscendingOrder(String word) {
         for (int i = 0, j = 1; j < word.length(); i++, j++)
-            if (word.charAt(i) > word.charAt(j)) return false;
+            if (word.charAt(i) >= word.charAt(j)) return false;
 
         return true;
     }
