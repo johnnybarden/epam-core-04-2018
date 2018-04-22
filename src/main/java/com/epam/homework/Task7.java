@@ -1,5 +1,10 @@
 package com.epam.homework;
 
+import java.util.HashSet;
+import java.util.Scanner;
+
+import static java.lang.String.join;
+
 public class Task7 {
 
     /**
@@ -18,16 +23,36 @@ public class Task7 {
      * В случае, если не найдено ни одного слова, удовлетворяющего условию - в поток должно быть выведено "NOT FOUND".
      *
      * ---------------------------------------------------------------------------------------------------
-     * Пример выполнения задания:
+             * Пример выполнения задания:
+            *
+            * Входные данные:
+            * 11
+            * The Java programming language is a general-purpose, concurrent, class-based, object-oriented language
      *
-     * Входные данные:
-     * 11
-     * The Java programming language is a general-purpose, concurrent, class-based, object-oriented language
-     *
-     * Выходные данные:
-     * The is a
+             * Выходные данные:
+            * The is a
      */
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner scanner = new Scanner(System.in);
+        int n = Integer.parseInt(scanner.next());
+        HashSet<String> result = new HashSet<>();
+        String output = "";
+        for (int i = 0; i < n; i++) {
+            String lineStart = scanner.next();
+            String line = lineStart.toLowerCase();
+            int count = 0;
+            for (int j=0; j<line.length(); j++) {
+                if (line.indexOf(line.charAt(j)) == line.lastIndexOf(line.charAt(j))) count++;
+                else break;
+            }
+            if (count == line.length()) result.add(lineStart);
+        }
+        if (result.isEmpty()) System.out.println("NOT FOUND");
+        else {
+            for (String anResult : result) {
+                output = join(" ", output, anResult);
+            }
+        }
+        System.out.println(output.trim());
     }
 }
