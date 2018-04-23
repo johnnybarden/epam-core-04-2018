@@ -42,7 +42,7 @@ public class Task5 {
                 if(word.matches("(?i:[a-z])+")){
 
                     for (int j = 0; j < word.length(); j++) {
-                        if (word.substring(j, j).matches("(?i:[eyuioa])+"))
+                        if (word.substring(j, j+1).matches("(?i:[eyuioa])+"))
                             countVowels++;
                         else countConsonants++;
                     }
