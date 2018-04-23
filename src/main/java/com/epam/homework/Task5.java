@@ -40,7 +40,6 @@ public class Task5 {
                 String word = scanner.next();
 
                 if(word.matches("(?i:[a-z])+")){
-                    System.out.println("Y");
 
                     for (int j = 0; j < word.length(); j++) {
                         if (word.substring(j, j).matches("(?i:[eyuioa])+"))
