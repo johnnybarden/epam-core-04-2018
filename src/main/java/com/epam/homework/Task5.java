@@ -40,18 +40,19 @@ public class Task5 {
                 String word = scanner.next();
 
                 if(word.matches("(?i:[a-z])+")){
+                    System.out.println("Y");
 
                     for (int j = 0; j < word.length(); j++) {
                         if (word.substring(j, j).matches("(?i:[eyuioa])+"))
                             countVowels++;
                         else countConsonants++;
                     }
-                }
-                if (countVowels == countConsonants)
-                    countWordsWithSameNumVowelsAndConsonants++;
+                    if (countVowels == countConsonants)
+                        countWordsWithSameNumVowelsAndConsonants++;
 
-                countVowels = 0;
-                countConsonants = 0;
+                    countVowels = 0;
+                    countConsonants = 0;
+                }
             }
             System.out.println(countWordsWithSameNumVowelsAndConsonants);
         }
