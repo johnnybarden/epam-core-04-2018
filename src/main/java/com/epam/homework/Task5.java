@@ -1,5 +1,10 @@
 package com.epam.homework;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 public class Task5 {
 
     /**
@@ -25,8 +30,30 @@ public class Task5 {
      * 2
      */
     public static void main(String[] args) {
-        // TODO реализация
+        try (Scanner scanner = new Scanner(System.in)) {
+            int number = scanner.nextInt();
+            int countVowels = 0;
+            int countConsonants = 0;
+            int countWordsWithSameNumVowelsAndConsonants = 0;
 
-        // TODO System.out.println(countWordsWithSameNumVowelsAndConsonants);
+            for (int i = 0; i < number; i++) {
+                String word = scanner.next();
+
+                if(word.matches("(?i:[a-z])+")){
+
+                    for (int j = 0; j < word.length(); j++) {
+                        if (word.substring(j, j).matches("(?i:[eyuioa])+"))
+                            countVowels++;
+                        else countConsonants++;
+                    }
+                }
+                if (countVowels == countConsonants)
+                    countWordsWithSameNumVowelsAndConsonants++;
+
+                countVowels = 0;
+                countConsonants = 0;
+            }
+            System.out.println(countWordsWithSameNumVowelsAndConsonants);
+        }
     }
 }
