@@ -32,8 +32,13 @@ public class Task4 {
 
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        String wordWithMinimalNumDiffLetters = scanner.next();
-        int minLength = wordWithMinimalNumDiffLetters.length();         //assuming the first word to be min
+        String wordWithMinimalNumDiffLetters = scanner.next();                  //assuming the first word to be min
+        char minCharArray[] = wordWithMinimalNumDiffLetters.toCharArray();
+        HashSet<Character> charsInMinWord = new HashSet<>();
+        for (char c : minCharArray){
+            charsInMinWord.add(c);
+        }
+        int minLength = charsInMinWord.size();
 
         for (int i = 1; i < n; i++){
             String currentWord = scanner.next();
