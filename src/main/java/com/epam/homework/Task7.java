@@ -35,7 +35,7 @@ public class Task7 {
         Scanner scanner = new Scanner(System.in);
         int numberWords = scanner.nextInt();
         StringBuilder stringBuilder = new StringBuilder();
-        LinkedHashSet<String> wordSet = new LinkedHashSet<>();
+        HashSet<String> wordSet = new LinkedHashSet<>();
 
         while (numberWords-- > 0) {
             String currentWord = scanner.next();
