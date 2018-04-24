@@ -35,21 +35,21 @@ public class Task7 {
         Scanner scanner = new Scanner(System.in);
         int numberWords = scanner.nextInt();
         StringBuilder stringBuilder = new StringBuilder();
-        HashSet<String> wordSet = new LinkedHashSet<>();
+        HashSet<String> uniqueWords = new LinkedHashSet<>();
 
         while (numberWords-- > 0) {
             String currentWord = scanner.next();
-            wordSet.add(currentWord.toLowerCase());
+            uniqueWords.add(currentWord.toLowerCase());
         }
 
-        HashSet<Character> characters = new HashSet<>();
+        HashSet<Character> uniqueLetters = new HashSet<>();
 
-        for (String currentWord : wordSet) {
-            characters.clear();
+        for (String currentWord : uniqueWords) {
+            uniqueLetters.clear();
             for (char letter : currentWord.toCharArray()) {
-                characters.add(letter);
+                uniqueLetters.add(letter);
             }
-            if (characters.size() == currentWord.length()) {
+            if (uniqueLetters.size() == currentWord.length()) {
                 stringBuilder.append(currentWord).append(" ");
             }
         }
