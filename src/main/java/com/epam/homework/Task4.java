@@ -1,5 +1,8 @@
 package com.epam.homework;
 
+import java.util.HashSet;
+import java.util.Scanner;
+
 public class Task4 {
 
     /**
@@ -26,8 +29,25 @@ public class Task4 {
      * a
      */
     public static void main(String[] args) {
-        // TODO реализация
 
-        // TODO System.out.println(wordWithMinimalNumDiffLetters);
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        String wordWithMinimalNumDiffLetters = scanner.next();
+        int minLength = wordWithMinimalNumDiffLetters.length();         //assuming the first word to be min
+
+        for (int i = 1; i < n; i++){
+            String currentWord = scanner.next();
+            char currentCharArray[] = currentWord.toCharArray();
+            HashSet<Character> charsInCurrentWord = new HashSet<>();
+            for (char c : currentCharArray){
+                charsInCurrentWord.add(c);                              //just putting all the chars to the set
+            }
+            if (charsInCurrentWord.size() < minLength){
+                minLength = charsInCurrentWord.size();                  //getting size of the set == number of different letters
+                wordWithMinimalNumDiffLetters = currentWord;            //since sets store only unique elements
+            }
+        }
+
+        System.out.println(wordWithMinimalNumDiffLetters);
     }
 }
