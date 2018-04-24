@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Task3 {
 
     /**
@@ -37,11 +41,27 @@ public class Task3 {
      * (28): Ведь, если звезды зажигают -
      */
     public static void main(String[] args) {
-        // TODO реализация
 
-        // TODO System.out.println("AVERAGE (" + averageLength + ")");
-        // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
+        long averageLength = 0;
+        List<String> strings = new ArrayList<>();
+
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.nextLine();
+
+        for (int i = 0; i < n; i++){
+            String current = scanner.nextLine();
+            strings.add(current);
+            averageLength += current.length();
+        }
+
+        averageLength /= n;
+
+        System.out.println("AVERAGE (" + averageLength + ")");
+        for (String current : strings) {
+            if (current.length() < averageLength) {
+                System.out.println("(" + current.length() + "): " + current);
+            }
+        }
     }
 }
