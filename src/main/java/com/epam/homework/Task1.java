@@ -39,14 +39,15 @@ public class Task1 {
 
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
+        scanner.nextLine();
 
-        String maxString = scanner.next();        //assuming the first string to be max and min
+        String maxString = scanner.nextLine();        //assuming the first string to be max and min
         int maxLength = maxString.length();
         String minString = maxString;
         int minLength = minString.length();
 
         for (int i = 1; i < n; i++){              //comparing each string with min and max values
-            String current = scanner.next();
+            String current = scanner.nextLine();
             if (current.length() <= minLength) {
                 minString = current;
                 minLength = current.length();
