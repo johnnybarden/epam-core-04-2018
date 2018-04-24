@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+
 public class Task7 {
 
     /**
@@ -7,27 +11,53 @@ public class Task7 {
      * Найти слова, состоящие только из различных символов английского алфавита.
      * Символы верхнего и нижнего регистра считать одинаковыми.
      * В случае, если слово встречается более одного раза - вывести его единожды.
-     *
+     * <p>
      * Формат входных данных:
      * N (целое число, 0 < N < 100) - количество слов в строке
      * Строка, содержащая нимимум N слов (состоящих только из букв английского языка), разделенных пробелами
-     *
+     * <p>
      * Формат выходных данных:
      * В результате выполнения в выходной поток должна быть выведена строка, содержащая найденные слова, разделенные пробелами.
      * Порядок слов должен совпадать с порядком их появления во входной последовательности.
      * В случае, если не найдено ни одного слова, удовлетворяющего условию - в поток должно быть выведено "NOT FOUND".
-     *
+     * <p>
      * ---------------------------------------------------------------------------------------------------
      * Пример выполнения задания:
-     *
+     * <p>
      * Входные данные:
      * 11
      * The Java programming language is a general-purpose, concurrent, class-based, object-oriented language
-     *
+     * <p>
      * Выходные данные:
      * The is a
      */
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner scanner = new Scanner(System.in);
+        int numberWords = scanner.nextInt();
+        StringBuilder stringBuilder = new StringBuilder();
+        LinkedHashSet<String> wordSet = new LinkedHashSet<>();
+
+        while (numberWords-- > 0) {
+            String currentWord = scanner.next();
+            wordSet.add(currentWord.toLowerCase());
+        }
+
+        HashSet<Character> characters = new HashSet<>();
+
+        for (String currentWord : wordSet) {
+            characters.clear();
+            for (char letter : currentWord.toCharArray()) {
+                characters.add(letter);
+            }
+            if (characters.size() == currentWord.length()) {
+                stringBuilder.append(currentWord).append(" ");
+            }
+        }
+
+        if (stringBuilder.length() == 0) {
+            stringBuilder.append("NOT FOUND");
+        }
+        System.out.println(stringBuilder);
     }
 }
+
