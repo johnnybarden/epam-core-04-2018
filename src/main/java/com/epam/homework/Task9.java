@@ -62,7 +62,7 @@ public class Task9 {
             if (roots == null)
                 System.out.println("NO ROOTS");
             else {
-                System.out.println(roots.stream().map(item -> formatter.format(item).replace(',', '.')).collect(Collectors.joining(" ")));
+                System.out.println(roots.stream().map(item -> formatter.format(item).replace(',', '.')).collect(Collectors.joining(", ")));
             }
         }
     }
