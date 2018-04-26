@@ -52,7 +52,7 @@ public class Task9 {
      * NO ROOTS
      */
     public static void main(String[] args) {
-        DecimalFormat formatter = new DecimalFormat("#0.0");
+        DecimalFormat formatter = new DecimalFormat("#0.00");
         formatter.setRoundingMode(RoundingMode.HALF_UP);
         try (Scanner reader = new Scanner(System.in)) {
             double a = reader.nextDouble();
@@ -68,6 +68,10 @@ public class Task9 {
     }
 
     private static List<Double> getRoots(double a, double b, double c) {
+        if (a == 0) {
+            return getRootIfNotX2(b, c);
+        }
+
         double discriminant = getDiscriminant(a, b, c);
         if (discriminant > 0) {
             double x1, x2;
@@ -80,6 +84,14 @@ public class Task9 {
         else if (discriminant == 0) {
             double x;
             x = -b / (2 * a);
+            return Arrays.asList(x);
+        }
+        return null;
+    }
+
+    private static List<Double> getRootIfNotX2(double b, double c) {
+        if (b != 0) {
+            double x = -1.0 * c / b;
             return Arrays.asList(x);
         }
         return null;
