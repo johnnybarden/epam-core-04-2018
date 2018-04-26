@@ -51,7 +51,7 @@ public class Task9 {
      * NO ROOTS
      */
     public static void main(String[] args) {
-        DecimalFormat formatter = new DecimalFormat("#0.0");
+        DecimalFormat formatter = new DecimalFormat("#0.00");
         try (Scanner reader = new Scanner(System.in)) {
             double a = reader.nextDouble();
             double b = reader.nextDouble();
@@ -60,7 +60,7 @@ public class Task9 {
             if (roots.size() == 0)
                 System.out.println("NO ROOTS");
             else {
-                System.out.println(roots.stream().map(item -> formatter.format(item)).collect(Collectors.joining(" ")));
+                System.out.println(roots.stream().map(item -> formatter.format(item).replace(',', '.')).collect(Collectors.joining(" ")));
             }
         }
     }
