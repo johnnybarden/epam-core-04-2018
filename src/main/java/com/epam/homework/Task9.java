@@ -1,5 +1,6 @@
 package com.epam.homework;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -52,6 +53,7 @@ public class Task9 {
      */
     public static void main(String[] args) {
         DecimalFormat formatter = new DecimalFormat("#0.00");
+        formatter.setRoundingMode(RoundingMode.CEILING);
         try (Scanner reader = new Scanner(System.in)) {
             double a = reader.nextDouble();
             double b = reader.nextDouble();
