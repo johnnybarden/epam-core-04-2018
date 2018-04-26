@@ -1,52 +1,44 @@
 package com.epam.homework;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Task5 {
 
-    private static List<String> listOfWords;
-
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        int counter = Integer.valueOf(scanner.nextLine());
         int count = 0;
-        int glassCounter = 0;
-        int soglassCounter = 0;
-        boolean flag = false;
-        String input = scanner.nextLine();
-        listOfWords = new ArrayList<>(Arrays.asList(input.split(" ")));
-        if (counter == listOfWords.size()) {
-            for (String a : listOfWords) {
-                a = a.toLowerCase();
-                for (int i = 0; i < a.length(); i++) {
-                    char c = a.charAt(i);
-                    if (((c >= 'a') && (c <= 'z'))) {
-                        flag = true;
-                        switch (c) {
-                            case 'a':
-                            case 'e':
-                            case 'i':
-                            case 'o':
-                            case 'u':
-                            case 'y':
-                                glassCounter++;
-                                break;
-                            default:
-                                soglassCounter++;
-                        }
-                    } else {
-                        flag = false;
-                        glassCounter = 0;
-                        soglassCounter = 0;
+
+        Scanner scanner = new Scanner(System.in);
+
+        int wordsCount = Integer.valueOf(scanner.nextLine());
+
+        for (int i = 0; i < wordsCount; i++) {
+
+            String word = scanner.next();
+
+            int countV = 0;
+            int countS = 0;
+
+            for (char c : word.toLowerCase().toCharArray()) {
+
+                if (c < 'a' || c > 'z'){
+                    break;
+                }
+                switch (c) {
+                    case 'a':
+                    case 'e':
+                    case 'i':
+                    case 'o':
+                    case 'u':
+                    case 'y':
+                        countV++;
                         break;
-                    }
+                    default:
+                        countS++;
                 }
-                if (flag && (glassCounter == soglassCounter)) {
-                    count++;
-                }
-                glassCounter = 0;
-                soglassCounter = 0;
+            }
+            if (countV == countS) {
+                count++;
             }
         }
         System.out.println(count);
