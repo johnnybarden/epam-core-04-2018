@@ -51,7 +51,7 @@ public class Task9 {
      * NO ROOTS
      */
     public static void main(String[] args) {
-        DecimalFormat formatter = new DecimalFormat("#0.00");
+        DecimalFormat formatter = new DecimalFormat("#0.0");
         try (Scanner reader = new Scanner(System.in)) {
             double a = reader.nextDouble();
             double b = reader.nextDouble();
