@@ -52,7 +52,7 @@ public class Task9 {
      * NO ROOTS
      */
     public static void main(String[] args) {
-        DecimalFormat formatter = new DecimalFormat("#0.0");
+        DecimalFormat formatter = new DecimalFormat("#0.00");
         formatter.setRoundingMode(RoundingMode.HALF_UP);
         try (Scanner reader = new Scanner(System.in)) {
             double a = reader.nextDouble();
