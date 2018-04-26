@@ -45,7 +45,7 @@ public class Task7 {
         if (rezult.length() == 0){
             System.out.println("NOT FOUND");
         } else {
-            System.out.println(rezult);
+            System.out.println(rezult.trim());
         }
     }
 
