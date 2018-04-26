@@ -42,7 +42,7 @@ public class Task3 {
      */
     public static void main(String[] args) {
 
-        long averageLength = 0;
+        long sumOfLengths = 0;
         List<String> strings = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
@@ -52,10 +52,10 @@ public class Task3 {
         for (int i = 0; i < n; i++){
             String current = scanner.nextLine();
             strings.add(current);
-            averageLength += current.length();
+            sumOfLengths += current.length();
         }
 
-        averageLength /= n;
+        long averageLength = sumOfLengths / n;
 
         System.out.println("AVERAGE (" + averageLength + ")");
         for (String current : strings) {
