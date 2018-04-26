@@ -64,7 +64,7 @@ public class Task9 {
             else {
                 System.out.println(roots.stream().map(item ->{
                     if (item.equals(0.00) || item.equals(-0.00))
-                        return "0";
+                        return "0.00";
                     return formatter.format(item).replace(',', '.');
                 }).collect(Collectors.joining(", ")));
             }
