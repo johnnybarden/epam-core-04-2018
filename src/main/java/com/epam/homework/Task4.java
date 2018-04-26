@@ -33,26 +33,27 @@ public class Task4 {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         String wordWithMinimalNumDiffLetters = scanner.next();                  //assuming the first word to be min
-        char minCharArray[] = wordWithMinimalNumDiffLetters.toCharArray();
-        HashSet<Character> charsInMinWord = new HashSet<>();
-        for (char c : minCharArray){
-            charsInMinWord.add(c);
-        }
-        int minLength = charsInMinWord.size();
+        int minLength = uniqueLetters(wordWithMinimalNumDiffLetters);
 
         for (int i = 1; i < n; i++){
             String currentWord = scanner.next();
-            char currentCharArray[] = currentWord.toCharArray();
-            HashSet<Character> charsInCurrentWord = new HashSet<>();
-            for (char c : currentCharArray){
-                charsInCurrentWord.add(c);                              //just putting all the chars to the set
-            }
-            if (charsInCurrentWord.size() < minLength){
-                minLength = charsInCurrentWord.size();                  //getting size of the set == number of different letters
-                wordWithMinimalNumDiffLetters = currentWord;            //since sets store only unique elements
+            int uniqueLetters = uniqueLetters(currentWord);
+            if (uniqueLetters < minLength){
+                minLength = uniqueLetters;
+                wordWithMinimalNumDiffLetters = currentWord;
             }
         }
 
         System.out.println(wordWithMinimalNumDiffLetters);
     }
+
+    private static int uniqueLetters(String word){
+        char[] charArray = word.toCharArray();
+        HashSet<Character> charsInCurrentWord = new HashSet<>();        //just putting all the chars to the set
+        for (char c : charArray){                                       //getting size of the set == number of different letters
+            charsInCurrentWord.add(c);                                  //since sets store only unique elements
+        }
+        return charsInCurrentWord.size();
+    }
+
 }
