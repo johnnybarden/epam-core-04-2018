@@ -45,7 +45,7 @@ public class Task8 {
         String resultCandidate = "";
         for (String word: words) {
             if (isPalindromeNumber(word)){
-                if (resultCandidate.isEmpty() || resultCandidate != word) {
+                if (resultCandidate.isEmpty() || resultCandidate.equals(word)) {
                     resultCandidate = word;
                     continue;
                 }
