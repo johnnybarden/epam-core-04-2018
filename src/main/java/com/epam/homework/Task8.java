@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.*;
+
 public class Task8 {
 
     /**
@@ -28,6 +30,50 @@ public class Task8 {
      * 22
      */
     public static void main(String[] args) {
-        // TODO реализация
+        try (Scanner reader = new Scanner(System.in)) {
+            String result = palindromeSearch(reader);
+            if (result.isEmpty())
+                System.out.println("NOT FOUND");
+            else
+                System.out.println(result);
+        }
     }
+
+    private static String palindromeSearch(Scanner reader) {
+        int wordsNum = Integer.valueOf(reader.nextLine());
+        List<String> words = Arrays.asList(reader.nextLine().split(" ", wordsNum));
+        String resultCandidate = "";
+        for (String word: words) {
+            if (isPalindromeNumber(word)){
+                if (resultCandidate.isEmpty()) {
+                    resultCandidate = word;
+                    continue;
+                }
+                return word;
+            }
+        }
+        return resultCandidate;
+    }
+
+    private static boolean isPalindromeNumber(String word) {
+        if (word.length() == 1 && isDigit(word.charAt(0)))
+            return true;
+
+        for (int i = 0; i <= word.length() / 2; i++) {
+            char currentChar = word.charAt(i);
+            if (isDigit(currentChar)) {
+                char mirrorChar = word.charAt(word.length() - i - 1);
+                if (currentChar == mirrorChar)
+                    continue;
+            }
+            return false;
+        }
+
+        return true;
+    }
+
+    private static boolean isDigit(char c) {
+        return Character.isDigit(c);
+    }
+
 }
