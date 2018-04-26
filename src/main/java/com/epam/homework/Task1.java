@@ -38,7 +38,7 @@ public class Task1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        scanner = new Scanner(System.in);
+        scanner.nextLine();
 
         String maxString = scanner.nextLine();
         String minString = maxString;
