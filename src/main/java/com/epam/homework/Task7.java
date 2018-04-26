@@ -45,9 +45,7 @@ public class Task7 {
         if (set.size() == 0) {
             System.out.println("NOT FOUND");
         } else {
-            for (String str : set) {
-                System.out.print(str + " ");
-            }
+            System.out.println(String.join(" ", set));
         }
     }
 
