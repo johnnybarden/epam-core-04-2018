@@ -1,6 +1,7 @@
 package com.epam.homework;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -34,7 +35,7 @@ public class Task7 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.next());
-        Set<String> set = new HashSet<>();
+        Set<String> set = new LinkedHashSet<>();
 
         for (int i = 0; i < n; i++) {
             String str = scanner.next();
