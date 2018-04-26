@@ -34,18 +34,20 @@ public class Task7 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.next());
-        String rezult = "";
+        Set<String> set = new HashSet<>();
 
         for (int i = 0; i < n; i++) {
             String str = scanner.next();
-            if (isDifferentChars(str)){
-                rezult += str + " ";
+            if (isDifferentChars(str)) {
+                set.add(str);
             }
         }
-        if (rezult.length() == 0){
+        if (set.size() == 0) {
             System.out.println("NOT FOUND");
         } else {
-            System.out.println(rezult.trim());
+            for (String str : set) {
+                System.out.print(str + " ");
+            }
         }
     }
 
