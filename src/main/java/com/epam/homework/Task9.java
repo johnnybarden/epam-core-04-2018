@@ -58,7 +58,7 @@ public class Task9 {
             double a = reader.nextDouble();
             double b = reader.nextDouble();
             double c = reader.nextDouble();
-            List<Double> roots = getRoots(a, b, c);
+            List<Double> roots = getRootsX2(a, b, c);
             if (roots == null)
                 System.out.println("NO ROOTS");
             else {
@@ -71,9 +71,9 @@ public class Task9 {
         }
     }
 
-    private static List<Double> getRoots(double a, double b, double c) {
+    private static List<Double> getRootsX2(double a, double b, double c) {
         if (a == 0) {
-            return getRootIfNotX2(b, c);
+            return getRootsX1(b, c);
         }
 
         double discriminant = getDiscriminant(a, b, c);
@@ -93,7 +93,7 @@ public class Task9 {
         return null;
     }
 
-    private static List<Double> getRootIfNotX2(double b, double c) {
+    private static List<Double> getRootsX1(double b, double c) {
         if (b != 0) {
             double x = -1.0 * c / b;
             return Arrays.asList(x);
