@@ -59,7 +59,7 @@ public class Task9 {
             double b = reader.nextDouble();
             double c = reader.nextDouble();
             List<Double> roots = getRoots(a, b, c);
-            if (roots.size() == 0)
+            if (roots == null)
                 System.out.println("NO ROOTS");
             else {
                 System.out.println(roots.stream().map(item -> formatter.format(item).replace(',', '.')).collect(Collectors.joining(" ")));
@@ -73,6 +73,8 @@ public class Task9 {
             double x1, x2;
             x1 = (-b - Math.sqrt(discriminant)) / (2 * a);
             x2 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            if (!checkIfValidRoot(x1) || !checkIfValidRoot(x2))
+                return null;
             return Arrays.asList(x1, x2);
         }
         else if (discriminant == 0) {
@@ -80,10 +82,16 @@ public class Task9 {
             x = -b / (2 * a);
             return Arrays.asList(x);
         }
-        return new ArrayList<>();
+        return null;
     }
 
     private static double getDiscriminant(double a, double b, double c) {
         return b * b - 4 * a * c;
+    }
+
+    private static boolean checkIfValidRoot(double d) {
+        if (Double.isNaN(d) || Double.isInfinite(d))
+            return false;
+        return true;
     }
 }
