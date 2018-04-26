@@ -12,36 +12,19 @@ public class Task5 {
 
         int wordsCount = Integer.valueOf(scanner.nextLine());
 
-        for (int i = 0; i < wordsCount; i++) {
-
-            String word = scanner.next();
-
+        for (int i=0; i<wordsCount; i++) {
             int countV = 0;
             int countS = 0;
+            String line = scanner.next();
+            if (line.matches("[a-zA-Z]+")) {
 
-            for (char c : word.toLowerCase().toCharArray()) {
-
-                if (c < 'a' || c > 'z'){
-                    break;
+                for (int j=0; j<line.length(); j++) {
+                    if ("AEOIUYaeoiuy".indexOf(line.charAt(j)) != -1) countV++;
+                    else countS++;
                 }
-                switch (c) {
-                    case 'a':
-                    case 'e':
-                    case 'i':
-                    case 'o':
-                    case 'u':
-                    case 'y':
-                        countV++;
-                        break;
-                    default:
-                        countS++;
-                }
-            }
-            if (countV == countS) {
-                count++;
+                if (countV == countS) count++;
             }
         }
         System.out.println(count);
     }
-
 }
