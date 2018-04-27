@@ -65,9 +65,9 @@ public class Task9 {
 
     private static void printRoots(Set<Double> roots) {
 
-        DecimalFormatSymbols s = new DecimalFormatSymbols();
-        s.setDecimalSeparator('.');
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
+        decimalFormatSymbols.setDecimalSeparator('.');
+        DecimalFormat df = new DecimalFormat("#.##", decimalFormatSymbols);
         df.setRoundingMode(RoundingMode.CEILING);
 
         StringBuilder result = new StringBuilder("");
