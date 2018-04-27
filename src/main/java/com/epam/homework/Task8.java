@@ -34,16 +34,12 @@ public class Task8 {
             int wordsCount = reader.nextInt();
             String result = "NOT FOUND";
 
-            for (int i = 0; i < wordsCount; i++) {
+            for (int i = 0, uniquePalindromesCount = 0; i < wordsCount; i++) {
                 String nextWord = reader.next();
 
                 if (isParsedToInteger(nextWord) && isPalindrome(nextWord) && !result.equals(nextWord)) {
-                    if (isPalindrome(result)) {
-                        result = nextWord;
-                        break;
-                    }
-
                     result = nextWord;
+                    if (++uniquePalindromesCount > 1) break;
                 }
             }
 
