@@ -53,7 +53,7 @@ public class Task9 {
      */
     public static void main(String[] args) {
         DecimalFormat formatter = new DecimalFormat("#0.00");
-        formatter.setRoundingMode(RoundingMode.HALF_UP);
+        formatter.setRoundingMode(RoundingMode.DOWN);
         try (Scanner reader = new Scanner(System.in)) {
             double a = reader.nextDouble();
             double b = reader.nextDouble();
@@ -64,7 +64,7 @@ public class Task9 {
             else {
                 System.out.println(roots.stream().map(item ->{
                     if (item.equals(0.00) || item.equals(-0.00))
-                        return "0";
+                        return "0.00";
                     return formatter.format(item).replace(',', '.');
                 }).collect(Collectors.joining(", ")));
             }
