@@ -1,6 +1,6 @@
 package com.epam.homework;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Task8 {
 
@@ -32,43 +32,32 @@ public class Task8 {
     public static void main(String[] args) {
         try (Scanner reader = new Scanner(System.in)) {
             int wordsCount = reader.nextInt();
-            LinkedHashSet<String> uniqueNumPalindromes = new LinkedHashSet<>();
+            String result = "NOT FOUND";
 
             for (int i = 0; i < wordsCount; i++) {
                 String nextWord = reader.next();
 
-                if (isParsedToInteger(nextWord) && isPalindrome(nextWord)) {
-                    uniqueNumPalindromes.add(nextWord);
-
-                    if (uniqueNumPalindromes.size() > 1) {
+                if (isParsedToInteger(nextWord) && isPalindrome(nextWord) && !result.equals(nextWord)) {
+                    if (isPalindrome(result)) {
+                        result = nextWord;
                         break;
                     }
+
+                    result = nextWord;
                 }
             }
 
-            if (uniqueNumPalindromes.isEmpty()) {
-                System.out.println("NOT FOUND");
-            } else {
-                System.out.println(getLastElement(uniqueNumPalindromes));
-            }
+            System.out.println(result);
         }
     }
-
-    private static <T> T getLastElement(LinkedHashSet<T> set) {
-        return new ArrayList<>(set).get(set.size() - 1);
-    }
-
 
     private static boolean isParsedToInteger(String str) {
         return str.matches("\\d+");
     }
 
     private static boolean isPalindrome(String str) {
-        for (int i = 0, j = str.length() - 1; i <= j; i++, j--) {
-            if (str.charAt(i) != str.charAt(j)) {
-                return false;
-            }
-        }
+        for (int i = 0, j = str.length() - 1; i <= j; i++, j--)
+            if (str.charAt(i) != str.charAt(j)) return false;
 
         return true;
     }
