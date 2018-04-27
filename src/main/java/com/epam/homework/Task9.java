@@ -90,6 +90,11 @@ public class Task9 {
 
         double discriminant = Math.pow(b, 2) - 4 * a * c;
 
+        if(Math.abs(a - 0) < 0.000001){
+            roots.add(-c/b);
+            return roots;
+        }
+
         if (discriminant >= 0) {
             double x1 = (-b - Math.sqrt(discriminant)) / (2 * a);
             double x2 = (-b + Math.sqrt(discriminant)) / (2 * a);
