@@ -30,7 +30,6 @@ public class Task8 {
      * 22
      */
     public static void main(String[] args) {
-        while(true) {
             Scanner in = new Scanner(System.in);
             int countsOfWord = in.nextInt();
 
@@ -40,7 +39,6 @@ public class Task8 {
             }
 
             System.out.println(getThePalindromeOrder(inputWords, 2));
-        }
     }
 
     private static String getThePalindromeOrder(List<String> words, int palindromeOrder) {
