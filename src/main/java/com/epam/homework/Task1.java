@@ -1,5 +1,11 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.List;
+import java.util.ArrayList;
+
 public class Task1 {
 
     /**
@@ -33,8 +39,22 @@ public class Task1 {
      * MIN (29): Унылая пора! Очей очарованье!
      * MAX (35): Приятна мне твоя прощальная краса —
      */
-    public static void main(String[] args) {
-        // TODO реализация
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        List<String> strings = new ArrayList<>();
+        int n = Integer.parseInt(reader.readLine());
+        for (int i = 0; i < n; i++) {
+            strings.add(reader.readLine());
+        }
+
+        strings.stream()
+                .max((a,b)->(Integer.compare(a.length(), b.length())))
+                .ifPresent(s -> System.out.println("MAX (" + s.length() + "): " + s));
+
+        strings.stream()
+                .min((a,b)->(Integer.compare(a.length(), b.length())))
+                .ifPresent(s -> System.out.println("MIN (" + s.length() + "): " + s));
 
         // TODO System.out.println("MIN (" + minLength + "): " + minString);
         // TODO System.out.println("MAX (" + maxLength + "): " + maxString);
