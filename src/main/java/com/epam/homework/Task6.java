@@ -48,13 +48,10 @@ public class Task6 {
 
                 for (int j = 0; j < word.length()-1; j++) {
                     if(word.charAt(j) >= word.charAt(j+1))
-                        break;
-
-                    if(j == word.length()-2){
-                        foundWord = word;
-                        break outer;
-                    }
+                        continue outer;
                 }
+                foundWord = word;
+                break;
             }
             System.out.println(foundWord);
         }
