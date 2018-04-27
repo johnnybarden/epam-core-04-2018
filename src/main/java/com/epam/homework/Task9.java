@@ -101,6 +101,11 @@ public class Task9 {
             roots.addAll(Arrays.asList(x1, x2));
         }
 
+        if(roots.contains(-0d)){
+            roots.remove(-0d);
+            roots.add(0d);
+        }
+
         return roots;
     }
 }
