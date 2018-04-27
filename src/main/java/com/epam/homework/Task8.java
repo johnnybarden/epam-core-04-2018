@@ -30,15 +30,17 @@ public class Task8 {
      * 22
      */
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int countsOfWord = in.nextInt();
+        while(true) {
+            Scanner in = new Scanner(System.in);
+            int countsOfWord = in.nextInt();
 
-        List<String> inputWords = new ArrayList<>();
-        for (int i = 0; i < countsOfWord; i++) {
-            inputWords.add(in.next());
+            List<String> inputWords = new ArrayList<>();
+            for (int i = 0; i < countsOfWord; i++) {
+                inputWords.add(in.next());
+            }
+
+            System.out.println(getThePalindromeOrder(inputWords, 2));
         }
-
-        System.out.println(getThePalindromeOrder(inputWords, 2));
     }
 
     private static String getThePalindromeOrder(List<String> words, int palindromeOrder) {
@@ -46,11 +48,9 @@ public class Task8 {
 
         for (String currentWord : words) {
             StringBuilder reverseWord = new StringBuilder(currentWord).reverse();
-
-            if (isNumber(currentWord) && currentWord.equals(reverseWord.toString())) {
+            if (isNumber(currentWord) && currentWord.equals(reverseWord.toString()) && !palindromeNumbers.contains(currentWord)) {
                 palindromeNumbers.add(currentWord);
             }
-
             if (palindromeNumbers.size() == palindromeOrder) {
                 return palindromeNumbers.get(palindromeOrder - 1);
             }
