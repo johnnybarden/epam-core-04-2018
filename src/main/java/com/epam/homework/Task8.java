@@ -41,10 +41,10 @@ public class Task8 {
     }
 
     public static boolean isPalindrome(String numberAsString) {
-        int numberAsStringLastIndex = numberAsString.length() - 1;
+        double numberAsStringLastIndex = numberAsString.length() - 1;
 
-        for (int i = 0; i < numberAsStringLastIndex / 2; i++) {
-            if (numberAsString.charAt(i) != numberAsString.charAt(numberAsStringLastIndex - i)) {
+        for (int i = 0; i < Math.ceil(numberAsStringLastIndex / 2); i++) {
+            if (numberAsString.charAt(i) != numberAsString.charAt((int) numberAsStringLastIndex - i)) {
                 return false;
             }
         }
