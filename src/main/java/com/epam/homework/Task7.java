@@ -55,10 +55,10 @@ public class Task7 {
                 for (String word : foundWords) {
                     builderFountWords.append(word).append(" ");
                 }
-                System.out.println(builderFountWords.toString().trim());
+                System.out.print(builderFountWords.toString().trim());
             }
             else {
-                System.out.println("NOT FOUND");
+                System.out.print("NOT FOUND");
             }
         }
     }
