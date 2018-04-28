@@ -50,12 +50,9 @@ public class Task7 {
                 foundWords.add(word);
             }
             if(!foundWords.isEmpty()){
-                StringBuilder builder = new StringBuilder();
-
                 for (String word : foundWords) {
-                    builder.append(word).append(" ");
+                    System.out.print(word + " ");
                 }
-                System.out.print(builder.toString().trim());
             }
             else {
                 System.out.println("NOT FOUND");
