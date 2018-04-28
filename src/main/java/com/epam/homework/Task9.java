@@ -1,5 +1,8 @@
 package com.epam.homework;
 
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 public class Task9 {
 
     /**
@@ -46,7 +49,27 @@ public class Task9 {
      * Выходные данные:
      * NO ROOTS
      */
+
+    public static final DecimalFormat outputFormat = new DecimalFormat("#0.00");
+
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner in = new Scanner(System.in);
+
+        double a = in.nextDouble();
+        double b = in.nextDouble();
+        double c = in.nextDouble();
+        in.nextLine();
+
+        double discriminant = Math.pow(b, 2) - 4 * a * c;
+
+        if (discriminant < 0) {
+            System.out.print("NO ROOTS");
+        } else if (discriminant == 0) {
+            System.out.print(outputFormat.format(-b / (2 * a)));
+        } else {
+            System.out.print(outputFormat.format ((-b - Math.sqrt(discriminant)) / (2 * a)));
+            System.out.print(", ");
+            System.out.print(outputFormat.format ((-b + Math.sqrt(discriminant)) / (2 * a)));
+        }
     }
 }
