@@ -1,5 +1,6 @@
 package com.epam.homework;
 
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.*;
@@ -53,7 +54,7 @@ public class Task9 {
      */
     public static void main(String[] args) {
         DecimalFormat formatter = new DecimalFormat("#0.00");
-        formatter.setRoundingMode(RoundingMode.DOWN);
+//        formatter.setRoundingMode(RoundingMode.HALF_UP);
         try (Scanner reader = new Scanner(System.in)) {
             double a = reader.nextDouble();
             double b = reader.nextDouble();
@@ -63,6 +64,7 @@ public class Task9 {
                 System.out.println("NO ROOTS");
             else {
                 System.out.println(roots.stream().map(item ->{
+                    item = round(item, 2);
                     if (item.equals(0.00) || item.equals(-0.00))
                         return "0.00";
                     return formatter.format(item).replace(',', '.');
@@ -109,5 +111,13 @@ public class Task9 {
         if (Double.isNaN(d) || Double.isInfinite(d))
             return false;
         return true;
+    }
+
+    private static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(Double.toString(value));
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }
