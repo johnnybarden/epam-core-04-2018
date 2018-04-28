@@ -56,19 +56,28 @@ public class Task9 {
             int b = in.nextInt();
             int c = in.nextInt();
 
+            if (a == 0) {
+                System.out.printf("%.2f\n", (double) -c / b);
+                return;
+            }
+
             int discriminant = b * b - 4 * a * c;
 
             if (discriminant > 0) {
 
-                System.out.printf("%.2f", (-b - Math.sqrt(discriminant)) / 2 / a);
-                System.out.print(", ");
-                System.out.printf("%.2f",(-b + Math.sqrt(discriminant)) / 2 / a);
-                System.out.println();
+                double x1 = (-b - Math.sqrt(discriminant)) / 2 / a;
+                double x2 = (-b + Math.sqrt(discriminant)) / 2 / a;
+
+                System.out.printf("%.2f, %.2f\n", x1, x2);
 
             } else if (discriminant == 0) {
+
                 System.out.printf("%.2f",(double) -b / 2 / a);
+
             } else {
+
                 System.out.println("NO ROOTS");
+
             }
         }
     }
