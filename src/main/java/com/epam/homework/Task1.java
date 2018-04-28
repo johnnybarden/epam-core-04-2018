@@ -41,22 +41,26 @@ public class Task1 {
      */
 
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         List<String> strings = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
         int n = Integer.parseInt(reader.readLine());
-        for (int i = 0; i < n; i++) {
+        strings.add(reader.readLine());
+
+        String maxString = strings.get(0);
+        String minString = maxString;
+
+        for (int i = 1; i < n; i++) {
             strings.add(reader.readLine());
+            if (strings.get(i).length() <= minString.length()) {
+                minString = strings.get(i);
+            }
+            if (strings.get(i).length() >= maxString.length()) {
+                maxString = strings.get(i);
+            }
         }
 
-        strings.stream()
-                .max((a,b)->(Integer.compare(a.length(), b.length())))
-                .ifPresent(s -> System.out.println("MAX (" + s.length() + "): " + s));
-
-        strings.stream()
-                .min((a,b)->(Integer.compare(a.length(), b.length())))
-                .ifPresent(s -> System.out.println("MIN (" + s.length() + "): " + s));
-
-        // TODO System.out.println("MIN (" + minLength + "): " + minString);
-        // TODO System.out.println("MAX (" + maxLength + "): " + maxString);
+        System.out.println("MAX (" + maxString.length() + "): " + maxString);
+        System.out.println("MIN (" + minString.length() + "): " + minString);
     }
 }
