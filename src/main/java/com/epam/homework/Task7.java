@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+import java.util.Set;
+
 public class Task7 {
 
     /**
@@ -28,6 +32,34 @@ public class Task7 {
      * The is a
      */
     public static void main(String[] args) {
-        // TODO реализация
+        try (Scanner scaner = new Scanner(System.in)){
+            int number = scaner.nextInt();
+            Set<String> foundWords = new LinkedHashSet<>();
+
+            outer:
+            for (int i = 0; i < number; i++) {
+                String word = scaner.next();
+
+                for (int j = 0; j < word.length()-1; j++) {
+                    String lowerCaseWord = word.toLowerCase();
+
+                    if(lowerCaseWord.indexOf(lowerCaseWord.charAt(j), j+1) > 0){
+                        continue outer;
+                    }
+                }
+                foundWords.add(word);
+            }
+            if(!foundWords.isEmpty()){
+                StringBuilder builder = new StringBuilder();
+
+                for (String word : foundWords) {
+                    builder.append(word).append(" ");
+                }
+                System.out.print(builder.toString().trim());
+            }
+            else {
+                System.out.println("NOT FOUND");
+            }
+        }
     }
 }
