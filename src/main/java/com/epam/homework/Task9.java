@@ -58,7 +58,6 @@ public class Task9 {
         double a = in.nextDouble();
         double b = in.nextDouble();
         double c = in.nextDouble();
-        in.nextLine();
 
         double discriminant = Math.pow(b, 2) - 4 * a * c;
 
