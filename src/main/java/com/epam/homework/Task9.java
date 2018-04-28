@@ -49,7 +49,9 @@ public class Task9 {
      * NO ROOTS
      */
     public static void main(String[] args) {
+
         try (Scanner in = new Scanner(System.in)) {
+
             int a = in.nextInt();
             int b = in.nextInt();
             int c = in.nextInt();
@@ -57,10 +59,14 @@ public class Task9 {
             int discriminant = b * b - 4 * a * c;
 
             if (discriminant > 0) {
-                System.out.print((-b - Math.sqrt(discriminant)) / 2 / a + " ");
-                System.out.println((-b + Math.sqrt(discriminant)) / 2 / a);
+
+                System.out.printf("%.2f", (-b - Math.sqrt(discriminant)) / 2 / a);
+                System.out.print(", ");
+                System.out.printf("%.2f",(-b + Math.sqrt(discriminant)) / 2 / a);
+                System.out.println();
+
             } else if (discriminant == 0) {
-                System.out.println((double) -b / 2 / a);
+                System.out.printf("%.2f",(double) -b / 2 / a);
             } else {
                 System.out.println("NO ROOTS");
             }
