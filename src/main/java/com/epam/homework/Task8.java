@@ -1,6 +1,9 @@
 package com.epam.homework;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Task8 {
 
@@ -60,17 +63,17 @@ public class Task8 {
 
         String userInput;
         String result = "NOT FOUND";
-        int numPalindromesFound = 0;
+        int numUniquePalindromesFound = 0;
 
         for (int i = 0; i < N; i++) {
             userInput = in.next();
 
-            if ((isNumber(userInput)) && (isPalindrome(userInput))) {
+            if ((isNumber(userInput)) && (isPalindrome(userInput)) && (!userInput.equals(result))) {
                 result = userInput;
-                numPalindromesFound++;
+                numUniquePalindromesFound++;
             }
 
-            if (numPalindromesFound > 1) {
+            if (numUniquePalindromesFound > 1) {
                 break;
             }
         }
