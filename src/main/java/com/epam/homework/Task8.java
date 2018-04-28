@@ -1,8 +1,6 @@
 package com.epam.homework;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Task8 {
 
@@ -58,11 +56,13 @@ public class Task8 {
         }
     }
 
-    private static final Pattern DIGITS = Pattern.compile("[0-9]+");
-
     private static boolean containsOnlyDigits(String word) {
-        Matcher matcher = DIGITS.matcher(word);
-        return matcher.matches();
+        for (int i = 0; i < word.length(); i++) {
+            if (!Character.isDigit(word.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static boolean isPalindrome(String word) {
