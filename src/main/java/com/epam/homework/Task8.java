@@ -48,7 +48,10 @@ public class Task8 {
     }
 
     private static boolean isParsedToInteger(String str) {
-        return str.matches("\\d+");
+        for (int i = 0; i < str.length(); i++)
+            if (!Character.isDigit(str.charAt(i))) return false;
+
+        return true;
     }
 
     private static boolean isPalindrome(String str) {
