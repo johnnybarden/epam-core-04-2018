@@ -57,6 +57,11 @@ public class Task9 {
         int b = scanner.nextInt();
         int c = scanner.nextInt();
 
+        if (a == 0) {
+            System.out.println(String.format(Locale.ENGLISH, "%1$3.2f", (double) -c / b));
+            return;
+        }
+
         Double discriminant = Math.pow(b, 2) - 4 * a * c;
 
         if (discriminant > 0) {
