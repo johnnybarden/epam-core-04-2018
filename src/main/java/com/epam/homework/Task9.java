@@ -52,6 +52,8 @@ public class Task9 {
      * Выходные данные:
      * NO ROOTS
      */
+    private static final double eps = 0.0000001;
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
@@ -59,51 +61,44 @@ public class Task9 {
         double b = Double.parseDouble(in.next());
         double c = Double.parseDouble(in.next());
 
-        Set<Double> roots = getRootsOfEquation(a, b, c);
+        List<Double> roots = getRootsOfEquation(a, b, c);
         printRoots(roots);
     }
 
-    private static void printRoots(Set<Double> roots) {
+    private static void printRoots(List<Double> roots) {
 
-        DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
-        decimalFormatSymbols.setDecimalSeparator('.');
-        DecimalFormat df = new DecimalFormat("#.##", decimalFormatSymbols);
-        df.setRoundingMode(RoundingMode.CEILING);
-
+        DecimalFormat outFormat = new DecimalFormat("#0.00");
         StringBuilder result = new StringBuilder("");
         Iterator<Double> iterator = roots.iterator();
 
         if (roots.isEmpty()) {
             result.append("NO ROOTS");
         } else if (roots.size() == 1) {
-            result.append(df.format(iterator.next()));
+            result.append(outFormat.format(iterator.next()));
         } else if (roots.size() == 2) {
-            result.append(df.format(iterator.next())).append(", ");
-            result.append(df.format(iterator.next()));
+            result.append(outFormat.format(iterator.next())).append(", ");
+            result.append(outFormat.format(iterator.next()));
         }
 
         System.out.println(result);
     }
 
-    private static Set<Double> getRootsOfEquation(double a, double b, double c) {
-        Set<Double> roots = new LinkedHashSet<>();
+    private static List<Double> getRootsOfEquation(double a, double b, double c) {
+        List<Double> roots = new LinkedList<>();
 
         double discriminant = Math.pow(b, 2) - 4 * a * c;
 
-        if(Math.abs(a - 0) < 0.000001){
-            roots.add(-c/b);
+        if (Math.abs(a - 0) < eps) {
+            roots.add(-c / b);
             return roots;
-        }
-
-        if (discriminant >= 0) {
+        } else if (Math.abs(discriminant - 0) < eps) {
+            roots.add((-b) / (2 * a));
+            return roots;
+        } else if (discriminant > 0) {
             double x1 = (-b - Math.sqrt(discriminant)) / (2 * a);
             double x2 = (-b + Math.sqrt(discriminant)) / (2 * a);
             roots.addAll(Arrays.asList(x1, x2));
-        }
-
-        if(roots.contains(-0d)){
-            roots.remove(-0d);
-            roots.add(0d);
+            return roots;
         }
 
         return roots;
