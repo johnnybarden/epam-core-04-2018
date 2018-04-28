@@ -67,10 +67,9 @@ public class Task9 {
         if (discriminant > 0) {
             double rootOne = (-b + Math.sqrt(discriminant)) / (2 * a);
             double rootTwo = (-b - Math.sqrt(discriminant)) / (2 * a);
-            System.out.println(String.format(Locale.ENGLISH, "%1$3.2f %2$3.2f", rootOne, rootTwo));
+            System.out.println(String.format(Locale.ENGLISH, "%1$3.2f, %2$3.2f", rootOne, rootTwo));
         } else if (discriminant == 0) {
-            double root = (-b + Math.sqrt(discriminant)) / (2 * a);
-            System.out.println(String.format(Locale.ENGLISH, "%1$3.2f", root));
+            System.out.println(String.format(Locale.ENGLISH, "%1$3.2f", (double) -b / (2 * a)));
         } else {
             System.out.println("NO ROOTS");
         }
