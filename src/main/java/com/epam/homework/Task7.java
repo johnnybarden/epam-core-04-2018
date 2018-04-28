@@ -32,7 +32,7 @@ public class Task7 {
      * The is a
      */
     public static void main(String[] args) {
-        try (Scanner scaner = new Scanner(System.in)){
+         try (Scanner scaner = new Scanner(System.in)) {
             int number = scaner.nextInt();
             Set<String> foundWords = new LinkedHashSet<>();
 
@@ -40,24 +40,28 @@ public class Task7 {
             for (int i = 0; i < number; i++) {
                 String word = scaner.next();
 
-                for (int j = 0; j < word.length()-1; j++) {
+                for (int j = 0; j < word.length() - 1; j++) {
                     String lowerCaseWord = word.toLowerCase();
 
-                    if(lowerCaseWord.indexOf(lowerCaseWord.charAt(j), j+1) > 0){
+                    if (lowerCaseWord.indexOf(lowerCaseWord.charAt(j), j + 1) > 0) {
+                        continue outer;
+                    }
+                }
+                for (String foundWord : foundWords) {
+                    if (foundWord.equalsIgnoreCase(word)) {
                         continue outer;
                     }
                 }
                 foundWords.add(word);
             }
-            if(!foundWords.isEmpty()){
+            if (!foundWords.isEmpty()) {
                 StringBuilder builderFountWords = new StringBuilder();
 
                 for (String word : foundWords) {
                     builderFountWords.append(word).append(" ");
                 }
                 System.out.print(builderFountWords.toString().trim());
-            }
-            else {
+            } else {
                 System.out.print("NOT FOUND");
             }
         }
