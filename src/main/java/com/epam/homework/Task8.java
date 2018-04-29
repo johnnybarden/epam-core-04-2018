@@ -45,9 +45,12 @@ public class Task8 {
         String res = "";
         int count = 0;
         for (String word : words) {
-            if (isPolyndrom(word) && (count < 2)) {
+            if (isPolyndrom(word) && !res.equals(word)) {
                 res = word;
                 count++;
+            }
+            if (count > 1) {
+                break;
             }
         }
         return res.isEmpty() ? "NOT FOUND" : res;
@@ -57,7 +60,7 @@ public class Task8 {
         if (temp.length() == 1 && isNumber(temp)) {
             return true;
         }
-        return (temp.length() != 1) && temp.equals((new StringBuilder(temp)).reverse().toString());
+        return temp.equals((new StringBuilder(temp)).reverse().toString());
     }
 
     private static boolean isNumber(String temp) {
