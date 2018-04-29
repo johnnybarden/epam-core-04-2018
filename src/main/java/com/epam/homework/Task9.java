@@ -59,7 +59,7 @@ public class Task9 {
         if (d > 0) {
             x1 = (-numbers[1] - Math.sqrt(d))/2/numbers[0];
             x2 = (-numbers[1] + Math.sqrt(d))/2/numbers[0];
-            System.out.print(Math.round(x1) + ", " + x2);
+            System.out.print(x1 + ", " + x2);
         }
         if (d == 0) {
             x1 = -numbers[1] / 2 / numbers[0];
