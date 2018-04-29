@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task9 {
 
     /**
@@ -47,6 +49,25 @@ public class Task9 {
      * NO ROOTS
      */
     public static void main(String[] args) {
-        // TODO реализация
+        int A;
+        int B;
+        int C;
+        Scanner in = new Scanner(System.in);
+        A = in.nextInt();
+        B = in.nextInt();
+        C = in.nextInt();
+        int discriminant = B*B - 4*A*C;
+        if (discriminant>=0){
+            if (discriminant==0) {
+                double root =  (-(double)B/(2*A));
+                System.out.printf("%.2f", root);
+            }else {
+                double root1 = (-B-Math.sqrt(discriminant)) / (2 * A);
+                double root2 = (-B+Math.sqrt(discriminant)) / (2 * A);
+                System.out.printf("%.2f, %.2f",root1,root2);
+            }
+        }else {
+            System.out.println("NO ROOTS");
+        }
     }
 }
