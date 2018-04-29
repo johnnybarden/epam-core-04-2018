@@ -42,7 +42,7 @@ public class Task8 {
     }
 
     private static String findResult(List<String> words) {
-        String res = "";
+        String res = "NOT FOUND";
         int count = 0;
         for (String word : words) {
             if (isPolyndrom(word) && !res.equals(word)) {
@@ -53,14 +53,11 @@ public class Task8 {
                 break;
             }
         }
-        return res.isEmpty() ? "NOT FOUND" : res;
+        return res;
     }
 
     private static boolean isPolyndrom(String temp) {
-        if (temp.length() == 1 && isNumber(temp)) {
-            return true;
-        }
-        return temp.equals((new StringBuilder(temp)).reverse().toString());
+        return isNumber(temp) && temp.equals((new StringBuilder(temp)).reverse().toString());
     }
 
     private static boolean isNumber(String temp) {
