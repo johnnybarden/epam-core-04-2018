@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task9 {
 
     /**
@@ -47,6 +49,24 @@ public class Task9 {
      * NO ROOTS
      */
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner scanner = new Scanner(System.in);
+        int[] numbers = new int[3];
+        for (int i=0; i<3; i++) {
+            numbers[i] = Integer.parseInt(scanner.next());
+        }
+        double x1, x2;
+        double d = Math.pow(numbers[1], 2) - 4*numbers[0]*numbers[2];
+        if (d > 0) {
+            x1 = (-numbers[1] - Math.sqrt(d))/2/numbers[0];
+            x2 = (-numbers[1] + Math.sqrt(d))/2/numbers[0];
+            System.out.print(Math.round(x1) + ", " + x2);
+        }
+        if (d == 0) {
+            x1 = -numbers[1] / 2 / numbers[0];
+            System.out.print(x1);
+        }
+        if (d < 0) {
+            System.out.print("NO ROOTS");
+        }
     }
 }
