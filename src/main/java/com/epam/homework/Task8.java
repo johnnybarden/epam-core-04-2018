@@ -42,15 +42,15 @@ public class Task8 {
     }
 
     private static String findResult(List<String> words) {
+        String res = "";
         int count = 0;
         for (String word : words) {
-            if (isPolyndrom(word)) {
+            if (isPolyndrom(word) && (count < 2)) {
+                res = word;
                 count++;
             }
-            if ((words.size() == 1) && (count == 1)) return word;
-            if ((count == 2) && (words.size() > 1)) return word;
         }
-        return "NOT FOUND";
+        return res.isEmpty() ? "NOT FOUND" : res;
     }
 
     private static boolean isPolyndrom(String temp) {
