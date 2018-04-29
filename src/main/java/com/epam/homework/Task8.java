@@ -28,7 +28,7 @@ public class Task8 {
      * 15
      * Chapter 11 describes exceptions, chapter 13 describes binary compatibility... chapter 22 presents a syntactic grammar
      *
-     * Выходные данные:
+     * Выходные данные:1
      * 22
      */
     public static void main(String[] args) {
@@ -57,7 +57,7 @@ public class Task8 {
         if (temp.length() == 1 && isNumber(temp)) {
             return true;
         }
-        return temp.equals((new StringBuilder(temp)).reverse().toString());
+        return (temp.length() != 1) && temp.equals((new StringBuilder(temp)).reverse().toString());
     }
 
     private static boolean isNumber(String temp) {
