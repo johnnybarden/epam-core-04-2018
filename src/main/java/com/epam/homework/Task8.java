@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 public class Task8 {
 
     /**
@@ -29,5 +33,38 @@ public class Task8 {
      */
     public static void main(String[] args) {
         // TODO реализация
+        try (Scanner scanner = new Scanner(System.in)) {
+            int num = Integer.parseInt(scanner.nextLine());
+            List<String> words = Arrays.asList(scanner.nextLine().split(" ", num));
+            System.out.println(findResult(words));
+        }
+
+    }
+
+    private static String findResult(List<String> words) {
+        int count = 0;
+        for (String word : words) {
+            if (isPolyndrom(word)) {
+                count++;
+            }
+            if ((words.size() == 1) && (count == 1)) return word;
+            if ((count == 2) && (words.size() > 1)) return word;
+        }
+        return "NOT FOUND";
+    }
+
+    private static boolean isPolyndrom(String temp) {
+        if (temp.length() == 1 && isNumber(temp)) {
+            return true;
+        }
+        return temp.equals((new StringBuilder(temp)).reverse().toString());
+    }
+
+    private static boolean isNumber(String temp) {
+        if (temp == null || temp.isEmpty()) return false;
+        for (int i = 0; i < temp.length(); i++) {
+            if (!Character.isDigit(temp.charAt(i))) return false;
+        }
+        return true;
     }
 }
