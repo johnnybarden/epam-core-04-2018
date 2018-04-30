@@ -55,13 +55,24 @@ public class Task5 {
             int agreeables = 0;
             boolean onlyLatin = true;
             for (Character c : word.toCharArray()) {
-                if (vowel.contains(c)) vowels++;
-                else if (agreeable.contains(c)) agreeables++;
-                else onlyLatin = false;
+                if (vowel.contains(c)) {
+                    vowels++;
+                }
+                else{
+                    if (agreeable.contains(c)) {
+                        agreeables++;
+                    }else{
+                        onlyLatin = false;
+                    }
+                }
             }
+
             if (onlyLatin) {
-                if (vowels == agreeables) counter++;
+                if (vowels == agreeables){
+                    counter++;
+                }
             }
+
 
         }
         return counter;
