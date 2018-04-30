@@ -1,5 +1,8 @@
 package com.epam.homework;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Task9 {
 
     /**
@@ -21,7 +24,7 @@ public class Task9 {
      * Значения корней округляются до 2 знаков после запятой.
      * В качестве десятичного разделителя используется точка.
      *
-     * ---------------------------------------------------------------------------------------------------
+     * ------------------------------------------------------------------------------ ---------------------
      * Примеры выполнения задания:
      *
      * Входные данные:
@@ -48,5 +51,25 @@ public class Task9 {
      */
     public static void main(String[] args) {
         // TODO реализация
+        try (Scanner scanner = new Scanner(System.in)) {
+            int coeffA = scanner.nextInt();
+            int coeffB = scanner.nextInt();
+            int coeffC = scanner.nextInt();
+            System.out.println(solve(coeffA, coeffB, coeffC));
+        }
+    }
+
+    private static String solve(int a, int b, int c) {
+        double di = Math.pow(b, 2) - 4 * a * c;
+        if (Double.compare(di, 0) == 0) {
+            double root = (-b + Math.sqrt(di)) / (2 * a);
+            return String.format(Locale.ENGLISH, "%.2f", root);
+        } else if (Double.compare(di, 0) > 0) {
+            double root1 = (-b - Math.sqrt(di)) / (2 * a);
+            double root2 = (-b + Math.sqrt(di)) / (2 * a);
+            return String.format(Locale.ENGLISH, "%.2f, %.2f", root1, root2);
+        } else {
+            return "NO ROOTS";
+        }
     }
 }
