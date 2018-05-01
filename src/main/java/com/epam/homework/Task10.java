@@ -35,11 +35,7 @@ public class Task10 {
         try (Scanner in = new Scanner(System.in)) {
             int value = in.nextInt();
 
-            if (isPowerOfTwo(value)) {
-                System.out.println("YES");
-            } else {
-                System.out.println("NO");
-            }
+            System.out.println(isPowerOfTwo(value) ? "YES" : "NO");
         }
     }
 
