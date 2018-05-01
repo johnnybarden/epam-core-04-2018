@@ -76,7 +76,7 @@ public class Task2 {
 
     private static boolean isIncorrectLexicographicalOrder(String currentEntry, String currentEntryPlusOne) {
         if (currentEntry.length() == currentEntryPlusOne.length()) {
-            int compareNum = currentEntry.compareTo(currentEntryPlusOne);
+            int compareNum = currentEntry.compareToIgnoreCase(currentEntryPlusOne);
             return compareNum > 0;
         } else return false;
     }
