@@ -34,11 +34,11 @@ public class Task11 {
         // TODO реализация
         try(Scanner scanner = new Scanner(System.in)){
             int value = scanner.nextInt();
-            System.out.println(findSum(Math.abs(value)));
+            System.out.println(findSum(value));
         }
     }
 
     private static int findSum(int value) {
-        return (value < 10) ? value : findSum(value/10) + value % 10;
+        return (Math.abs(value) < 10) ? Math.abs(value) : findSum(value/10) + Math.abs(value) % 10;
     }
 }
