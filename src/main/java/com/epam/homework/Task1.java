@@ -60,7 +60,7 @@ public class Task1 {
             }
         }
 
-        System.out.println("MAX (" + maxString.length() + "): " + maxString);
         System.out.println("MIN (" + minString.length() + "): " + minString);
+        System.out.println("MAX (" + maxString.length() + "): " + maxString);
     }
 }
