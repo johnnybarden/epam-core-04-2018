@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task11 {
 
     /**
@@ -30,5 +32,13 @@ public class Task11 {
      */
     public static void main(String[] args) {
         // TODO реализация
+        try(Scanner scanner = new Scanner(System.in)){
+            int value = scanner.nextInt();
+            System.out.println(findSum(Math.abs(value)));
+        }
+    }
+
+    private static int findSum(int value) {
+        return (value < 10) ? value : findSum(value/10) + value % 10;
     }
 }
