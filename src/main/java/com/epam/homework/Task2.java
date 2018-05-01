@@ -41,56 +41,60 @@ public class Task2 {
      * (33): В царстве вечернем зеленой весны.
      */
     public static void main(String[] args) {
-        // TODO реализация
 
-        // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
-
-        List<String> stringList = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        boolean isSorted = false;
-        scanner.nextLine();
 
-        for (int i = 0; i < n; i++) {
-            String temp = scanner.nextLine();
-            stringList.add(i, temp);
+        List<String> stringList = getLines(n);
+        List<String> sortedStringList = getSortedList(stringList);
 
-        }
-        while (!isSorted) {
-            isSorted = true;
-            String buf;
-
-            for (int x = 0; x < stringList.size() - 1; x++) {
-                String xEntry = stringList.get(x);
-                String xPlusOneEntry = stringList.get(x + 1);
-
-                if (xEntry.length() > xPlusOneEntry.length()) {
-                    isSorted = false;
-                    buf = xEntry;
-                    stringList.set(x, xPlusOneEntry);
-                    stringList.set(x + 1, buf);
-                } else if (xEntry.length() == xPlusOneEntry.length()) {
-                    int compareDiff = xPlusOneEntry.compareTo(xEntry);
-
-                    if (compareDiff > 0) {
-                        stringList.set(x, xEntry);
-                        stringList.set(x + 1, xPlusOneEntry);
-                    } else if (compareDiff < 0) {
-                        stringList.set(x, xPlusOneEntry);
-                        stringList.set(x + 1, xEntry);
-                    }
-                }
-            }
-
-        }
-        for (String current : stringList) {
+        for (String current : sortedStringList) {
             System.out.println("(" + current.length() + "): " + current);
-
         }
     }
 
+    private static List<String> getSortedList(List<String> stringList) {
+        boolean isSorted = false;
+
+        while (!isSorted) {
+            isSorted = true;
+
+            for (int x = 0; x < stringList.size() - 1; x++) {
+                String currentEntry = stringList.get(x);
+                String currentEntryPlusOne = stringList.get(x + 1);
+
+                if (isLonger(currentEntry, currentEntryPlusOne) ||
+                        isIncorrectLexicographicalOrder(currentEntry, currentEntryPlusOne)) {
+                    isSorted = false;
+                    stringList.set(x, currentEntryPlusOne);
+                    stringList.set(x + 1, currentEntry);
+                }
+            }
+        }
+        return stringList;
+    }
+
+    private static boolean isIncorrectLexicographicalOrder(String currentEntry, String currentEntryPlusOne) {
+        if (currentEntry.length() == currentEntryPlusOne.length()) {
+            int compareNum = currentEntry.compareTo(currentEntryPlusOne);
+            return compareNum > 0;
+        } else return false;
+    }
+
+    private static boolean isLonger(String currentEntry, String currentEntryPlusOne) {
+        return currentEntry.length() > currentEntryPlusOne.length();
+    }
+
+    private static List<String> getLines(int n) {
+        List<String> stringList = new LinkedList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 0; i < n; i++) {
+            String temp = scanner.nextLine();
+            stringList.add(temp);
+        }
+        return stringList;
+    }
 }
 
 
