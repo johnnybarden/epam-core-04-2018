@@ -35,12 +35,12 @@ public class Task10 {
         // TODO реализация
         try(Scanner scnaner = new Scanner(System.in)){
             int value = scnaner.nextInt();
-            System.out.println(check(value));
+            System.out.println(checkPowerOfTwo(value));
         }
 
     }
 
-    private static String check(int value) {
+    private static String checkPowerOfTwo(int value) {
         return (((value & (value - 1)) == 0) && (value > 0)) ? "YES" :"NO";
     }
 }
