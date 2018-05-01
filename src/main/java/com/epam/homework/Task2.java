@@ -1,5 +1,10 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
 public class Task2 {
 
     /**
@@ -38,11 +43,31 @@ public class Task2 {
      * (32): Солнце садится за горы лесистые.
      * (33): В царстве вечернем зеленой весны.
      */
-    public static void main(String[] args) {
-        // TODO реализация
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
+        Set<String> strings = new TreeSet<>(new Comparator<String>() {
+            public int compare(String o1, String o2) {
+                if (o1.length() < o2.length()) {
+                    return -1;
+                }
+
+                if (o1.length() > o2.length()) {
+                    return 1;
+                }
+
+                return o1.compareTo(o2);
+            }
+        });
+
+        int n = Integer.parseInt(reader.readLine());
+
+        for (int i = 0; i < n; i++) {
+            strings.add(reader.readLine());
+        }
+
+        for (String str: strings) {
+            System.out.println("(" + str.length() + "): " + str);
+        }
     }
 }
