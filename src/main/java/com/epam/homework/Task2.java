@@ -44,8 +44,14 @@ public class Task2 {
 
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
+        scanner.nextLine();
 
-        List<String> stringList = getLines(n);
+        List<String> stringList = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            String temp = scanner.nextLine();
+            stringList.add(temp);
+        }
         List<String> sortedStringList = getSortedList(stringList);
 
         for (String current : sortedStringList) {
@@ -83,17 +89,6 @@ public class Task2 {
 
     private static boolean isLonger(String currentEntry, String currentEntryPlusOne) {
         return currentEntry.length() > currentEntryPlusOne.length();
-    }
-
-    private static List<String> getLines(int n) {
-        List<String> stringList = new LinkedList<>();
-        Scanner scanner = new Scanner(System.in);
-
-        for (int i = 0; i < n; i++) {
-            String temp = scanner.nextLine();
-            stringList.add(temp);
-        }
-        return stringList;
     }
 }
 
