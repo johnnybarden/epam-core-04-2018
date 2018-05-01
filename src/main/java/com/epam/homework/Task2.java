@@ -3,9 +3,8 @@ package com.epam.homework;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class Task2 {
 
@@ -48,7 +47,15 @@ public class Task2 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        Set<String> strings = new TreeSet<>(new Comparator<String>() {
+        int n = Integer.parseInt(reader.readLine());
+        String[] strings = new String[n];
+
+        for (int i = 0; i < n; i++) {
+            strings[i] = reader.readLine();
+        }
+
+        Arrays.sort(strings, new Comparator<String>() {
+            @Override
             public int compare(String o1, String o2) {
                 if (o1.length() < o2.length()) {
                     return -1;
@@ -58,19 +65,8 @@ public class Task2 {
                     return 1;
                 }
 
-                if (o1.equals(o2)) {
-                    return 0;
-                }
-
                 return o1.compareTo(o2);
-            }
-        });
-
-        int n = Integer.parseInt(reader.readLine());
-
-        for (int i = 0; i < n; i++) {
-            strings.add(reader.readLine());
-        }
+            }});
 
         for (String str: strings) {
             System.out.println("(" + str.length() + "): " + str);
