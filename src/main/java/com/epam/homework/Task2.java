@@ -58,6 +58,10 @@ public class Task2 {
                     return 1;
                 }
 
+                if (o1.equals(o2)) {
+                    return 0;
+                }
+
                 return o1.compareTo(o2);
             }
         });
