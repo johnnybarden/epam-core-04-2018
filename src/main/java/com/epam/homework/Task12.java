@@ -48,7 +48,6 @@ public class Task12 {
         int numberOfColumn = in.nextInt();
         myMatrix.sortMatrixInTheOrderOfTheKthColumn(numberOfColumn);
 
-        System.out.println(sizeMat);
         myMatrix.printMatrix();
     }
 }

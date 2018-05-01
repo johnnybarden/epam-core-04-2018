@@ -21,9 +21,10 @@ class Matrix{
     }
 
     void printMatrix() {
+        System.out.println(matrix.length);
         for (int[] column : matrix) {
             for (int row : column) {
-                System.out.printf("%-4d", row);
+                System.out.printf("%12d", row);
             }
             System.out.println();
         }
@@ -37,5 +38,4 @@ class Matrix{
             }
         });
     }
-
 }
