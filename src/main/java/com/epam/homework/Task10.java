@@ -37,7 +37,7 @@ public class Task10 {
     public static void main(String[] args) {
         try (Scanner reader = new Scanner(System.in)) {
             int a = reader.nextInt();
-            if (a <= 1){
+            if (a <= 0){
                 System.out.println("NO");
             } else {
                 if (powerOfTwo(a)) {
