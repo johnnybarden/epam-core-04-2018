@@ -45,7 +45,7 @@ public class Task5 {
     }
 
     private static boolean onlyLatinAlphabet(String string) {
-        return string.matches("^[a-zA-Z]+$");
+        return string.matches("[a-zA-Z]+");
     }
 
     private static int countVowels(String string) {
