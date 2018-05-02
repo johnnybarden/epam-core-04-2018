@@ -32,21 +32,17 @@ public class Task11 {
      */
 
     public static int addUpDigitsInNumber(int number) {
-        return recursiveAddUpDigitsInNumber(number, 0);
+        return recursiveAddUpDigitsInNumber(Math.abs(number));
     }
 
-    private static int recursiveAddUpDigitsInNumber(int number, int sum) {
-        int remainder = number % 10;
-        sum += remainder;
-        number /= 10;
-
-        return (number == 0) ? sum : recursiveAddUpDigitsInNumber(number, sum);
+    private static int recursiveAddUpDigitsInNumber(int number) {
+        return (number == 0) ? 0 : number % 10 + recursiveAddUpDigitsInNumber(number / 10);
     }
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        int value = Integer.parseInt(in.nextLine());
+        int value = in.nextInt();
         int sum = addUpDigitsInNumber(value);
 
         System.out.println(sum);
