@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Task6 {
 
     /**
@@ -35,7 +39,30 @@ public class Task6 {
      * Выходные данные:
      * NOT FOUND
      */
-    public static void main(String[] args) {
-        // TODO реализация
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(reader.readLine());
+        String[] inputWords = reader.readLine().split(" ");
+        String result = "NOT FOUND";
+
+        for (int i = 0; i < n; i++) {
+            if ((inputWords[i].length() > 1) && isCharCodesIncreaes(inputWords[i])) {
+                result = inputWords[i];
+                break;
+            }
+        }
+
+        System.out.println(result);
+
+    }
+
+    private static boolean isCharCodesIncreaes(String string) {
+        for (int i = 0; i < string.length()-1; i++) {
+            if (string.charAt(i) >= string.charAt(i + 1)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
