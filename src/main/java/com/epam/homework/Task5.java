@@ -35,8 +35,8 @@ public class Task5 {
 
         String[] inputWords = reader.readLine().split(" ");
 
-        for (String string : inputWords) {
-            if (onlyLatinAlphabet(string) && (countVowels(string) == countConsonants(string))) {
+        for (int i = 0; i < n; i++) {
+            if (onlyLatinAlphabet(inputWords[i]) && (countVowels(inputWords[i]) == countConsonants(inputWords[i]))) {
                 countWordsWithSameNumVowelsAndConsonants++;
             }
         }
