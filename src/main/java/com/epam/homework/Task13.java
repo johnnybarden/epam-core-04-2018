@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task13 {
 
     /**
@@ -50,6 +52,26 @@ public class Task13 {
      * 0  -1   2
      */
     public static void main(String[] args) {
-        // TODO реализация
+        try (Scanner reader = new Scanner(System.in)) {
+            int n = reader.nextInt();
+            int array [][] = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    array[i][j] = reader.nextInt();
+                }
+            }
+            int offset = reader.nextInt();
+            printWithOffset(array, offset);
+        }
+    }
+
+    private static void printWithOffset(int[][] array, int offset) {
+        for (int i = 0; i < array.length; i++) {
+            int row = (array.length + i - offset) % array.length;
+            for (int j = 0; j < array.length; j++) {
+                System.out.print(array[row][j] + " ");
+            }
+            System.out.println("");
+        }
     }
 }
