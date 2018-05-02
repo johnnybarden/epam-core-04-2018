@@ -66,6 +66,7 @@ public class Task13 {
     }
 
     private static void printWithOffset(int[][] array, int offset) {
+        System.out.println(array.length);
         for (int i = 0; i < array.length; i++) {
             int row = (array.length + i - offset) % array.length;
             for (int j = 0; j < array.length; j++) {
