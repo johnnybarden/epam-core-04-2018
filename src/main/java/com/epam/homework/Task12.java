@@ -65,7 +65,7 @@ public class Task12 {
                 }
             }
         };
-
+        System.out.println(matrixDimension);
         for (int i = 0; i < matrixDimension; i++) {
             integers.clear();
             integers.addAll(Arrays.asList(matrix[i]));
