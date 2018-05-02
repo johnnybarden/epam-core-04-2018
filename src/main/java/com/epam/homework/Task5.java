@@ -49,10 +49,10 @@ public class Task5 {
     }
 
     private static int countVowels(String string) {
-        int countVowels = 0;
         final String vowels = "aeiouyAEIOUY";
+        int countVowels = 0;
         for (int i = 0; i < string.length(); i++) {
-            if (vowels.contains(string.subSequence(i, i+1))) {
+            if (vowels.indexOf(string.charAt(i)) >= 0) {
                 countVowels++;
             }
         }
@@ -60,10 +60,10 @@ public class Task5 {
     }
 
     private static int countConsonants(String string) {
-        int countConsonants = 0;
         final String consonants = "bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
+        int countConsonants = 0;
         for (int i = 0; i < string.length(); i++) {
-            if (consonants.contains(string.subSequence(i, i+1))) {
+            if (consonants.indexOf(string.charAt(i)) >= 0) {
                 countConsonants++;
             }
         }
