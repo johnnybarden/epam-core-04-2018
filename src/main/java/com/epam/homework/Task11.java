@@ -32,9 +32,9 @@ public class Task11 {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int value = Math.abs(scanner.nextInt());
+        int absValue = Math.abs(scanner.nextInt());
 
-        System.out.println(getSum(value));
+        System.out.println(getSum(absValue));
     }
 
     private static int getSum(int value) {
