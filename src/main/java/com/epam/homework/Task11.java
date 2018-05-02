@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task11 {
 
     /**
@@ -28,7 +30,25 @@ public class Task11 {
      * Выходные данные:
      * 5
      */
+
+    public static int addUpDigitsInNumber(int number) {
+        return recursiveAddUpDigitsInNumber(number, 0);
+    }
+
+    private static int recursiveAddUpDigitsInNumber(int number, int sum) {
+        int remainder = number % 10;
+        sum += remainder;
+        number /= 10;
+
+        return (number == 0) ? sum : recursiveAddUpDigitsInNumber(number, sum);
+    }
+
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner in = new Scanner(System.in);
+
+        int value = Integer.parseInt(in.nextLine());
+        int sum = addUpDigitsInNumber(value);
+
+        System.out.println(sum);
     }
 }
