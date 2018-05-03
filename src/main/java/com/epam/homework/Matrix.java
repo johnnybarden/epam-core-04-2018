@@ -40,7 +40,7 @@ class Matrix {
             }
         });
     }
-
+  
     void shiftRows(int amountShifts) {
         amountShifts %= matrixSize;
         if (amountShifts > 0) {
