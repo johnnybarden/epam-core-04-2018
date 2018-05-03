@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task9 {
 
     /**
@@ -47,6 +49,39 @@ public class Task9 {
      * NO ROOTS
      */
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner scanner = new Scanner(System.in);
+        int A = scanner.nextInt();
+        int B = scanner.nextInt();
+        int C = scanner.nextInt();
+
+        double root1 = (-B - Math.sqrt(B * B - 4 * A * C)) / (2 * A);
+
+        if (Double.isNaN(root1)){
+            System.out.println("NO ROOTS");
+            return;
+        }
+        double root2 = (-B + Math.sqrt(B * B - 4 * A * C)) / (2 * A);
+
+        String root1String = twoNumeralAfterComma(root1);
+
+        if (root1 == root2){
+            System.out.println(root1String);
+            return;
+        }
+        String root2String = twoNumeralAfterComma(root2);
+
+        System.out.println(root1String + ", " + root2String);
+    }
+
+    static String twoNumeralAfterComma(double root){
+
+        root = Math.round(root * 100) / 100.0;
+        String rootString = String.valueOf(root);
+        int indexPoint = rootString.indexOf(".");
+
+        if (rootString.length() < indexPoint + 3){
+            rootString += 0;
+        }
+        return rootString;
     }
 }
