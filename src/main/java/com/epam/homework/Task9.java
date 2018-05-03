@@ -56,7 +56,7 @@ public class Task9 {
 
         double root1 = (-B - Math.sqrt(B * B - 4 * A * C)) / (2 * A);
 
-        if (Double.isNaN(root1)){
+        if (!Double.isFinite(root1)){
             System.out.println("NO ROOTS");
             return;
         }
