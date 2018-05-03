@@ -36,23 +36,25 @@ public class Task7 {
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.next());
         Set<String> set = new LinkedHashSet<>();
+        String result = "";
 
         for (int i = 0; i < n; i++) {
             String str = scanner.next();
-            if (isDifferentChars(str)) {
-                set.add(str);
+            String lowerCaseString = str.toLowerCase();
+            if (isDifferentChars(lowerCaseString) && !(set.contains(lowerCaseString))) {
+                set.add(lowerCaseString);
+                result = result + str + " " ;
             }
         }
         if (set.size() == 0) {
             System.out.println("NOT FOUND");
         } else {
-            System.out.println(String.join(" ", set));
+            System.out.println(result.trim());
         }
     }
 
     public static boolean isDifferentChars(String word) {
         Set<Character> set = new HashSet<>();
-        word = word.toLowerCase();
         for (int i = 0; i < word.length(); i++) {
             if (set.contains(word.charAt(i))) {
                 return false;
