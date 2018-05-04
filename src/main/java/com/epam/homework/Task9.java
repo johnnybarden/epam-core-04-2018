@@ -54,17 +54,12 @@ public class Task9 {
         double a;
         double b;
         double c;
-        a = Integer.parseInt(scanner.next());
-        b = Integer.parseInt(scanner.next());
-        c = Integer.parseInt(scanner.next());
+        a = scanner.nextDouble();
+        b = scanner.nextDouble();
+        c = scanner.nextDouble();
 
         if (a == 0 && b == 0) {
             System.out.println("NO ROOTS");
-            return;
-        }
-
-        if (a == 0 && c == 0) {
-            System.out.println("0.00");
             return;
         }
 
@@ -89,6 +84,7 @@ public class Task9 {
         } else {
             double x1 = (-b - Math.sqrt(d)) / (2 * a);
             double x2 = (-b + Math.sqrt(d)) / (2 * a);
+            System.out.println(String.format(Locale.ENGLISH, "%1$3.2f, %2$3.2f", x1, x2));
             System.out.printf(Locale.ENGLISH, "%.2f", x1);
             System.out.print(", ");
             System.out.printf(Locale.ENGLISH, "%.2f", x2);
