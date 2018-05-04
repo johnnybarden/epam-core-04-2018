@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Task11 {
 
     /**
@@ -28,7 +32,16 @@ public class Task11 {
      * Выходные данные:
      * 5
      */
-    public static void main(String[] args) {
-        // TODO реализация
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String number = String.valueOf(Math.abs(Integer.parseInt(reader.readLine())));
+
+        System.out.println(sumOfDigits(number));
+    }
+
+    private static int sumOfDigits(String string) {
+        return (string.length() > 1)
+                ? Integer.parseInt(string.substring(0, 1)) + sumOfDigits(string.substring(1))
+                : Integer.parseInt(string);
     }
 }
