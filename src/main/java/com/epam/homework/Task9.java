@@ -80,14 +80,11 @@ public class Task9 {
             System.out.println("NO ROOTS");
         } else if (d == 0) {
             double x = -b / (2 * a);
-            System.out.printf(Locale.ENGLISH, "%.2f", x);
+            System.out.println(String.format(Locale.ENGLISH, "%1.2f", x));
         } else {
             double x1 = (-b - Math.sqrt(d)) / (2 * a);
             double x2 = (-b + Math.sqrt(d)) / (2 * a);
-            System.out.println(String.format(Locale.ENGLISH, "%1$3.2f, %2$3.2f", x1, x2));
-            System.out.printf(Locale.ENGLISH, "%.2f", x1);
-            System.out.print(", ");
-            System.out.printf(Locale.ENGLISH, "%.2f", x2);
+            System.out.println(String.format(Locale.ENGLISH, "%1.2f, %2.2f", x1, x2));
         }
     }
 }
