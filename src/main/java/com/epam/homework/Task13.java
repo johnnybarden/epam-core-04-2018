@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task13 {
 
     /**
@@ -50,6 +52,49 @@ public class Task13 {
      * 0  -1   2
      */
     public static void main(String[] args) {
-        // TODO реализация
+        try (Scanner reader = new Scanner(System.in)) {
+            int dimension = reader.nextInt();
+            int[][] matrix = readMatrix(reader, dimension);
+            int shiftNumber = reader.nextInt();
+
+            printMatrix(shiftMatrix(matrix, shiftNumber));
+        }
+    }
+
+    static int[][] readMatrix(Scanner reader, int dimension) {
+        int[][] matrix = new int[dimension][dimension];
+
+        for (int i = 0; i < dimension; i++) {
+            for (int j = 0; j < dimension; j++) {
+                matrix[i][j] = reader.nextInt();
+            }
+        }
+
+        return matrix;
+    }
+
+    static int[][] shiftMatrix(int[][] matrix, int shiftNumber) {
+        if (shiftNumber == 0) {
+            return matrix;
+        }
+
+        int[][] shiftedMatrix = new int[matrix.length][matrix.length];
+
+        shiftNumber %= matrix.length;
+        int startCopyPosition = shiftNumber < 0 ? -shiftNumber : matrix.length - shiftNumber;
+
+        System.arraycopy(matrix, startCopyPosition, shiftedMatrix, 0, matrix.length - startCopyPosition);
+        System.arraycopy(matrix, 0, shiftedMatrix, matrix.length - startCopyPosition, startCopyPosition);
+
+        return shiftedMatrix;
+    }
+
+    static void printMatrix(int[][] matrix) {
+        for (int[] row: matrix) {
+            for (int el: row) {
+                System.out.format("%4d", el);
+            }
+            System.out.println();
+        }
     }
 }
