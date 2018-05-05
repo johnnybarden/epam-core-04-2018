@@ -58,7 +58,7 @@ public class Task13 {
             int shiftNumber = reader.nextInt();
 
             System.out.println(matrixDimension);
-            printMatrix(circleShift(matrix, shiftNumber));
+            print(circleShift(matrix, shiftNumber));
         }
     }
 
@@ -85,15 +85,15 @@ public class Task13 {
     }
 
     static int[][] circleCopy(int[][] matrix, int startPosition) {
-        int[][] matrixCopy = new int[matrix.length][matrix.length];
+        int[][] copy = new int[matrix.length][matrix.length];
 
-        System.arraycopy(matrix, startPosition, matrixCopy, 0, matrix.length - startPosition);
-        System.arraycopy(matrix, 0, matrixCopy, matrix.length - startPosition, startPosition);
+        System.arraycopy(matrix, startPosition, copy, 0, matrix.length - startPosition);
+        System.arraycopy(matrix, 0, copy, matrix.length - startPosition, startPosition);
 
-        return matrixCopy;
+        return copy;
     }
 
-    static void printMatrix(int[][] matrix) {
+    static void print(int[][] matrix) {
         for (int[] row: matrix) {
             for (int el: row) {
                 System.out.format("%4d", el);
