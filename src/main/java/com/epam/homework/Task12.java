@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -41,14 +43,14 @@ public class Task12 {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int [][] matrix = readMatrix(scanner);
+        int dimension = scanner.nextInt();
+        int [][] matrix = readMatrix(scanner, dimension);
         int colSelected = scanner.nextInt();
-        Arrays.sort(matrix[colSelected]);
-        printMatrix(matrix);
+        matrixSort(matrix, dimension, colSelected);
+        printMatrix(matrix, dimension);
     }
 
-    private static int[][] readMatrix (Scanner scanner) {
-        int dimension = scanner.nextInt();
+    private static int[][] readMatrix (Scanner scanner, int dimension) {
         int[][] matrix = new int[dimension][dimension];
         for (int row = 0; row<dimension; row++) {
             for (int col = 0; col < dimension; col++) {
@@ -58,12 +60,25 @@ public class Task12 {
         return matrix;
     }
 
-    private static void printMatrix (int[][] matrix) {
+    private static void printMatrix (int[][] matrix, int dimension) {
+        System.out.println(dimension);
         for (int[] aMatrix : matrix) {
-            for (int col = 0; col < matrix[1].length; col++) {
+            for (int col = 0; col < dimension; col++) {
                 System.out.print(aMatrix[col] + " ");
             }
             System.out.println();
+        }
+    }
+
+    private  static void matrixSort (int[][] matrix, int dimension, int colSelected) {
+        for (int i = 0; i<dimension; i++) {
+            for (int j = 0; j < dimension -1; j++) {
+                if (matrix[j][colSelected]>matrix[j+1][colSelected]) {
+                    int[] key = matrix[j];
+                    matrix[j] = matrix[j+1];
+                    matrix[j+1] = key;
+                }
+            }
         }
     }
 
