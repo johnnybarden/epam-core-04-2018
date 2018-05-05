@@ -56,12 +56,11 @@ public class Task13 {
         int matrixDimension = scanner.nextInt();
         Integer[][] matrix = readMatrix(scanner, matrixDimension);
         int valueOfShift = scanner.nextInt();
-        valueOfShift = valueOfShift > matrixDimension || valueOfShift < -matrixDimension
-                ? valueOfShift % matrixDimension : valueOfShift;
+        valueOfShift %= matrixDimension;
 
         Integer[][] shiftedMatrix = shift(matrix, valueOfShift);
 
-        List<Integer> integers = new ArrayList<Integer>() {
+        List<Integer> matrixRow = new ArrayList<Integer>() {
             public String toString() {
                 Iterator<Integer> iterator = iterator();
                 StringBuilder stringBuilder = new StringBuilder();
@@ -77,26 +76,25 @@ public class Task13 {
         };
         System.out.println(matrixDimension);
         for (int i = 0; i < matrixDimension; i++) {
-            integers.clear();
-            integers.addAll(Arrays.asList(shiftedMatrix[i]));
-            System.out.println(integers);
+            matrixRow.clear();
+            matrixRow.addAll(Arrays.asList(shiftedMatrix[i]));
+            System.out.println(matrixRow);
         }
     }
 
     private static Integer[][] shift(Integer[][] matrix, int shift) {
-        int absShift = Math.abs(shift);
-        int length = matrix.length;
-        Integer[][] shiftedMatrix = new Integer[length][length];
-        if (shift < 0) {
-            System.arraycopy(matrix, absShift, shiftedMatrix, 0, length - absShift);
-            System.arraycopy(matrix, 0, shiftedMatrix, length - absShift, absShift);
-        } else if (shift > 0) {
-            System.arraycopy(matrix, length - absShift, shiftedMatrix, 0, absShift);
-            System.arraycopy(matrix, 0, shiftedMatrix, absShift, length - absShift);
-        } else {
+        int dimension = matrix.length;
+        int startCopyPosition = shift > 0 ? shift : dimension - (-shift);
+        Integer[][] resultMatrix = new Integer[dimension][dimension];
+
+        if (shift == 0) {
             return matrix;
         }
-        return shiftedMatrix;
+
+        System.arraycopy(matrix, dimension - startCopyPosition, resultMatrix, 0, startCopyPosition);
+        System.arraycopy(matrix, 0, resultMatrix, startCopyPosition, dimension - startCopyPosition);
+
+        return resultMatrix;
     }
 
     private static Integer[][] readMatrix(Scanner scanner, int dimension) {
