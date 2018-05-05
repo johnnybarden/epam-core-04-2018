@@ -57,7 +57,8 @@ public class Task13 {
             int[][] matrix = readMatrix(reader, matrixDimension);
             int shiftNumber = reader.nextInt();
 
-            printMatrix(shiftMatrix(matrix, matrixDimension, shiftNumber));
+            System.out.println(matrixDimension);
+            printMatrix(circleShift(matrix, shiftNumber));
         }
     }
 
@@ -73,20 +74,23 @@ public class Task13 {
         return matrix;
     }
 
-    static int[][] shiftMatrix(int[][] matrix, int dimension, int shiftNumber) {
-        shiftNumber %= dimension; // now shiftNumber in [-dimension...dimension] range
+    static int[][] circleShift(int[][] matrix, int shift) {
+        shift %= matrix.length; // now shift in [-matrix.length...matrix.length] range
 
-        if (shiftNumber == 0) {
+        if (shift == 0) {
             return matrix;
         }
 
-        int[][] resultMatrix = new int[dimension][dimension];
-        int startCopyPosition = shiftNumber < 0 ? -shiftNumber : dimension - shiftNumber;
+        return circleCopy(matrix, (shift < 0) ? -shift : (matrix.length - shift));
+    }
 
-        System.arraycopy(matrix, startCopyPosition, resultMatrix, 0, dimension - startCopyPosition);
-        System.arraycopy(matrix, 0, resultMatrix, dimension - startCopyPosition, startCopyPosition);
+    static int[][] circleCopy(int[][] matrix, int startPosition) {
+        int[][] matrixCopy = new int[matrix.length][matrix.length];
 
-        return resultMatrix;
+        System.arraycopy(matrix, startPosition, matrixCopy, 0, matrix.length - startPosition);
+        System.arraycopy(matrix, 0, matrixCopy, matrix.length - startPosition, startPosition);
+
+        return matrixCopy;
     }
 
     static void printMatrix(int[][] matrix) {
