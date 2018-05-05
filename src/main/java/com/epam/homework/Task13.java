@@ -85,12 +85,12 @@ public class Task13 {
     }
 
     static int[][] circleCopy(int[][] matrix, int startPosition) {
-        int[][] copy = new int[matrix.length][matrix.length];
+        int[][] matrixCopy = new int[matrix.length][matrix.length];
 
-        System.arraycopy(matrix, startPosition, copy, 0, matrix.length - startPosition);
-        System.arraycopy(matrix, 0, copy, matrix.length - startPosition, startPosition);
+        System.arraycopy(matrix, startPosition, matrixCopy, 0, matrix.length - startPosition);
+        System.arraycopy(matrix, 0, matrixCopy, matrix.length - startPosition, startPosition);
 
-        return copy;
+        return matrixCopy;
     }
 
     static void print(int[][] matrix) {
