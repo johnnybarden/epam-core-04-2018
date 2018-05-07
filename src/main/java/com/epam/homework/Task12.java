@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.*;
+
 public class Task12 {
 
     /**
@@ -37,6 +39,48 @@ public class Task12 {
      * 0    2    3    4    5
      */
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner scanner = new Scanner(System.in);
+        int[][] matrix = readMatrix(scanner);
+        int indexColumn = scanner.nextInt();
+        sortMatrix(matrix, indexColumn);
+        writeMatrix(matrix);
+    }
+
+    private static int[][] readMatrix(Scanner scanner){
+        int dimension = scanner.nextInt();
+        int [][] matrix = new int[dimension][dimension];
+
+        for (int row = 0; row < dimension; row++) {
+            for (int col = 0; col < dimension; col++) {
+                matrix[row][col] = scanner.nextInt();
+            }
+        }
+        return matrix;
+    }
+
+    private static void sortMatrix(int[][] matrix, int index){
+        int[] extra;
+
+        for (int i = 0; i < matrix.length - 1; i++) {
+            for (int j = 0; j < matrix.length - 1 - i; j++) {
+                if (matrix[j][index] > matrix[j + 1][index]){
+                    extra = matrix[j + 1];
+                    matrix[j + 1] = matrix[j];
+                    matrix[j] = extra;
+                }
+            }
+        }
+    }
+
+    static void writeMatrix(int[][] matrix){
+        System.out.println(matrix.length);
+
+        for (int row = 0; row < matrix.length; row++) {
+            StringBuilder builder = new StringBuilder();
+            for (int col = 0; col < matrix.length; col++) {
+                builder.append(matrix[row][col]).append(" ");
+            }
+            System.out.println(builder.toString().trim());
+        }
     }
 }
