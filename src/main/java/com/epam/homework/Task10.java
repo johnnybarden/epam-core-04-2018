@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Task10 {
 
     /**
@@ -29,7 +33,14 @@ public class Task10 {
      * Выходные данные:
      * YES
      */
-    public static void main(String[] args) {
-        // TODO реализация
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int number = Integer.parseInt(reader.readLine());
+
+        if ((number > 0 && (number & (number - 1)) == 0)) {
+            System.out.print("YES");
+        } else {
+            System.out.print("NO");
+        }
     }
 }
