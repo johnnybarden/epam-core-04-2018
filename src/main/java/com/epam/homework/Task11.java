@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task11 {
 
     /**
@@ -29,6 +31,21 @@ public class Task11 {
      * 5
      */
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner in = new Scanner(System.in);
+        int num = Integer.parseInt(in.nextLine());
+        System.out.println(recursionSumm(num));
+    }
+
+    private static int recursionSumm(int num){
+        int sum = 0;
+        if(num==0){
+            return 0;
+        }
+        if(num<0){
+            num = Math.abs(num);
+        }
+        sum += num%10;
+        sum += (recursionSumm(num/10));
+        return sum;
     }
 }
