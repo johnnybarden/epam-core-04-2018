@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.*;
+
 public class Task8 {
 
     /**
@@ -27,7 +29,52 @@ public class Task8 {
      * Выходные данные:
      * 22
      */
+
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner in = new Scanner(System.in);
+
+        int countOfWords = Integer.parseInt(in.nextLine());
+
+        LinkedHashSet<String> words = new LinkedHashSet<>();
+        for (int i = 0; i < countOfWords; i++) {
+            words.add(in.next());
+        }
+
+        String result = solve(words);
+
+        System.out.println(result);
+    }
+
+
+
+    private static String solve(LinkedHashSet<String> words){
+        String result = "NOT FOUND";
+        int resultCounter = 0;
+        for(String word : words){
+            if (isNumber(word)){
+                String reverse = new StringBuffer(word).reverse().toString();
+                if (word.equalsIgnoreCase(reverse)){
+                    if(!result.equals(word)){
+                        result = word;
+                        resultCounter++;
+                    }
+                }
+            }
+            if (resultCounter==2){
+                break;
+            }
+        }
+        return result;
+    }
+
+    private static boolean isNumber(String word){
+        for(Character c: word.toCharArray()){
+            if(!Character.isDigit(c)){
+                return false;
+            }
+        }
+        return true;
+
     }
 }
+
