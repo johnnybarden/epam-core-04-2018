@@ -1,5 +1,10 @@
 package com.epam.homework;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Task13 {
 
     /**
@@ -50,6 +55,50 @@ public class Task13 {
      * 0  -1   2
      */
     public static void main(String[] args) {
-        // TODO реализация
+        Scanner scanner = new Scanner(System.in);
+        int[][] matrix = readMatrix(scanner);
+        int indexColumn = scanner.nextInt();
+        int[][] sortMatrix = sortMatrix(matrix, indexColumn);
+        writeMatrix(sortMatrix);
+    }
+
+    private static int[][] readMatrix(Scanner scanner){
+        int dimension = scanner.nextInt();
+        int [][] matrix = new int[dimension][dimension];
+
+        for (int row = 0; row < dimension; row++) {
+            for (int col = 0; col < dimension; col++) {
+                matrix[row][col] = scanner.nextInt();
+            }
+        }
+        return matrix;
+    }
+
+    private static int[][] sortMatrix(int[][] matrix, int index){
+        int[][] extra = new int[matrix.length][];
+        int residual = Math.abs(index % matrix.length);
+
+        if (residual == 0){
+            return matrix;
+        } else if (index < 0){
+            System.arraycopy(matrix, residual, extra, 0, extra.length - residual);
+            System.arraycopy(matrix, 0, extra, extra.length - residual, residual);
+        } else {
+            System.arraycopy(matrix, matrix.length - residual, extra, 0, residual);
+            System.arraycopy(matrix, 0, extra, residual, matrix.length - residual);
+        }
+        return extra;
+    }
+
+    static void writeMatrix(int[][] matrix){
+        System.out.println(matrix.length);
+
+        for (int row = 0; row < matrix.length; row++) {
+            StringBuilder builder = new StringBuilder();
+            for (int col = 0; col < matrix.length; col++) {
+                builder.append(matrix[row][col]).append(" ");
+            }
+            System.out.println(builder.toString().trim());
+        }
     }
 }
