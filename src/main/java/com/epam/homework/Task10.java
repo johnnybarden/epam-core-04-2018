@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task10 {
 
     /**
@@ -30,6 +32,13 @@ public class Task10 {
      * YES
      */
     public static void main(String[] args) {
-        // TODO реализация
+        try(Scanner scanner = new Scanner(System.in)) {
+            int digit = scanner.nextInt();
+            if (digit > 0 && (digit & (digit - 1)) == 0) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
     }
 }
