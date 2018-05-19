@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task15 {
 
     /**
@@ -28,6 +30,58 @@ public class Task15 {
      * -1
      */
     public static void main(String[] args) {
-        // TODO реализация
+        try (Scanner in = new Scanner(System.in)) {
+            int matrixSize = Integer.parseInt(in.nextLine());
+            int[][] matrix = readMatrix(in, matrixSize);
+
+            System.out.println(getSumBetweenFirstAndSecondPositiveElements(matrix));
+        }
+    }
+
+    private static int[][] readMatrix(Scanner scanner, int size) {
+
+        int[][] matrix = new int[size][size];
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                matrix[i][j] = Integer.parseInt(scanner.next());
+            }
+        }
+
+        return matrix;
+    }
+
+    private static int getSumBetweenFirstAndSecondPositiveElements(int[][] matrix) {
+
+        int sum = 0;
+
+        for (int i = 0; i < matrix.length; i++) {
+
+            int positiveIndex1 = 0;
+            int positiveIndex2 = 0;
+            int numOfPositiveIndex = 0;
+
+            for (int j = 0; j < matrix.length; j++) {
+
+                if (matrix[i][j] > 0) {
+
+                    numOfPositiveIndex++;
+
+                    switch (numOfPositiveIndex) {
+                        case 1:
+                            positiveIndex1 = j;
+                            break;
+                        case 2:
+                            positiveIndex2 = j;
+                            break;
+                    }
+                }
+            }
+
+            for (int j = positiveIndex1 + 1; j < positiveIndex2; j++) {
+                sum += matrix[i][j];
+            }
+        }
+        return sum;
     }
 }
