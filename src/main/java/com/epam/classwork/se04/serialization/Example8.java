@@ -1,4 +1,4 @@
-package com.epam.classwork.se04;
+package com.epam.classwork.se04.serialization;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
