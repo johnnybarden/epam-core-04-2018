@@ -55,10 +55,11 @@ public class Task15 {
             for (int i = 0; i < matrixRow.length; i++) {
                 if (matrixRow[i] > 0) {
                     startIndex = i;
+                    System.out.println(startIndex);
                     break;
                 }
             }
-            for (int j = startIndex; j < matrixRow.length; j++) {
+            for (int j = startIndex + 1; j < matrixRow.length; j++) {
                 if (matrixRow[j] <= 0) {
                     sum += matrixRow[j];
                 }
