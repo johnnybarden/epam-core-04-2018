@@ -59,12 +59,12 @@ public class Task15 {
                     break;
                 }
             }
-            for (int j = startIndex + 1; j < matrixRow.length; j++) {
+            for (int j = matrixRow.length - 1; j >= startIndex; j--) {
                 if (matrixRow[j] > 0) {
                     endIndex = j;
-                    break;
                 }
             }
+            System.out.println(endIndex);
             for (int k = startIndex + 1; k < endIndex; k++) {
                 if (matrixRow[k] <= 0) {
                     sum += matrixRow[k];
@@ -74,3 +74,4 @@ public class Task15 {
         return sum;
     }
 }
+
