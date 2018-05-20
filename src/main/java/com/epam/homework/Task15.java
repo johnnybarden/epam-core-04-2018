@@ -50,21 +50,23 @@ public class Task15 {
     private static int getSumBetweenFirstAndSecondPositiveValues(int[][] matrix) {
         int startIndex = 0;
         int endIndex = 0;
+        int counter = 0;
         int sum = 0;
 
         for (int[] matrixRow : matrix) {
             for (int i = 0; i < matrixRow.length; i++) {
                 if (matrixRow[i] > 0) {
-                    startIndex = i;
-                    break;
+                    counter++;
+                    switch (counter) {
+                        case 1:
+                            startIndex = i;
+                            break;
+                        case 2:
+                            endIndex = i;
+                            break;
+                    }
                 }
             }
-            for (int j = matrixRow.length - 1; j > startIndex; j--) {
-                if (matrixRow[j] > 0) {
-                    endIndex = j;
-                }
-            }
-            System.out.println(endIndex);
             for (int k = startIndex + 1; k < endIndex; k++) {
                 if (matrixRow[k] <= 0) {
                     sum += matrixRow[k];
