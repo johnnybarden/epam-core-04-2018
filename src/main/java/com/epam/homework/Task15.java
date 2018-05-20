@@ -53,22 +53,23 @@ public class Task15 {
         int counter = 0;
         int sum = 0;
 
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] > 0) {
+        for (int[] matrixRow : matrix) {
+            for (int i = 0; i < matrixRow.length; i++) {
+                if (matrixRow[i] > 0) {
                     counter++;
                     switch (counter) {
                         case 1:
-                            startIndex = j;
+                            startIndex = i;
                             break;
                         case 2:
-                            endIndex = j;
+                            endIndex = i;
                             break;
                     }
                 }
             }
             for (int k = startIndex + 1; k < endIndex; k++) {
-                sum += matrix[i][k];
+                sum += matrixRow[k];
+
             }
         }
         return sum;
