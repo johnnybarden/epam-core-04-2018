@@ -43,20 +43,21 @@ public class Task14 {
         for (int i = 0; i < digitSymbolsNumber; i++) {
             digits[i] = scanner.nextInt();
         }
-
         System.out.println(getNumberOfTheLongestStrictlyIncreasingSubsequence(digits));
     }
 
     private static int getNumberOfTheLongestStrictlyIncreasingSubsequence(int[] digits) {
         int result = 0;
-        int currentNumberOfDigits = 0;
+        int currentNumberOfDigits = 1;
 
         for (int i = 1; i < digits.length; i++) {
             if (digits[i - 1] < digits[i]) {
                 currentNumberOfDigits++;
-            }
-            if (result < currentNumberOfDigits) {
-                result = currentNumberOfDigits;
+                if (result < currentNumberOfDigits) {
+                    result = currentNumberOfDigits;
+                }
+            } else {
+                currentNumberOfDigits = 1;
             }
         }
         return result;
