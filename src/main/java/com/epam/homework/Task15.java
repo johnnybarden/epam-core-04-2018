@@ -59,7 +59,7 @@ public class Task15 {
                     break;
                 }
             }
-            for (int j = matrixRow.length - 1; j >= startIndex; j--) {
+            for (int j = matrixRow.length - 1; j > startIndex; j--) {
                 if (matrixRow[j] > 0) {
                     endIndex = j;
                 }
