@@ -61,6 +61,7 @@ public class Task15 {
                     }
                     if (counter == 1) {
                         endIndex = i;
+                        break;
                     }
                     counter++;
                 }
