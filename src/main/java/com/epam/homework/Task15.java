@@ -66,14 +66,11 @@ public class Task15 {
                 }
 
             }
-            System.out.println(startIndex);
-
             for (int k = startIndex + 1; k < endIndex; k++) {
                 if (matrixRow[k] <= 0) {
                     sum += matrixRow[k];
                 }
             }
-
         }
         return sum;
     }
