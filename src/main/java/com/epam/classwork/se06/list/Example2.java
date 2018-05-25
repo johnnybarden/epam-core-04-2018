@@ -1,11 +1,10 @@
-package com.epam.classwork.se06;
+package com.epam.classwork.se06.list;
 
 import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.function.Predicate;
 
 @SuppressWarnings("all")
 public class Example2 {

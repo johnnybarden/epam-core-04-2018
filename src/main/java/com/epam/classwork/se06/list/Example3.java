@@ -1,4 +1,4 @@
-package com.epam.classwork.se06;
+package com.epam.classwork.se06.list;
 
 import java.util.ArrayList;
 import java.util.Arrays;

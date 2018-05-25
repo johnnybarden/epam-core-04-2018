@@ -1,4 +1,4 @@
-package com.epam.classwork.se06;
+package com.epam.classwork.se06.map;
 
 import lombok.Value;
 
@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class Example8 {
+public class Example1 {
 
     public static void main(String[] args) {
         Queue<Pen> queue = new PriorityQueue<>(Comparator.comparing(Pen::getManufacturer));
