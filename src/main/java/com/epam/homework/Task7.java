@@ -40,7 +40,6 @@ public class Task7 {
             words.add(sc.next());
         }
 
-
         for (String word : words) {
             if (areCharsUnique(word)) {
                 uniqueWords.add(word);
@@ -54,9 +53,9 @@ public class Task7 {
         } else {
             for (String i : uniqueWords) {
                 sb.append(i).append(" ");
-                String result = sb.toString();
-                System.out.println(result);
             }
+            String result = sb.toString();
+            System.out.println(result);
         }
         
     }
