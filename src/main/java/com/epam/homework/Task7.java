@@ -34,8 +34,13 @@ public class Task7 {
         Scanner sc = new Scanner(System.in);
         int count = Integer.parseInt(sc.nextLine());
         String input = sc.nextLine();
-        String[] words = input.split(" ", count);
+        List<String> words = new ArrayList<>();
         Set<String> uniqueWords = new LinkedHashSet<>();
+
+        for (int i = 0; i < count; i++) {
+            words.add(sc.next());
+        }
+
 
         for (String word : words) {
             if (areCharsUnique(word)) {
@@ -43,13 +48,12 @@ public class Task7 {
             }
         }
 
-        String[] output = uniqueWords.toArray(new String[0]);
         StringBuilder sb = new StringBuilder();
 
-        if (output.length == 0) {
+        if (uniqueWords.size() == 0) {
             System.out.println("NOT FOUND");
         } else {
-            for (String i : output) {
+            for (String i : uniqueWords) {
                 sb.append(i).append(" ");
             }
         }
