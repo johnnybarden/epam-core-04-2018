@@ -54,10 +54,11 @@ public class Task7 {
         } else {
             for (String i : uniqueWords) {
                 sb.append(i).append(" ");
+                String result = sb.toString();
+                System.out.println(result);
             }
         }
-        String result = sb.toString();
-        System.out.println(result);
+        
     }
 
     private static boolean areCharsUnique (String str) {
