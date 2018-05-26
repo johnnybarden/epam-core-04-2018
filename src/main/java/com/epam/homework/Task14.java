@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Task14 {
 
     /**
@@ -34,6 +38,36 @@ public class Task14 {
      * 0
      */
     public static void main(String[] args) {
-        // TODO реализация
+
+        Scanner sc = new Scanner(System.in);
+        int count = Integer.parseInt(sc.nextLine());
+        List<Integer> input = new LinkedList<>();
+
+        for (int i = 0; i < count; i++) {
+            input.add(Integer.parseInt(sc.nextLine()));
+        }
+
+        System.out.println(getMaxSequence(input));
+    }
+
+    private static int getMaxSequence(List<Integer> list) {
+
+        int tmp = 1;
+        int result = 0;
+        for (int i = 0; i < list.size() - 1; i++) {
+            if (list.get(i + 1) > list.get(i)) {
+                tmp++;
+            } else if (tmp > result) {
+                result = tmp;
+                tmp = 1;
+            }
+        }
+        if (tmp > result) {
+            result = tmp;
+        }
+        if (result == 1) {
+            result--;
+        }
+        return result;
     }
 }
