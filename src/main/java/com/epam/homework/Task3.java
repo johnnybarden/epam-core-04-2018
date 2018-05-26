@@ -1,7 +1,8 @@
 package com.epam.homework;
 
-public class Task3 {
+import java.util.Scanner;
 
+public class Task3 {
     /**
      * Ввести N строк с консоли.
      * Вывести те строки, длина которых меньше средней.
@@ -37,11 +38,26 @@ public class Task3 {
      * (28): Ведь, если звезды зажигают -
      */
     public static void main(String[] args) {
-        // TODO реализация
 
-        // TODO System.out.println("AVERAGE (" + averageLength + ")");
-        // TODO foreach($current : $result) {
-        // TODO     System.out.println("(" + current.length() + "): " + current);
-        // TODO }
+        Scanner sc = new Scanner(System.in);
+        int avgLength = 0;
+        int count = Integer.parseInt(sc.nextLine());
+        String[] input = new String[count];
+
+        int temp = 0;
+        for (int i = 0; i < input.length; i++) {
+            input[i] = sc.nextLine();
+            temp += input[i].length();
+        }
+
+        avgLength = temp / count;
+
+        System.out.println("AVERAGE (" + avgLength + ")");
+
+        for (String curr : input) {
+            if (curr.length() < avgLength) {
+                System.out.println("(" + curr.length() + "): " + curr);
+            }
+        }
     }
 }
