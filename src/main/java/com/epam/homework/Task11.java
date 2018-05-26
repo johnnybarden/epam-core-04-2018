@@ -1,5 +1,7 @@
 package com.epam.homework;
 
+import java.util.Scanner;
+
 public class Task11 {
 
     /**
@@ -29,6 +31,20 @@ public class Task11 {
      * 5
      */
     public static void main(String[] args) {
-        // TODO реализация
+
+        Scanner sc = new Scanner(System.in);
+        int input = Integer.parseInt(sc.next());
+        System.out.println(digitsSum(input));
+    }
+
+    private static int digitsSum(int num) {
+
+        num = Math.abs(num);
+
+        while (num != 0) {
+            return digitsSum(num / 10) + num % 10;
+        }
+
+        return 0;
     }
 }
