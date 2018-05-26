@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+import java.util.Set;
+
 public class Task8 {
 
     /**
@@ -28,6 +32,51 @@ public class Task8 {
      * 22
      */
     public static void main(String[] args) {
-        // TODO реализация
+
+        Scanner sc = new Scanner(System.in);
+        int count = Integer.parseInt(sc.nextLine());
+        String input = sc.nextLine();
+        String[] words = input.split(" ", count);
+        Set<String> uniquePals = new LinkedHashSet<>();
+
+        for (String word : words) {
+            if (isNumber(word) && isPalindrome(word)) {
+                uniquePals.add(word);
+            }
+        }
+
+        String[] output = uniquePals.toArray(new String[0]);
+
+        switch (output.length) {
+            case 0:
+                System.out.println("NOT FOUND");
+                break;
+            case 1:
+                System.out.println(output[0]);
+                break;
+            default:
+                System.out.println(output[1]);
+                break;
+        }
+    }
+
+    private static boolean isNumber(String str) {
+
+        char[] charArr = str.toCharArray();
+        for (char aCharArr : charArr) {
+            if (!(Character.isDigit(aCharArr))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static boolean isPalindrome(String str) {
+
+        StringBuilder sb = new StringBuilder(str);
+        sb.reverse();
+        String reverse = sb.toString();
+        return (reverse.equals(str));
     }
 }
