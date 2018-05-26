@@ -44,13 +44,18 @@ public class Task7 {
         }
 
         String[] output = uniqueWords.toArray(new String[0]);
+        StringBuilder sb = new StringBuilder();
 
         if (output.length == 0) {
             System.out.println("NOT FOUND");
-        } else
+        } else {
             for (String i : output) {
-                System.out.print((i + " "));
+                sb.append(i).append(" ");
             }
+        }
+        String tmp = sb.toString();
+        String result = tmp.trim();
+        System.out.println(result);
     }
 
     private static boolean areCharsUnique (String str) {
