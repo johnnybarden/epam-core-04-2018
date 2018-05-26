@@ -56,8 +56,7 @@ public class Task7 {
                 sb.append(i).append(" ");
             }
         }
-        String tmp = sb.toString();
-        String result = tmp.trim();
+        String result = sb.toString();
         System.out.println(result);
     }
 
