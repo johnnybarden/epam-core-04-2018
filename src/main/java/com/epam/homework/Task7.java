@@ -54,8 +54,7 @@ public class Task7 {
             for (String i : uniqueWords) {
                 sb.append(i).append(" ");
             }
-            String result = sb.toString();
-            System.out.println(result);
+            System.out.println(sb);
         }
         
     }
