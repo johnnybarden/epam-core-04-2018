@@ -44,7 +44,7 @@ public class Task14 {
         List<Integer> input = new LinkedList<>();
 
         for (int i = 0; i < count; i++) {
-            input.add(Integer.parseInt(sc.nextLine()));
+            input.add(Integer.parseInt(sc.next()));
         }
 
         System.out.println(getMaxSequence(input));
