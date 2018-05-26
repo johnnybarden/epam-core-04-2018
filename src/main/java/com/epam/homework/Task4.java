@@ -1,5 +1,9 @@
 package com.epam.homework;
 
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
 public class Task4 {
 
     /**
@@ -26,8 +30,29 @@ public class Task4 {
      * a
      */
     public static void main(String[] args) {
-        // TODO реализация
 
-        // TODO System.out.println(wordWithMinimalNumDiffLetters);
+        Scanner sc = new Scanner(System.in);
+        int count = Integer.parseInt(sc.nextLine());
+        int min = Integer.MAX_VALUE;
+        String smallestUnique = "";
+
+        for (int i = 0; i < count; i++) {
+            String input = sc.next();
+            int diffChars = uniqueChars(input);
+            if (diffChars < min) {
+                min = diffChars;
+                smallestUnique = input;
+            }
+        }
+
+        System.out.println(smallestUnique);
+    }
+
+    private static int uniqueChars(String str) {
+        Set<Character> uniqueLetters = new HashSet<>();
+        for (int i = 0; i < str.length(); i++) {
+            uniqueLetters.add(str.charAt(i));
+        }
+        return uniqueLetters.size();
     }
 }
