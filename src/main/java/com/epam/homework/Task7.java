@@ -33,7 +33,6 @@ public class Task7 {
 
         Scanner sc = new Scanner(System.in);
         int count = Integer.parseInt(sc.nextLine());
-        String input = sc.nextLine();
         List<String> words = new ArrayList<>();
         Set<String> uniqueWords = new LinkedHashSet<>();
 
