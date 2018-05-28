@@ -39,7 +39,7 @@ public class Task7 {
         for (int i = 0; i < count; i++) {
             words.add(sc.next());
         }
-
+        
         for (String word : words) {
             if (areCharsUnique(word)) {
                 uniqueWords.add(word);
