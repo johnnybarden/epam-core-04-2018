@@ -36,7 +36,7 @@ public class Task15 {
         int result = 0;
 
         for (int[] aMyMatrix : myMatrix) {
-            result += getSum(aMyMatrix);
+            result += getRowSum(aMyMatrix);
         }
 
         System.out.println(result);
@@ -53,7 +53,7 @@ public class Task15 {
         return matrix;
     }
 
-    private static int getSum(int[] arr) {
+    private static int getRowSum(int[] arr) {
 
         int sum = 0;
         int pos1 = 0;
