@@ -65,7 +65,9 @@ public class Task16 {
 
         Scanner sc = new Scanner(System.in);
         int[][] myMatrix = readMatrix(sc);
-        System.out.println(turnMatrix(myMatrix, 1));
+        int rotationDegree = Integer.parseInt(sc.next());
+        int[][] resultMatrix = rotateMatrix(myMatrix, rotationDegree);
+        printMatrix(resultMatrix);
     }
 
     private static int[][] readMatrix(Scanner scanner) {
@@ -79,19 +81,50 @@ public class Task16 {
         return matrix;
     }
 
-    private static int[][] turnMatrix(int[][] matrix, int n) {
-        int[][] turnedMatrix = new int[matrix.length][matrix.length];
-        int row = 0;
-        int col = 0;
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < turnedMatrix.length; j++) {
-                for (int k = 0; k < matrix.length; k++, col++, row++) {
-                    turnedMatrix[row][col] = matrix[col][col - row];
-                }
-            }
+    private static int[][] rotateMatrix(int[][] matrix, int n) {
+        int[][] rotatedMatrix = new int[matrix.length][matrix.length];
+        n %= 4;
+        if (n < 0) {
+            n += 4;
         }
 
-        return turnedMatrix;
+        switch (n) {
+
+            case 1:
+                for (int i = 0; i < matrix.length; i++) {
+                    for (int j = 0; j < matrix.length; j++) {
+                        rotatedMatrix[i][j] = matrix[matrix.length - 1 - j][i];
+                    }
+                }
+                return rotatedMatrix;
+            case 2:
+                for (int i = 0; i < matrix.length; i++) {
+                    for (int j = 0; j < matrix.length; j++) {
+                        rotatedMatrix[i][j] = matrix[matrix.length - 1 - i][matrix.length - 1 - j];
+                    }
+                }
+                return rotatedMatrix;
+            case 3:
+                for (int i = 0; i < matrix.length; i++) {
+                    for (int j = 0; j < matrix.length; j++) {
+                        rotatedMatrix[i][j] = matrix[j][matrix.length - 1 - i];
+                    }
+                }
+                return rotatedMatrix;
+        }
+
+        return matrix;
+    }
+
+    private static void printMatrix(int[][] matrix) {
+
+        System.out.println(matrix.length);
+
+        for (int[] aMatrix : matrix) {
+            for (int j = 0; j < matrix.length; j++) {
+                System.out.print(aMatrix[j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
