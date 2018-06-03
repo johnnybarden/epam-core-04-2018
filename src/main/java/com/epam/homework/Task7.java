@@ -63,7 +63,7 @@ public class Task7 {
         Set<Character> uniqueChars = new HashSet<>();
         str = str.toLowerCase();
         
-        if (!(str.matches("^[a-z]+$"))) {
+        if (!str.matches("^[a-z]+$")) {
             return false;
         }
         for (int i = 0; i < str.length(); i++) {
