@@ -56,7 +56,6 @@ public class Task7 {
             }
             System.out.println(sb);
         }
-        
     }
 
     private static boolean areCharsUnique (String str) {
