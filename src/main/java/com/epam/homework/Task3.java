@@ -40,7 +40,6 @@ public class Task3 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int avgLength = 0;
         int count = Integer.parseInt(sc.nextLine());
         String[] input = new String[count];
 
@@ -50,7 +49,7 @@ public class Task3 {
             temp += input[i].length();
         }
 
-        avgLength = temp / count;
+        int avgLength = temp / count;
 
         System.out.println("AVERAGE (" + avgLength + ")");
 
