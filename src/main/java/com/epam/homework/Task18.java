@@ -1,7 +1,8 @@
 package com.epam.homework;
 
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Task18 {
 
@@ -54,8 +55,13 @@ public class Task18 {
      */
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        int[][] myMatrix = readMatrix(sc);
+        try (Scanner sc = new Scanner(System.in)) {
+            int[][] initialMatrix = readMatrix(sc);
+            int[][] matrixWithMaxRemoved = removeRowsAndColsWithMaxElement(initialMatrix);
+            System.out.println(matrixWithMaxRemoved.length);
+            System.out.println(matrixWithMaxRemoved[0].length);
+            printMatrix(matrixWithMaxRemoved);
+        }
     }
 
     private static int[][] readMatrix(Scanner scanner) {
@@ -70,11 +76,55 @@ public class Task18 {
     }
 
     private static int getMaxElement(int[][] matrix) {
-        int max = 0;
+        int max = Integer.MIN_VALUE;
         for (int[] aMatrix : matrix) {
-            Arrays.sort(aMatrix);
-            //max = aMatrix[aMatrix.length - 1];
+            for (int j = 0; j < matrix.length; j++) {
+                if (aMatrix[j] > max) {
+                    max = aMatrix[j];
+                }
+            }
         }
         return max;
+    }
+
+    private static int[][] removeRowsAndColsWithMaxElement(int[][] matrix) {
+        int maxElement = getMaxElement(matrix);
+        Set<Integer> rowsToDelete = new HashSet<>();
+        Set<Integer> colsToDelete = new HashSet<>();
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                if (matrix[i][j] == maxElement) {
+                    rowsToDelete.add(i);
+                    colsToDelete.add(j);
+                }
+            }
+        }
+        int[][] newMatrix = new int[matrix.length - rowsToDelete.size()][matrix.length - colsToDelete.size()];
+
+        int rowsShift = 0;
+        int colsShift = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            if (rowsToDelete.contains(i)) {
+                rowsShift++;
+            } else {
+                for (int j = 0; j < matrix[0].length; j++) {
+                    if (colsToDelete.contains(j)) {
+                        colsShift++;
+                    } else {
+                        newMatrix[i - rowsShift][j - colsShift] = matrix[i][j];
+                    }
+                }
+            }
+        }
+        return newMatrix;
+    }
+
+    private static void printMatrix(int[][]matrix) {
+        for (int[] aMatrix : matrix) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.println(aMatrix[j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
