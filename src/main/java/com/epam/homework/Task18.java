@@ -102,8 +102,8 @@ public class Task18 {
         int[][] newMatrix = new int[matrix.length - rowsToDelete.size()][matrix.length - colsToDelete.size()];
 
         int rowsShift = 0;
-        int colsShift = 0;
         for (int i = 0; i < matrix.length; i++) {
+            int colsShift = 0;  
             if (rowsToDelete.contains(i)) {
                 rowsShift++;
             } else {
@@ -122,7 +122,7 @@ public class Task18 {
     private static void printMatrix(int[][]matrix) {
         for (int[] aMatrix : matrix) {
             for (int j = 0; j < matrix[0].length; j++) {
-                System.out.println(aMatrix[j] + " ");
+                System.out.print(aMatrix[j] + " ");
             }
             System.out.println();
         }
