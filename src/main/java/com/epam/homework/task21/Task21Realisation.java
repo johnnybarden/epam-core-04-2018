@@ -15,7 +15,7 @@ public class Task21Realisation implements Task21 {
             while ((curr = reader.readLine()) != null) {
                 linesIn.add(curr);
             }
-            for (int i = linesIn.size() - 1; i > 0; i--) {
+            for (int i = linesIn.size() - 1; i >= 0; i--) {
                 writer.write(linesIn.get(i));
                 writer.newLine();
             }
