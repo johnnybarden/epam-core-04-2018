@@ -61,7 +61,7 @@ public class Task7 {
     private static boolean areCharsUnique (String str) {
 
         Set<Character> uniqueChars = new HashSet<>();
-        str = str.toLowerCase();
+        //str = str.toLowerCase();
         
         if (!str.matches("^[a-z]+$")) {
             return false;
