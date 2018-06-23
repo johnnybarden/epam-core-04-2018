@@ -16,16 +16,16 @@ public class Task26Realisation implements Task26 {
                 }
             }
 
-            addPointsByAbscissa(intersections, segmentIntersections);
+            addPointsX(intersections, segmentIntersections);
         }
         return intersections.firstEntry().getValue();
     }
 
-    private void addPointsByAbscissa(TreeMap<Double, Set<I2DPoint>> intersectionPoints, Set<I2DPoint> points) {
+    private void addPointsX(TreeMap<Double, Set<I2DPoint>> intersectionPoints, Set<I2DPoint> points) {
         for (I2DPoint point : points) {
-            Set<I2DPoint> pointsByAbscissa = intersectionPoints.containsKey(point.getX()) ? intersectionPoints.get(point.getX()) : new HashSet<>();
-            pointsByAbscissa.add(point);
-            intersectionPoints.put(point.getX(), pointsByAbscissa);
+            Set<I2DPoint> pointsX = intersectionPoints.containsKey(point.getX()) ? intersectionPoints.get(point.getX()) : new HashSet<>();
+            pointsX.add(point);
+            intersectionPoints.put(point.getX(), pointsX);
         }
     }
 
@@ -62,7 +62,7 @@ public class Task26Realisation implements Task26 {
         return new Point2D(x1 + d * (x2 - x1), y1 + d * (y2 - y1));
     }
 
-    static class Point2D implements I2DPoint {
+    class Point2D implements I2DPoint {
         private double x;
         private double y;
 
